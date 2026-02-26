@@ -5,6 +5,9 @@ on:
     - cron: '0 6 * * 1'    # Every Monday 6am UTC
   workflow_dispatch:         # Manual trigger for testing
 
+env:
+  PYTHONPATH: ${{ github.workspace }}
+
 jobs:
 
   validate:
