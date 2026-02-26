@@ -3,9 +3,10 @@ Job 3: Score stories by enterprise relevance using GitHub Models API.
 
 GitHub Models endpoint: https://models.github.ai/inference
 Auth: GITHUB_TOKEN environment variable (uses your existing GitHub license)
-Model: openai/gpt-4.1 (0x multiplier — completely free, no premium requests consumed)
+Model: openai/gpt-4o-mini (Low tier: 150 req/day, 15 req/min — sufficient for scoring)
+Summarize uses anthropic/claude-sonnet-4-6 (High tier: 50 req/day — for quality analysis only)
 
-Rate limit optimisation (High tier: 15 req/min, 50 req/day):
+Rate limit optimisation (Low tier: 15 req/min, 150 req/day):
 1. Heuristic pre-filter: cuts ~200 stories → 40 using source weight + source_count + keywords
 2. Batch ranking: 5 stories per LLM call → ~8 calls total (was 200+ previously)
 3. 5s delay between batches to stay within 15 req/min, with retry on 429
@@ -129,7 +130,7 @@ def rank_story(story: Story, client: OpenAI) -> Story | None:
     )
     try:
         response = client.chat.completions.create(
-            model="openai/gpt-4.1",             # 0x multiplier — free
+            model="openai/gpt-4o-mini",         # Low tier: 150 req/day, 15 req/min
             messages=[
                 {"role": "system", "content": RANK_SYSTEM_PROMPT},
                 {"role": "user", "content": prompt},
@@ -174,7 +175,7 @@ def rank_batch(batch: list[Story], client: OpenAI, retries: int = 2) -> list[Sto
     for attempt in range(retries + 1):
         try:
             response = client.chat.completions.create(
-                model="openai/gpt-4.1",             # 0x multiplier — free
+                model="openai/gpt-4o-mini",         # Low tier: 150 req/day, 15 req/min
                 messages=[
                     {"role": "system", "content": RANK_SYSTEM_PROMPT},
                     {"role": "user", "content": prompt},
