@@ -1,0 +1,226 @@
+sources:
+  # --- INFLUENCERS ---
+  - name: karpathy
+    display_name: "Andrej Karpathy"
+    type: rss
+    url: "https://karpathy.github.io/feed.xml"
+    weight: high
+
+  - name: demis_hassabis
+    display_name: "Demis Hassabis (DeepMind)"
+    type: rss
+    url: "https://deepmind.google/blog/rss.xml"
+    weight: high
+
+  - name: meta_engineering
+    display_name: "Meta Engineering (Yann LeCun)"
+    type: rss
+    url: "https://engineering.fb.com/feed/"
+    weight: high
+
+  # --- COMPANY BLOGS ---
+  - name: github_blog
+    display_name: "GitHub Blog (AI)"
+    type: rss
+    url: "https://github.blog/feed/"
+    filter_keywords: ["copilot", "ai", "models", "actions", "agent"]
+    weight: high
+
+  - name: github_copilot_changelog
+    display_name: "GitHub Copilot Changelog"
+    type: rss
+    url: "https://github.blog/changelog/feed/"
+    filter_keywords: ["copilot", "ai", "models"]
+    weight: high
+
+  - name: vscode
+    display_name: "VS Code"
+    type: rss
+    url: "https://code.visualstudio.com/feed.xml"
+    filter_keywords: ["ai", "copilot", "agent", "edit"]
+    weight: high
+
+  - name: openai
+    display_name: "OpenAI"
+    type: rss
+    url: "https://openai.com/news/rss.xml"
+    weight: high
+
+  - name: google_deepmind
+    display_name: "Google DeepMind"
+    type: rss
+    url: "https://deepmind.google/blog/rss.xml"
+    weight: high
+
+  - name: microsoft_ai
+    display_name: "Microsoft AI"
+    type: rss
+    url: "https://blogs.microsoft.com/ai/feed/"
+    weight: high
+
+  - name: windsurf
+    display_name: "Windsurf (Codeium)"
+    type: rss
+    url: "https://codeium.com/feed.xml"
+    weight: high
+
+  - name: huggingface
+    display_name: "Hugging Face"
+    type: rss
+    url: "https://huggingface.co/blog/feed.xml"
+    weight: medium
+
+  - name: salesforce_ai
+    display_name: "Salesforce AI"
+    type: rss
+    url: "https://www.salesforce.com/blog/category/ai/feed/"
+    weight: medium
+
+  - name: import_ai
+    display_name: "Import AI (Jack Clark)"
+    type: rss
+    url: "https://jack-clark.net/feed/"
+    weight: medium
+
+  - name: latent_space
+    display_name: "Latent Space"
+    type: rss
+    url: "https://www.latent.space/feed"
+    weight: medium
+
+  - name: simon_willison
+    display_name: "Simon Willison"
+    type: rss
+    url: "https://simonwillison.net/atom/everything/"
+    weight: medium
+
+  - name: kdnuggets
+    display_name: "KDNuggets"
+    type: rss
+    url: "https://www.kdnuggets.com/feed"
+    weight: medium
+
+  - name: towards_data_science
+    display_name: "Towards Data Science"
+    type: rss
+    url: "https://towardsdatascience.com/feed"
+    filter_keywords: ["enterprise", "production", "llm", "agent", "copilot", "deployment"]
+    weight: medium
+
+  - name: sap_ai
+    display_name: "SAP AI"
+    type: rss
+    url: "https://news.sap.com/feed/"
+    filter_keywords: ["ai", "joule", "copilot", "agent", "intelligence"]
+    weight: medium
+
+  - name: azure_ai
+    display_name: "Azure AI"
+    type: rss
+    url: "https://azure.microsoft.com/en-us/blog/feed/"
+    filter_keywords: ["ai", "copilot", "openai", "cognitive", "foundry"]
+    weight: medium
+
+  - name: langchain
+    display_name: "LangChain"
+    type: rss
+    url: "https://blog.langchain.dev/rss/"
+    weight: medium
+
+  - name: nvidia_ai
+    display_name: "NVIDIA AI Blog"
+    type: rss
+    url: "https://blogs.nvidia.com/feed/"
+    filter_keywords: ["ai", "llm", "enterprise", "inference", "gpu"]
+    weight: medium
+
+  - name: aws_ml
+    display_name: "AWS Machine Learning"
+    type: rss
+    url: "https://aws.amazon.com/blogs/machine-learning/feed/"
+    weight: medium
+
+  - name: lex_fridman
+    display_name: "Lex Fridman Podcast"
+    type: rss
+    url: "https://lexfridman.com/feed/podcast/"
+    weight: low
+
+  # --- SCRAPE SOURCES ---
+  - name: andrew_ng
+    display_name: "Andrew Ng (The Batch)"
+    type: scrape
+    url: "https://www.deeplearning.ai/the-batch/"
+    weight: high
+
+  - name: anthropic
+    display_name: "Anthropic"
+    type: scrape
+    url: "https://www.anthropic.com/news"
+    weight: high
+
+  - name: cognition
+    display_name: "Cognition (Devin)"
+    type: scrape
+    url: "https://cognition.ai/blog"
+    weight: high
+
+  - name: cursor
+    display_name: "Cursor"
+    type: scrape
+    url: "https://www.cursor.com/blog"
+    weight: high
+
+  - name: thinking_machines
+    display_name: "Thinking Machines (Mira Murati)"
+    type: scrape
+    url: "https://www.thinkingmachines.ai/blog"
+    weight: high
+
+  - name: mistral
+    display_name: "Mistral AI"
+    type: scrape
+    url: "https://mistral.ai/news/"
+    weight: medium
+
+  - name: tldr_ai
+    display_name: "TLDR AI"
+    type: scrape
+    url: "https://tldr.tech/ai"
+    weight: medium
+
+  # --- API SOURCES ---
+  - name: hackernews
+    display_name: "Hacker News AI"
+    type: api
+    url: "https://hn.algolia.com/api/v1/search"
+    params:
+      tags: "story"
+      query: "AI enterprise"
+      hitsPerPage: 30
+    weight: medium
+
+  # --- REDDIT RSS ---
+  - name: reddit_ainews
+    display_name: "r/AINews"
+    type: reddit
+    url: "https://www.reddit.com/r/AINews/top/.rss?t=week"
+    weight: medium
+
+  - name: reddit_promptengineering
+    display_name: "r/promptengineering"
+    type: reddit
+    url: "https://www.reddit.com/r/promptengineering/top/.rss?t=week"
+    weight: medium
+
+  - name: reddit_llmdevs
+    display_name: "r/LLMDevs"
+    type: reddit
+    url: "https://www.reddit.com/r/LLMDevs/top/.rss?t=week"
+    weight: medium
+
+  - name: reddit_claudeai
+    display_name: "r/ClaudeAI"
+    type: reddit
+    url: "https://www.reddit.com/r/ClaudeAI/top/.rss?t=week"
+    weight: medium

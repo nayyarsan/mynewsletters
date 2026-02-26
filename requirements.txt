@@ -1,0 +1,7 @@
+feedparser==6.0.11
+httpx==0.27.2
+beautifulsoup4==4.12.3
+openai==1.51.2
+python-telegram-bot==21.6
+pyyaml==6.0.2
+pydantic==2.9.2
