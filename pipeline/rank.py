@@ -5,12 +5,14 @@ GitHub Models endpoint: https://models.github.ai/inference
 Auth: GITHUB_TOKEN environment variable (uses your existing GitHub license)
 Model: openai/gpt-4.1 (0x multiplier — completely free, no premium requests consumed)
 
-Rate limit optimisation (High tier: 50 req/day):
+Rate limit optimisation (High tier: 15 req/min, 50 req/day):
 1. Heuristic pre-filter: cuts ~200 stories → 40 using source weight + source_count + keywords
 2. Batch ranking: 5 stories per LLM call → ~8 calls total (was 200+ previously)
+3. 5s delay between batches to stay within 15 req/min, with retry on 429
 """
 import json
 import os
+import time
 import yaml
 from datetime import datetime
 from pathlib import Path
@@ -156,8 +158,8 @@ def rank_story(story: Story, client: OpenAI) -> Story | None:
         return None
 
 
-def rank_batch(batch: list[Story], client: OpenAI) -> list[Story]:
-    """Rank up to BATCH_SIZE stories in a single LLM call. Returns only included stories."""
+def rank_batch(batch: list[Story], client: OpenAI, retries: int = 2) -> list[Story]:
+    """Rank up to BATCH_SIZE stories in a single LLM call. Retries on 429 with backoff."""
     stories_text = ""
     for i, story in enumerate(batch):
         source = story.sources[0].name if story.sources else "unknown"
@@ -168,43 +170,53 @@ def rank_batch(batch: list[Story], client: OpenAI) -> list[Story]:
         )
 
     prompt = RANK_BATCH_PROMPT.format(n=len(batch), stories_text=stories_text)
-    try:
-        response = client.chat.completions.create(
-            model="openai/gpt-4.1",             # 0x multiplier — free
-            messages=[
-                {"role": "system", "content": RANK_SYSTEM_PROMPT},
-                {"role": "user", "content": prompt},
-            ],
-            temperature=0,
-            response_format={"type": "json_object"},
-        )
-        data = json.loads(response.choices[0].message.content)
-        results = data.get("stories", [])
 
-        ranked = []
-        for item in results:
-            idx = item.get("index", -1)
-            if not isinstance(idx, int) or idx < 0 or idx >= len(batch):
-                continue
-            if not item.get("include", True):
-                continue
-            scores = item.get("scores", {})
-            if not scores:
-                continue
-            best_category = max(scores, key=lambda k: scores[k])
-            best_score = scores[best_category]
-            if best_score < 20:
-                continue
-            story = batch[idx]
-            story.priority_category = best_category
-            story.priority_score = best_score
-            ranked.append(story)
+    for attempt in range(retries + 1):
+        try:
+            response = client.chat.completions.create(
+                model="openai/gpt-4.1",             # 0x multiplier — free
+                messages=[
+                    {"role": "system", "content": RANK_SYSTEM_PROMPT},
+                    {"role": "user", "content": prompt},
+                ],
+                temperature=0,
+                response_format={"type": "json_object"},
+            )
+            data = json.loads(response.choices[0].message.content)
+            results = data.get("stories", [])
 
-        return ranked
+            ranked = []
+            for item in results:
+                idx = item.get("index", -1)
+                if not isinstance(idx, int) or idx < 0 or idx >= len(batch):
+                    continue
+                if not item.get("include", True):
+                    continue
+                scores = item.get("scores", {})
+                if not scores:
+                    continue
+                best_category = max(scores, key=lambda k: scores[k])
+                best_score = scores[best_category]
+                if best_score < 20:
+                    continue
+                story = batch[idx]
+                story.priority_category = best_category
+                story.priority_score = best_score
+                ranked.append(story)
 
-    except Exception as e:
-        print(f"  Warning: batch rank failed: {e}")
-        return []
+            return ranked
+
+        except Exception as e:
+            is_rate_limit = "429" in str(e) or "Too many requests" in str(e)
+            if is_rate_limit and attempt < retries:
+                wait = 15 * (attempt + 1)   # 15s, then 30s
+                print(f"  Rate limited — waiting {wait}s before retry {attempt + 1}/{retries}")
+                time.sleep(wait)
+            else:
+                print(f"  Warning: batch rank failed: {e}")
+                return []
+
+    return []
 
 
 def select_top_stories(
@@ -245,6 +257,8 @@ def main():
     print(f"Ranking {len(stories)} stories in {total_batches} batches of {BATCH_SIZE}...")
     ranked = []
     for i in range(0, len(stories), BATCH_SIZE):
+        if i > 0:
+            time.sleep(5)   # 5s gap → ~12 req/min, under the 15 req/min limit
         batch = stories[i:i + BATCH_SIZE]
         results = rank_batch(batch, client)
         ranked.extend(results)
