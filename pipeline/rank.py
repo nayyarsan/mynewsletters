@@ -57,7 +57,7 @@ def rank_story(story: Story, client: OpenAI) -> Story | None:
     )
     try:
         response = client.chat.completions.create(
-            model="openai/gpt-4.1",          # 0x multiplier — free
+            model="openai/gpt-4o-mini",        # free tier
             messages=[
                 {"role": "system", "content": RANK_SYSTEM_PROMPT},
                 {"role": "user", "content": prompt},
