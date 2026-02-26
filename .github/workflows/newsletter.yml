@@ -9,10 +9,6 @@ permissions:
   contents: read
   models: read
 
-permissions:
-  contents: read
-  models: read
-
 env:
   PYTHONPATH: ${{ github.workspace }}
 
