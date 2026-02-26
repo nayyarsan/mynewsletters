@@ -43,7 +43,7 @@ def summarize_story(story: Story, client: OpenAI) -> Story:
     )
     try:
         response = client.chat.completions.create(
-            model="claude-sonnet-4-6",              # 1x multiplier — premium quality
+            model="anthropic/claude-sonnet-4-6",  # 1x multiplier — premium quality
             messages=[
                 {"role": "system", "content": SUMMARIZE_SYSTEM_PROMPT},
                 {"role": "user", "content": prompt},
