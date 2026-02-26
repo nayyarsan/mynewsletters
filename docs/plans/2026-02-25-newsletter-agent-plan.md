@@ -6,7 +6,12 @@
 
 **Architecture:** Modular pipeline of Python scripts (validate → fetch → normalize → rank → summarize → deliver) chained as GitHub Actions jobs, with data passed as JSON artifacts between stages. Sources are fully config-driven via a single YAML file — no code changes needed to add/remove sources.
 
-**Tech Stack:** Python 3.12, feedparser, httpx, BeautifulSoup4, Pydantic, openai SDK (→ GitHub Models API), python-telegram-bot, PyYAML, pytest, GitHub Actions
+**Tech Stack:** Python 3.12, feedparser, httpx, BeautifulSoup4, Pydantic, openai SDK (→ GitHub Models API at `https://models.github.ai`), python-telegram-bot, PyYAML, pytest, GitHub Actions
+
+**Models:**
+- Ranking: `openai/gpt-4.1` via GitHub Models API — **0x multiplier (free)**
+- Summarizing: `anthropic/claude-sonnet-4-6` via GitHub Models API — **1x multiplier (premium)**
+- API base URL: `https://models.github.ai/inference` (OpenAI SDK compatible, auth via `GITHUB_TOKEN`)
 
 ---
 
@@ -1686,9 +1691,9 @@ Expected: `FAILED — ModuleNotFoundError`
 """
 Job 3: Score stories by enterprise relevance using GitHub Models API.
 
-GitHub Models endpoint: https://models.inference.ai.azure.com
+GitHub Models endpoint: https://models.github.ai/inference
 Auth: GITHUB_TOKEN environment variable (uses your existing GitHub license)
-Model: gpt-4o-mini (cheap, fast, sufficient for scoring)
+Model: openai/gpt-4.1 (0x multiplier — completely free, no premium requests consumed)
 """
 import json
 import os
@@ -1729,7 +1734,7 @@ def get_client() -> OpenAI:
     if not token:
         raise ValueError("GITHUB_TOKEN environment variable is required")
     return OpenAI(
-        base_url="https://models.inference.ai.azure.com",
+        base_url="https://models.github.ai/inference",
         api_key=token,
     )
 
@@ -1742,7 +1747,7 @@ def rank_story(story: Story, client: OpenAI) -> Story | None:
     )
     try:
         response = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="openai/gpt-4.1",          # 0x multiplier — free
             messages=[
                 {"role": "system", "content": RANK_SYSTEM_PROMPT},
                 {"role": "user", "content": prompt},
@@ -1928,7 +1933,8 @@ Expected: `FAILED — ModuleNotFoundError`
 """
 Job 4: Generate structured 6-dimension analysis for top-ranked stories.
 
-Uses GitHub Models API (gpt-4o) for higher quality summaries.
+Uses GitHub Models API (anthropic/claude-sonnet-4-6) for higher quality summaries.
+1x premium multiplier — used only on top-ranked stories to minimise cost.
 Only runs on top-ranked stories to manage token usage.
 """
 import json
@@ -1969,7 +1975,7 @@ def summarize_story(story: Story, client: OpenAI) -> Story:
     )
     try:
         response = client.chat.completions.create(
-            model="gpt-4o",
+            model="anthropic/claude-sonnet-4-6",   # 1x multiplier — premium quality
             messages=[
                 {"role": "system", "content": SUMMARIZE_SYSTEM_PROMPT},
                 {"role": "user", "content": prompt},
