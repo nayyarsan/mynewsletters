@@ -1,0 +1,137 @@
+name: AI Newsletter
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'    # Every Monday 6am UTC
+  workflow_dispatch:         # Manual trigger for testing
+
+jobs:
+
+  validate:
+    runs-on: ubuntu-latest
+    outputs:
+      active_sources: ${{ steps.validate.outputs.active_sources }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Validate feeds
+        id: validate
+        run: python pipeline/validate_feeds.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: feed-health
+          path: feed_health.json
+
+  fetch:
+    needs: validate
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        source: ${{ fromJson(needs.validate.outputs.active_sources) }}
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Fetch source
+        run: python pipeline/fetch.py --source "${{ matrix.source }}" --output-dir data/raw
+      - uses: actions/upload-artifact@v4
+        with:
+          name: raw-${{ matrix.source }}
+          path: data/raw/${{ matrix.source }}.json
+          if-no-files-found: warn
+
+  normalize:
+    needs: fetch
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: raw-*
+          merge-multiple: true
+          path: data/raw/
+      - name: Normalize stories
+        run: python pipeline/normalize.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: normalized
+          path: data/normalized.json
+
+  rank:
+    needs: normalize
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: normalized
+          path: data/
+      - name: Rank stories
+        run: python pipeline/rank.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ranked
+          path: data/ranked.json
+
+  summarize:
+    needs: rank
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: ranked
+          path: data/
+      - name: Summarize stories
+        run: python pipeline/summarize.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: summarized
+          path: data/summarized.json
+
+  deliver:
+    needs: summarize
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: summarized
+          path: data/
+      - name: Deliver to Telegram
+        run: python pipeline/deliver.py
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
