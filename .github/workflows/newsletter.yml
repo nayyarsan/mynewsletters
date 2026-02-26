@@ -5,6 +5,14 @@ on:
     - cron: '0 6 * * 1'    # Every Monday 6am UTC
   workflow_dispatch:         # Manual trigger for testing
 
+permissions:
+  contents: read
+  models: read
+
+permissions:
+  contents: read
+  models: read
+
 env:
   PYTHONPATH: ${{ github.workspace }}
 

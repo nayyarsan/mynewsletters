@@ -44,7 +44,7 @@ def get_client() -> OpenAI:
     if not token:
         raise ValueError("GITHUB_TOKEN environment variable is required")
     return OpenAI(
-        base_url="https://models.github.ai/inference",
+        base_url="https://api.githubcopilot.com",
         api_key=token,
     )
 
@@ -57,7 +57,7 @@ def rank_story(story: Story, client: OpenAI) -> Story | None:
     )
     try:
         response = client.chat.completions.create(
-            model="openai/gpt-4o-mini",        # free tier
+            model="gpt-4.1",                    # 0x multiplier — free
             messages=[
                 {"role": "system", "content": RANK_SYSTEM_PROMPT},
                 {"role": "user", "content": prompt},
