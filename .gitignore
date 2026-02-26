@@ -1,0 +1,19 @@
+# Virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Data output (keep structure via .gitkeep)
+data/*
+!data/.gitkeep
+
+# Environment / secrets
+.env
+*.env
+
+# Editor
+.vscode/
+.idea/
