@@ -1,0 +1,27 @@
+[project]
+name = "newsletteragent"
+version = "0.1.0"
+description = "Automated weekly AI digest — fetches, ranks, summarises, and delivers to Telegram"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.12"
+dependencies = [
+    "feedparser==6.0.11",
+    "httpx==0.27.2",
+    "beautifulsoup4==4.12.3",
+    "openai==1.51.2",
+    "python-telegram-bot==21.6",
+    "pyyaml==6.0.2",
+    "pydantic==2.9.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==8.3.3",
+    "pytest-asyncio==0.24.0",
+    "pytest-mock==3.14.0",
+    "respx==0.21.1",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
