@@ -62,6 +62,31 @@ def test_format_story_full_no_summary_still_renders():
     assert "What happened:" not in text
 
 
+def test_format_story_full_escapes_html_in_title():
+    story = make_story("AI & ML: <GPT> launches", "enterprise_software_delivery", 90)
+    text = format_story_full(story, index=1)
+    assert "&amp;" in text
+    assert "&lt;" in text
+    assert "&gt;" in text
+    assert "<b>1. AI &amp; ML" in text  # <b> tag is preserved, & is escaped
+
+
+def test_format_story_full_url_with_ampersand_safe_in_html():
+    story = make_story("Safe URL test", "enterprise_software_delivery", 90,
+                       url="https://example.com/article?a=1&b=2")
+    text = format_story_full(story, index=1)
+    # The bare & must not appear as a text node — it should be inside an href attribute
+    # Telegram HTML mode is lenient with & in href, so check it's in an anchor
+    assert 'href="https://example.com/article?a=1&b=2"' in text
+
+
+def test_format_story_full_shows_multiple_sources():
+    story = make_story("GPT-5 launches", "enterprise_software_delivery", 90,
+                       source_names=["OpenAI", "Hacker News", "TLDR AI"])
+    text = format_story_full(story, index=1)
+    assert "3 sources" in text
+
+
 # --- format_story_brief ---
 
 def test_format_story_brief_uses_html_anchor():

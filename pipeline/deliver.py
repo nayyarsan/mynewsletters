@@ -41,6 +41,8 @@ def format_story_full(story: Story, index: int) -> str:
     ]
 
     if story.summary:
+        # Showing 4 of 6 dimensions — omitting software_delivery_impact and
+        # human_impact to keep the Telegram message concise.
         lines += [
             f"What happened: {_escape(story.summary.what_happened)}",
             f"Enterprise impact: {_escape(story.summary.enterprise_impact)}",
@@ -50,7 +52,7 @@ def format_story_full(story: Story, index: int) -> str:
         ]
 
     for src in story.sources:
-        lines.append(f"🔗 Read more: {src.url}")
+        lines.append(f'🔗 <a href="{src.url}">Read more</a>')
 
     return "\n".join(lines)
 
@@ -67,7 +69,7 @@ def format_digest(
     top3_urls = {s.canonical_url for s in top3}
 
     sections = [
-        f"<b>AI DIGEST</b> | Week of {week_of}",
+        f"<b>AI DIGEST</b> | Week of {_escape(week_of)}",
         "",
         "<b>TOP 3 MUST-READS THIS WEEK</b>",
         "",
