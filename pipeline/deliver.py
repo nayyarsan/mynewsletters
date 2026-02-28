@@ -1,8 +1,8 @@
 """
 Job 5: Format stories and deliver to Telegram.
 
-Format: Top 3 must-reads in full, then category digests.
-No emoji. Professional tone.
+Format: Top 3 must-reads in full (HTML), then category digests.
+Uses Telegram HTML parse mode. No emoji except 🔗 on links.
 """
 import json
 import os
@@ -20,42 +20,43 @@ CATEGORY_LABELS = {
 }
 
 MAX_TELEGRAM_LENGTH = 4096
+DIVIDER = "─" * 32
+
+
+def _escape(text: str) -> str:
+    """Escape HTML special chars for Telegram HTML mode."""
+    return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
 def format_story_full(story: Story, index: int) -> str:
     sources_str = " | ".join(s.name for s in story.sources)
     if story.source_count > 1:
         sources_str += f" ({story.source_count} sources)"
+    category_label = CATEGORY_LABELS.get(story.priority_category, story.priority_category or "")
 
     lines = [
-        f"[{index}] {story.title}",
-        f"Source: {sources_str} | Category: {CATEGORY_LABELS.get(story.priority_category, story.priority_category)}",
+        f"<b>{index}. {_escape(story.title)}</b>",
+        f"<i>{_escape(sources_str)} · {_escape(category_label)}</i>",
         "",
     ]
 
     if story.summary:
         lines += [
-            f"What happened: {story.summary.what_happened}",
-            f"Enterprise impact: {story.summary.enterprise_impact}",
-            f"Software delivery impact: {story.summary.software_delivery_impact}",
-            f"For developers: {story.summary.developer_impact}",
-            f"For people: {story.summary.human_impact}",
-            f"How to use it: {story.summary.how_to_use}",
+            f"What happened: {_escape(story.summary.what_happened)}",
+            f"Enterprise impact: {_escape(story.summary.enterprise_impact)}",
+            f"For developers: {_escape(story.summary.developer_impact)}",
+            f"How to use it: {_escape(story.summary.how_to_use)}",
             "",
         ]
 
-    lines.append("Read more:")
     for src in story.sources:
-        lines.append(f"  - {src.url}")
+        lines.append(f"🔗 Read more: {src.url}")
 
     return "\n".join(lines)
 
 
 def format_story_brief(story: Story) -> str:
-    impact = ""
-    if story.summary:
-        impact = f" — {story.summary.enterprise_impact[:80]}"
-    return f"- {story.title}{impact}\n  {story.canonical_url}"
+    return f'• <a href="{story.canonical_url}">{_escape(story.title)}</a>'
 
 
 def format_digest(
@@ -63,13 +64,12 @@ def format_digest(
     stories_by_category: dict[str, list[Story]],
     week_of: str,
 ) -> str:
-    divider = "_" * 32
+    top3_urls = {s.canonical_url for s in top3}
+
     sections = [
-        f"AI DIGEST | Week of {week_of}",
-        divider,
+        f"<b>AI DIGEST</b> | Week of {week_of}",
         "",
-        "TOP 3 MUST-READS THIS WEEK",
-        divider,
+        "<b>TOP 3 MUST-READS THIS WEEK</b>",
         "",
     ]
 
@@ -78,13 +78,12 @@ def format_digest(
         sections.append("")
 
     for cat, label in CATEGORY_LABELS.items():
-        stories = stories_by_category.get(cat, [])
-        sections += [divider, label, divider]
-        if stories:
-            for story in stories:
-                sections.append(format_story_brief(story))
-        else:
-            sections.append("No significant stories this week.")
+        stories = [s for s in stories_by_category.get(cat, []) if s.canonical_url not in top3_urls]
+        if not stories:
+            continue
+        sections += [DIVIDER, f"<b>{label}</b>", ""]
+        for story in stories:
+            sections.append(format_story_brief(story))
         sections.append("")
 
     return "\n".join(sections)
@@ -99,7 +98,6 @@ def split_message(text: str, max_length: int = MAX_TELEGRAM_LENGTH) -> list[str]
         if len(text) <= max_length:
             parts.append(text)
             break
-        # Split at last newline before limit
         split_at = text[:max_length].rfind("\n")
         if split_at == -1:
             split_at = max_length
@@ -115,6 +113,7 @@ async def send_to_telegram(text: str, bot_token: str, chat_id: str) -> None:
         await bot.send_message(
             chat_id=chat_id,
             text=part,
+            parse_mode="HTML",
             disable_web_page_preview=True,
         )
 
