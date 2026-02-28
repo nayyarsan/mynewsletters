@@ -1,9 +1,9 @@
 """
 Job 4: Generate structured 6-dimension analysis for top-ranked stories.
 
-Uses GitHub Models API (anthropic/claude-sonnet-4-6) for higher quality summaries.
-1x premium multiplier — used only on top-ranked stories to minimise cost.
-Only runs on top-ranked stories to manage token usage.
+Uses GitHub Models API (openai/gpt-4o) for higher quality summaries.
+Only runs on top 3 stories to stay within rate limits (150 req/day).
+Note: anthropic/claude-sonnet-4-6 is not available on GitHub Models API.
 """
 import json
 import os
@@ -43,7 +43,7 @@ def summarize_story(story: Story, client: OpenAI) -> Story:
     )
     try:
         response = client.chat.completions.create(
-            model="anthropic/claude-sonnet-4-6",  # 1x multiplier — premium quality
+            model="openai/gpt-4o",  # best available on GitHub Models API
             messages=[
                 {"role": "system", "content": SUMMARIZE_SYSTEM_PROMPT},
                 {"role": "user", "content": prompt},

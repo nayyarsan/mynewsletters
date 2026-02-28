@@ -4,7 +4,7 @@ Job 3: Score stories by enterprise relevance using GitHub Models API.
 GitHub Models endpoint: https://models.github.ai/inference
 Auth: GITHUB_TOKEN environment variable (uses your existing GitHub license)
 Model: openai/gpt-4o-mini (Low tier: 150 req/day, 15 req/min — sufficient for scoring)
-Summarize uses anthropic/claude-sonnet-4-6 (High tier: 50 req/day — for quality analysis only)
+Summarize uses openai/gpt-4o (same tier as gpt-4o-mini — 150 req/day)
 
 Rate limit optimisation (Low tier: 15 req/min, 150 req/day):
 1. Heuristic pre-filter: cuts ~200 stories → 40 using source weight + source_count + keywords
