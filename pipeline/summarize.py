@@ -87,10 +87,6 @@ def main():
     print(f"Summarizing top 3 must-reads...")
     top3 = [summarize_story(s, client) for s in top3]
 
-    print(f"Summarizing category stories...")
-    for cat, stories in stories_by_category.items():
-        stories_by_category[cat] = [summarize_story(s, client) for s in stories]
-
     output = {
         "top3": [s.model_dump(mode="json") for s in top3],
         "categories": {

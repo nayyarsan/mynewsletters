@@ -57,3 +57,41 @@ def test_pick_top3_selects_highest_scoring_across_categories():
 
     top3 = pick_top3(stories_by_category)
     assert len(top3) == 3
+
+
+def test_main_summarises_only_top3(monkeypatch, tmp_path):
+    """Category stories must NOT be sent to the LLM — only top 3."""
+    import json
+    from pathlib import Path
+    from pipeline import summarize as mod
+
+    story_dict = {
+        "id": "abc123",
+        "title": "Category Story",
+        "canonical_url": "https://example.com/cat",
+        "sources": [{"name": "Test", "url": "https://example.com/cat"}],
+        "published_at": "2026-02-28T00:00:00",
+        "raw_content": "Some content.",
+        "priority_category": "enterprise_software_delivery",
+        "priority_score": 50,
+        "summary": None,
+    }
+    ranked = {"enterprise_software_delivery": [story_dict]}
+    data_dir = tmp_path / "data"
+    data_dir.mkdir()
+    (data_dir / "ranked.json").write_text(json.dumps(ranked))
+
+    call_count = {"n": 0}
+
+    def fake_summarize(story, client):
+        call_count["n"] += 1
+        return story
+
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(mod, "summarize_story", fake_summarize)
+    monkeypatch.setattr(mod, "get_client", lambda: None)
+
+    mod.main()
+
+    # top3 picks from 1 story → 1 call max. Category loop must NOT add more.
+    assert call_count["n"] <= 1
