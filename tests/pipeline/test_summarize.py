@@ -1,8 +1,10 @@
 import pytest
 import json
+from pathlib import Path
 from unittest.mock import MagicMock
 from datetime import datetime, timezone
 from pipeline.summarize import summarize_story, pick_top3
+from pipeline import summarize as mod
 from schemas.story import Story, StorySummary
 
 MOCK_STORY = Story.from_url(
@@ -61,10 +63,6 @@ def test_pick_top3_selects_highest_scoring_across_categories():
 
 def test_main_summarises_only_top3(monkeypatch, tmp_path):
     """Category stories must NOT be sent to the LLM — only top 3."""
-    import json
-    from pathlib import Path
-    from pipeline import summarize as mod
-
     story_dict = {
         "id": "abc123",
         "title": "Category Story",
@@ -94,4 +92,4 @@ def test_main_summarises_only_top3(monkeypatch, tmp_path):
     mod.main()
 
     # top3 picks from 1 story → 1 call max. Category loop must NOT add more.
-    assert call_count["n"] <= 1
+    assert call_count["n"] == 1
