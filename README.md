@@ -16,7 +16,7 @@ validate → fetch → normalize → rank → summarize → deliver
 | `fetch.py` | Fetches stories from RSS feeds, scraped pages, APIs, and Reddit |
 | `normalize.py` | Deduplicates by URL and Jaccard title similarity |
 | `rank.py` | Heuristic pre-filter + LLM batch ranking (gpt-4o-mini) |
-| `summarize.py` | 6-dimension analysis of the top 3 stories (claude-sonnet-4-6) |
+| `summarize.py` | 6-dimension analysis of the top 3 stories (gpt-4o); caches results by URL |
 | `deliver.py` | Formats digest as Telegram HTML and sends via bot |
 
 ## Sources
@@ -92,7 +92,19 @@ The workflow uses `GITHUB_TOKEN` (auto-provided) for the GitHub Models API — n
 | Model | Tier | Limit | Used for |
 |-------|------|-------|----------|
 | `gpt-4o-mini` | Low | 150 req/day, 15 req/min | Ranking |
-| `anthropic/claude-sonnet-4-6` | High | 50 req/day, 10 req/min | Summarizing |
+| `gpt-4o` | Low | 150 req/day, 15 req/min | Summarizing (top 3 stories) |
+
+Note: Anthropic/Claude models are not available on the GitHub Models API. Both models above are OpenAI via `models.github.ai/inference`.
+
+## Recency Filtering
+
+Stories are filtered before ranking:
+- **14-day hard cutoff** — stories older than 14 days are dropped entirely
+- **Recency decay** — stories 8–14 days old score at 0.5× in all ranking stages, so fresh stories always beat equally-scored stale ones
+
+## Summary Cache
+
+Summaries are cached in `data/summary_cache.json` (persisted between GitHub Actions runs via `actions/cache`). If a story URL was already summarized in a previous run, the cached result is reused — no LLM call needed. Cache entries are evicted after 14 days.
 
 ## Project Structure
 
