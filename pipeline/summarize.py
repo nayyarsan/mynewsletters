@@ -11,7 +11,7 @@ from datetime import datetime
 from pathlib import Path
 from openai import OpenAI
 from schemas.story import Story, StorySummary
-from pipeline.rank import get_client, CATEGORIES
+from pipeline.rank import get_client, CATEGORIES, recency_multiplier
 
 SUMMARIZE_SYSTEM_PROMPT = """You are a senior enterprise AI analyst writing for technical
 leaders and developers. Be concise, specific, and practical. Avoid hype and marketing language.
@@ -59,11 +59,12 @@ def summarize_story(story: Story, client: OpenAI) -> Story:
 
 
 def pick_top3(stories_by_category: dict[str, list[Story]]) -> list[Story]:
-    all_stories = [
-        s for stories in stories_by_category.values() for s in stories
-    ]
+    all_stories = [s for stories in stories_by_category.values() for s in stories]
     all_stories.sort(
-        key=lambda s: (s.priority_score or 0, s.source_count),
+        key=lambda s: (
+            (s.priority_score or 0) * recency_multiplier(s.published_at),
+            s.source_count,
+        ),
         reverse=True,
     )
     return all_stories[:3]

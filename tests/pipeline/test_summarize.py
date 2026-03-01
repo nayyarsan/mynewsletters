@@ -2,7 +2,7 @@ import pytest
 import json
 from pathlib import Path
 from unittest.mock import MagicMock
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pipeline.summarize import summarize_story, pick_top3
 from pipeline import summarize as mod
 from schemas.story import Story, StorySummary
@@ -93,3 +93,22 @@ def test_main_summarises_only_top3(monkeypatch, tmp_path):
 
     # top3 picks from 1 story → 1 call max. Category loop must NOT add more.
     assert call_count["n"] == 1
+
+
+def test_pick_top3_prefers_fresh_over_stale():
+    """A fresh story with equal score must beat a stale one for top 3."""
+    fresh = MOCK_STORY.model_copy(deep=True)
+    fresh.id = "fresh"
+    fresh.priority_score = 80
+    fresh.published_at = datetime.now(tz=timezone.utc) - timedelta(days=2)
+
+    stale = MOCK_STORY.model_copy(deep=True)
+    stale.id = "stale"
+    stale.priority_score = 80
+    stale.published_at = datetime.now(tz=timezone.utc) - timedelta(days=10)
+
+    stories_by_category = {"enterprise_software_delivery": [fresh, stale]}
+    top3 = pick_top3(stories_by_category)
+
+    assert top3[0].id == "fresh"
+    assert top3[1].id == "stale"
