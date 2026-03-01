@@ -15,7 +15,7 @@ import json
 import os
 import time
 import yaml
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from openai import OpenAI
 from schemas.story import Story
@@ -69,6 +69,13 @@ PRESCORE_LIMIT = 40
 BATCH_SIZE = 5
 
 
+def recency_multiplier(published_at: datetime) -> float:
+    """Return 1.0 for stories ≤7 days old, 0.5 for 8–14 days old."""
+    pub = published_at if published_at.tzinfo else published_at.replace(tzinfo=timezone.utc)
+    age_days = (datetime.now(tz=timezone.utc) - pub).days
+    return 1.0 if age_days <= 7 else 0.5
+
+
 def _load_source_weights() -> dict[str, int]:
     """Map source name → numeric weight from sources/sources.yaml."""
     try:
@@ -92,7 +99,7 @@ def heuristic_prescore(story: Story, source_weights: dict[str, int]) -> int:
     # Keyword bonus: enterprise-relevant terms in the title
     title_words = set(story.title.lower().split())
     score += len(title_words & ENTERPRISE_KEYWORDS) * 5
-    return score
+    return int(score * recency_multiplier(story.published_at))
 
 
 def presort_and_limit(
@@ -231,7 +238,10 @@ def select_top_stories(
 
     for cat in categorized:
         categorized[cat].sort(
-            key=lambda s: (s.priority_score or 0, s.source_count),
+            key=lambda s: (
+                (s.priority_score or 0) * recency_multiplier(s.published_at),
+                s.source_count,
+            ),
             reverse=True,
         )
         categorized[cat] = categorized[cat][:per_category]
@@ -249,6 +259,15 @@ def main():
         if isinstance(item.get("published_at"), str):
             item["published_at"] = datetime.fromisoformat(item["published_at"])
         stories.append(Story(**item))
+
+    # Drop stories older than 14 days — prevents repeat stories across weeks
+    cutoff = datetime.now(tz=timezone.utc) - timedelta(days=14)
+    before = len(stories)
+    stories = [
+        s for s in stories
+        if (s.published_at if s.published_at.tzinfo else s.published_at.replace(tzinfo=timezone.utc)) >= cutoff
+    ]
+    print(f"  Recency filter: {before - len(stories)} stories dropped (>14 days), {len(stories)} remain")
 
     # Step 1: heuristic pre-filter — no LLM calls
     stories = presort_and_limit(stories, source_weights, limit=PRESCORE_LIMIT)

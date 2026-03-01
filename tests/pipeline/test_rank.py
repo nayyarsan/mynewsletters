@@ -1,8 +1,8 @@
 import pytest
 import json
 from unittest.mock import patch, MagicMock
-from datetime import datetime, timezone
-from pipeline.rank import rank_story, rank_batch, select_top_stories, heuristic_prescore, presort_and_limit
+from datetime import datetime, timezone, timedelta
+from pipeline.rank import rank_story, rank_batch, select_top_stories, heuristic_prescore, presort_and_limit, recency_multiplier, PRESCORE_LIMIT
 from schemas.story import Story
 
 MOCK_STORY = Story.from_url(
@@ -156,3 +156,113 @@ def test_select_top_stories_caps_per_category():
 
     result = select_top_stories(stories, per_category=5)
     assert len(result["enterprise_software_delivery"]) <= 5
+
+
+def test_recency_multiplier_fresh_story():
+    pub = datetime.now(tz=timezone.utc) - timedelta(days=3)
+    assert recency_multiplier(pub) == 1.0
+
+
+def test_recency_multiplier_week_old():
+    pub = datetime.now(tz=timezone.utc) - timedelta(days=7)
+    assert recency_multiplier(pub) == 1.0
+
+
+def test_recency_multiplier_ten_days_old():
+    pub = datetime.now(tz=timezone.utc) - timedelta(days=10)
+    assert recency_multiplier(pub) == 0.5
+
+
+def test_recency_multiplier_naive_datetime():
+    """Naive datetimes (no tzinfo) must be handled without raising."""
+    pub = datetime.now() - timedelta(days=3)
+    assert recency_multiplier(pub) == 1.0
+
+
+def test_heuristic_prescore_decays_old_story():
+    fresh = Story.from_url(
+        url="https://example.com/fresh",
+        title="Enterprise agent platform",
+        source_name="test",
+        published_at=datetime.now(tz=timezone.utc) - timedelta(days=2),
+        raw_content="test",
+    )
+    old = Story.from_url(
+        url="https://example.com/old",
+        title="Enterprise agent platform",
+        source_name="test",
+        published_at=datetime.now(tz=timezone.utc) - timedelta(days=10),
+        raw_content="test",
+    )
+    assert heuristic_prescore(fresh, {}) > heuristic_prescore(old, {})
+
+
+def test_14_day_cutoff_in_main(monkeypatch, tmp_path):
+    """Stories older than 14 days must be dropped before ranking."""
+    import json
+    from pathlib import Path
+    from pipeline import rank as mod
+
+    fresh_story = {
+        "id": "fresh1",
+        "title": "Fresh Story",
+        "canonical_url": "https://example.com/fresh",
+        "sources": [{"name": "Test", "url": "https://example.com/fresh"}],
+        "published_at": (datetime.now(tz=timezone.utc) - timedelta(days=2)).isoformat(),
+        "raw_content": "Some content.",
+        "priority_category": None,
+        "priority_score": None,
+        "summary": None,
+    }
+    old_story = {
+        "id": "old1",
+        "title": "Old Story",
+        "canonical_url": "https://example.com/old",
+        "sources": [{"name": "Test", "url": "https://example.com/old"}],
+        "published_at": (datetime.now(tz=timezone.utc) - timedelta(days=20)).isoformat(),
+        "raw_content": "Some content.",
+        "priority_category": None,
+        "priority_score": None,
+        "summary": None,
+    }
+    data_dir = tmp_path / "data"
+    data_dir.mkdir()
+    (data_dir / "normalized.json").write_text(json.dumps([fresh_story, old_story]))
+    (tmp_path / "sources").mkdir()
+    (tmp_path / "sources" / "sources.yaml").write_text("sources: []")
+
+    seen_stories = []
+
+    def fake_presort(stories, weights, limit=40):
+        seen_stories.extend(stories)
+        return []
+
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(mod, "presort_and_limit", fake_presort)
+    monkeypatch.setattr(mod, "get_client", lambda: None)
+    monkeypatch.setattr(mod, "_load_source_weights", lambda: {})
+
+    mod.main()
+
+    urls = [s.canonical_url for s in seen_stories]
+    assert "https://example.com/fresh" in urls
+    assert "https://example.com/old" not in urls
+
+
+def test_select_top_stories_prefers_fresh_over_stale():
+    fresh = MOCK_STORY.model_copy(deep=True)
+    fresh.id = "fresh"
+    fresh.priority_category = "enterprise_software_delivery"
+    fresh.priority_score = 80
+    fresh.published_at = datetime.now(tz=timezone.utc) - timedelta(days=2)
+
+    stale = MOCK_STORY.model_copy(deep=True)
+    stale.id = "stale"
+    stale.priority_category = "enterprise_software_delivery"
+    stale.priority_score = 80   # same score — recency should break the tie
+    stale.published_at = datetime.now(tz=timezone.utc) - timedelta(days=10)
+
+    result = select_top_stories([fresh, stale], per_category=2)
+    ordered = result["enterprise_software_delivery"]
+    assert ordered[0].id == "fresh"
+    assert ordered[1].id == "stale"
