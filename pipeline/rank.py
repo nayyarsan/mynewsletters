@@ -70,7 +70,7 @@ BATCH_SIZE = 5
 
 
 def recency_multiplier(published_at: datetime) -> float:
-    """Return 1.0 for stories ≤7 days old, 0.5 for 8–14 days old."""
+    """Return 1.0 for stories ≤7 days old, 0.5 for any older story."""
     pub = published_at if published_at.tzinfo else published_at.replace(tzinfo=timezone.utc)
     age_days = (datetime.now(tz=timezone.utc) - pub).days
     return 1.0 if age_days <= 7 else 0.5
