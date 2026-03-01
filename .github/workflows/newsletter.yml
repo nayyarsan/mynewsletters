@@ -114,6 +114,13 @@ jobs:
         with:
           name: ranked
           path: data/
+      - name: Restore summary cache
+        uses: actions/cache@v4
+        with:
+          path: data/summary_cache.json
+          key: summary-cache-v1-${{ github.run_id }}
+          restore-keys: |
+            summary-cache-v1-
       - name: Summarize stories
         run: python pipeline/summarize.py
         env:
