@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 from unittest.mock import MagicMock
 from datetime import datetime, timedelta, timezone
-from pipeline.summarize import summarize_story, pick_top3
+from pipeline.summarize import summarize_story, pick_top3, load_cache, save_cache
 from pipeline import summarize as mod
 from schemas.story import Story, StorySummary
 
@@ -81,7 +81,7 @@ def test_main_summarises_only_top3(monkeypatch, tmp_path):
 
     call_count = {"n": 0}
 
-    def fake_summarize(story, client):
+    def fake_summarize(story, client, cache=None):
         call_count["n"] += 1
         return story
 
@@ -112,3 +112,80 @@ def test_pick_top3_prefers_fresh_over_stale():
 
     assert top3[0].id == "fresh"
     assert top3[1].id == "stale"
+
+
+def test_load_cache_returns_empty_dict_when_file_missing(tmp_path):
+    cache = load_cache(tmp_path / "no_such_file.json")
+    assert cache == {}
+
+
+def test_load_cache_evicts_entries_older_than_14_days(tmp_path):
+    old_entry = {
+        "summary": {"what_happened": "old", "enterprise_impact": "x",
+                     "software_delivery_impact": "x", "developer_impact": "x",
+                     "human_impact": "x", "how_to_use": "x"},
+        "cached_at": (datetime.now(tz=timezone.utc) - timedelta(days=20)).isoformat(),
+    }
+    fresh_entry = {
+        "summary": {"what_happened": "fresh", "enterprise_impact": "x",
+                    "software_delivery_impact": "x", "developer_impact": "x",
+                    "human_impact": "x", "how_to_use": "x"},
+        "cached_at": (datetime.now(tz=timezone.utc) - timedelta(days=2)).isoformat(),
+    }
+    cache_file = tmp_path / "summary_cache.json"
+    cache_file.write_text(json.dumps({
+        "https://old.com": old_entry,
+        "https://fresh.com": fresh_entry,
+    }))
+
+    cache = load_cache(cache_file)
+    assert "https://old.com" not in cache
+    assert "https://fresh.com" in cache
+
+
+def test_save_cache_writes_json(tmp_path):
+    cache = {"https://example.com": {"summary": {}, "cached_at": "2026-02-28T00:00:00+00:00"}}
+    path = tmp_path / "data" / "summary_cache.json"
+    save_cache(cache, path)
+    assert path.exists()
+    assert json.loads(path.read_text()) == cache
+
+
+def test_summarize_story_uses_cache_hit():
+    cache = {
+        "https://openai.com/gpt-5": {
+            "summary": {
+                "what_happened": "Cached summary.",
+                "enterprise_impact": "Cached impact.",
+                "software_delivery_impact": "Cached delivery.",
+                "developer_impact": "Cached dev.",
+                "human_impact": "Cached human.",
+                "how_to_use": "Cached use.",
+            },
+            "cached_at": datetime.now(tz=timezone.utc).isoformat(),
+        }
+    }
+    mock_client = MagicMock()
+    story = MOCK_STORY.model_copy(deep=True)
+
+    result = summarize_story(story, mock_client, cache=cache)
+
+    # LLM must NOT be called
+    mock_client.chat.completions.create.assert_not_called()
+    assert result.summary is not None
+    assert result.summary.what_happened == "Cached summary."
+
+
+def test_summarize_story_populates_cache_on_miss():
+    cache = {}
+    mock_client = MagicMock()
+    mock_client.chat.completions.create.return_value = MagicMock(
+        choices=[MagicMock(message=MagicMock(content=MOCK_SUMMARY))]
+    )
+    story = MOCK_STORY.model_copy(deep=True)
+
+    summarize_story(story, mock_client, cache=cache)
+
+    assert "https://openai.com/gpt-5" in cache
+    assert "cached_at" in cache["https://openai.com/gpt-5"]
+    assert cache["https://openai.com/gpt-5"]["summary"]["what_happened"] != ""
