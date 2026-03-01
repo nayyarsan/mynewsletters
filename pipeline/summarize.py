@@ -45,10 +45,18 @@ def load_cache(path: Path = CACHE_PATH) -> dict:
     try:
         raw = json.loads(path.read_text())
         cutoff = datetime.now(tz=timezone.utc) - timedelta(days=CACHE_MAX_DAYS)
-        return {
-            url: entry for url, entry in raw.items()
-            if datetime.fromisoformat(entry["cached_at"]) >= cutoff
-        }
+        result = {}
+        for url, entry in raw.items():
+            try:
+                cached_at = datetime.fromisoformat(entry["cached_at"])
+                # Treat naive timestamps as UTC (guards against manually-edited files)
+                if cached_at.tzinfo is None:
+                    cached_at = cached_at.replace(tzinfo=timezone.utc)
+                if cached_at >= cutoff:
+                    result[url] = entry
+            except (KeyError, ValueError):
+                pass  # skip malformed entries rather than discarding the whole cache
+        return result
     except Exception:
         return {}
 
