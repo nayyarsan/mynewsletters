@@ -32,7 +32,7 @@ def fetch_source(source: dict) -> list[Story]:
     keywords = source.get("filter_keywords")
 
     if stype == "rss":
-        return fetch_rss(source_name=name, url=url, filter_keywords=keywords)
+        return fetch_rss(source_name=name, url=url, filter_keywords=keywords, max_age_days=7)
 
     elif stype == "scrape":
         from urllib.parse import urlparse
@@ -45,7 +45,7 @@ def fetch_source(source: dict) -> list[Story]:
         return fetch_hackernews(url=url, params=params)
 
     elif stype == "reddit":
-        return fetch_reddit(source_name=name, url=url)
+        return fetch_reddit(source_name=name, url=url, max_age_days=7)
 
     else:
         print(f"Unknown source type: {stype}", file=sys.stderr)

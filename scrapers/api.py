@@ -1,6 +1,6 @@
 import httpx
 import feedparser
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from schemas.story import Story
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; AINewsletterBot/1.0)"}
@@ -43,13 +43,14 @@ def fetch_hackernews(url: str, params: dict) -> list[Story]:
     return stories
 
 
-def fetch_reddit(source_name: str, url: str) -> list[Story]:
+def fetch_reddit(source_name: str, url: str, max_age_days: int = 7) -> list[Story]:
     feedparser.USER_AGENT = HEADERS["User-Agent"]
     feed = feedparser.parse(url)
 
     if feed.bozo and not feed.entries:
         return []
 
+    cutoff = datetime.now(tz=timezone.utc) - timedelta(days=max_age_days)
     stories = []
     for entry in feed.entries:
         link = getattr(entry, "link", None)
@@ -59,10 +60,16 @@ def fetch_reddit(source_name: str, url: str) -> list[Story]:
         title = getattr(entry, "title", "") or ""
         content = getattr(entry, "summary", "") or ""
 
-        published_at = datetime.now(tz=timezone.utc)
-        if hasattr(entry, "published_parsed") and entry.published_parsed:
-            t = entry.published_parsed
-            published_at = datetime(t[0], t[1], t[2], t[3], t[4], t[5], tzinfo=timezone.utc)
+        published_at = None
+        for attr in ("published_parsed", "updated_parsed"):
+            val = getattr(entry, attr, None)
+            if val:
+                t = val
+                published_at = datetime(t[0], t[1], t[2], t[3], t[4], t[5], tzinfo=timezone.utc)
+                break
+
+        if published_at is None or published_at < cutoff:
+            continue
 
         stories.append(
             Story.from_url(

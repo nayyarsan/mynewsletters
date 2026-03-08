@@ -55,7 +55,7 @@ sources:
   - name: microsoft_ai
     display_name: "Microsoft AI"
     type: rss
-    url: "https://blogs.microsoft.com/ai/feed/"
+    url: "https://www.microsoft.com/en-us/research/blog/feed/"
     weight: high
 
   - name: windsurf
@@ -138,6 +138,32 @@ sources:
     display_name: "AWS Machine Learning"
     type: rss
     url: "https://aws.amazon.com/blogs/machine-learning/feed/"
+    weight: medium
+
+  - name: the_decoder
+    display_name: "The Decoder"
+    type: rss
+    url: "https://the-decoder.com/feed/"
+    weight: high
+
+  - name: interconnects
+    display_name: "Interconnects (Ryan Greenfield)"
+    type: rss
+    url: "https://www.interconnects.ai/feed"
+    weight: medium
+
+  - name: last_week_in_ai
+    display_name: "Last Week in AI"
+    type: rss
+    url: "https://lastweekin.ai/feed"
+    filter_keywords: ["ai", "llm", "model", "agent", "gpt", "claude", "gemini"]
+    weight: medium
+
+  - name: google_ai_blog
+    display_name: "Google AI Blog"
+    type: rss
+    url: "https://blog.google/technology/ai/rss/"
+    filter_keywords: ["llm", "gemini", "agent", "enterprise", "developer", "api", "inference", "coding", "workspace"]
     weight: medium
 
   - name: lex_fridman
