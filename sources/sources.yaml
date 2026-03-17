@@ -44,6 +44,7 @@ sources:
     display_name: "OpenAI"
     type: rss
     url: "https://openai.com/news/rss.xml"
+    filter_keywords: ["api", "model", "release", "agent", "developer", "codex", "gpt", "o1", "o3", "o4", "sdk", "responses", "security", "enterprise"]
     weight: high
 
   - name: google_deepmind
@@ -53,9 +54,17 @@ sources:
     weight: high
 
   - name: microsoft_ai
-    display_name: "Microsoft AI"
+    display_name: "Microsoft AI Research"
     type: rss
     url: "https://www.microsoft.com/en-us/research/blog/feed/"
+    filter_keywords: ["ai", "llm", "agent", "copilot", "model", "developer"]
+    weight: high
+
+  - name: m365_dev
+    display_name: "Microsoft 365 Dev Blog"
+    type: rss
+    url: "https://devblogs.microsoft.com/microsoft365dev/feed/"
+    filter_keywords: ["copilot", "agent", "api", "teams", "graph", "extension", "plugin", "ai"]
     weight: high
 
   - name: windsurf
@@ -74,6 +83,7 @@ sources:
     display_name: "Salesforce AI"
     type: rss
     url: "https://www.salesforce.com/blog/category/ai/feed/"
+    filter_keywords: ["agentforce", "einstein", "api", "release", "developer", "platform", "integration"]
     weight: medium
 
   - name: import_ai
@@ -81,6 +91,13 @@ sources:
     type: rss
     url: "https://jack-clark.net/feed/"
     weight: medium
+
+  - name: pragmatic_engineer
+    display_name: "The Pragmatic Engineer"
+    type: rss
+    url: "https://newsletter.pragmaticengineer.com/feed"
+    filter_keywords: ["ai", "agent", "llm", "copilot", "claude", "gpt", "developer", "engineering", "coding", "model"]
+    weight: high
 
   - name: latent_space
     display_name: "Latent Space"
@@ -98,6 +115,7 @@ sources:
     display_name: "KDNuggets"
     type: rss
     url: "https://www.kdnuggets.com/feed"
+    filter_keywords: ["llm", "agent", "production", "enterprise", "api", "deployment", "fine-tuning", "rag"]
     weight: medium
 
   - name: towards_data_science
@@ -125,6 +143,7 @@ sources:
     display_name: "LangChain"
     type: rss
     url: "https://blog.langchain.dev/rss/"
+    filter_keywords: ["release", "launch", "sdk", "api", "update", "cli", "changelog", "langgraph", "langsmith", "agent"]
     weight: medium
 
   - name: nvidia_ai
@@ -184,6 +203,33 @@ sources:
     type: scrape
     url: "https://www.anthropic.com/news"
     weight: high
+    selectors:
+      list: "[class*='PublicationList-module'] a[href*='/news/']"
+      title: "[class*='__title'], h2, h3"
+      date: "time"
+
+  - name: anthropic_engineering
+    display_name: "Anthropic Engineering"
+    type: scrape
+    url: "https://www.anthropic.com/engineering"
+    weight: high
+    selectors:
+      list: "a[class*='cardLink']"
+      title: "h2, h3"
+      date: "div[class*='date'], time"
+
+  - name: claude_blog
+    display_name: "Claude Blog"
+    type: scrape
+    url: "https://www.claude.com/blog"
+    weight: high
+    selectors:
+      list: ".blog_cms_list article"
+      title: ".card_blog_list_title, h2, h3"
+      link: "a.clickable_link, a"
+      date: "[fs-list-field='date'], time"
+
+  # claude_code_changelog skipped — code.claude.com is fully JS-rendered, static scraper returns no headings
 
   - name: cognition
     display_name: "Cognition (Devin)"

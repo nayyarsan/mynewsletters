@@ -10,11 +10,90 @@ HEADERS = {
 }
 
 
+def _parse_date(text: str | None) -> datetime:
+    """Best-effort date parse, falls back to now()."""
+    if not text:
+        return datetime.now(tz=timezone.utc)
+    try:
+        from dateutil import parser as dateutil_parser
+        dt = dateutil_parser.parse(text, fuzzy=True)
+        return dt.replace(tzinfo=timezone.utc) if dt.tzinfo is None else dt.astimezone(timezone.utc)
+    except Exception:
+        return datetime.now(tz=timezone.utc)
+
+
+def _extract_with_selectors(
+    soup: BeautifulSoup,
+    base_url: str,
+    selectors: dict,
+    filter_keywords: list[str] | None,
+    source_name: str,
+) -> list[Story]:
+    """Extract stories using explicit CSS selectors (e.g. from RSSHub source analysis)."""
+    list_sel = selectors.get("list")
+    title_sel = selectors.get("title")
+    link_sel = selectors.get("link")
+    date_sel = selectors.get("date")
+
+    if not list_sel:
+        return []
+
+    stories = []
+    seen_urls: set[str] = set()
+
+    for card in soup.select(list_sel)[:20]:
+        # --- link ---
+        if link_sel:
+            link_tag = card.select_one(link_sel)
+        else:
+            link_tag = card if card.name == "a" else card.find("a", href=True)
+        if not link_tag:
+            continue
+        href = link_tag.get("href", "")
+        full_url = urljoin(base_url, href)
+        if not full_url.startswith("http") or full_url in seen_urls:
+            continue
+        seen_urls.add(full_url)
+
+        # --- title ---
+        if title_sel:
+            title_tag = card.select_one(title_sel)
+            title = title_tag.get_text(strip=True) if title_tag else card.get_text(strip=True)
+        else:
+            title = link_tag.get_text(strip=True)
+        if not title or len(title) < 5:
+            continue
+
+        # --- date ---
+        if date_sel:
+            date_tag = card.select_one(date_sel)
+            published_at = _parse_date(date_tag.get_text(strip=True) if date_tag else None)
+        else:
+            published_at = datetime.now(tz=timezone.utc)
+
+        content = card.get_text(separator=" ", strip=True)[:2000]
+
+        if filter_keywords:
+            if not any(kw.lower() in (title + " " + content).lower() for kw in filter_keywords):
+                continue
+
+        stories.append(Story.from_url(
+            url=full_url,
+            title=title,
+            source_name=source_name,
+            published_at=published_at,
+            raw_content=content,
+        ))
+
+    return stories
+
+
 def fetch_html(
     source_name: str,
     url: str,
     base_url: str,
     filter_keywords: list[str] | None = None,
+    selectors: dict | None = None,
 ) -> list[Story]:
     try:
         response = httpx.get(url, headers=HEADERS, timeout=20, follow_redirects=True)
@@ -23,8 +102,13 @@ def fetch_html(
         return []
 
     soup = BeautifulSoup(response.text, "html.parser")
-    stories = []
 
+    # Use precise selectors when provided (beats generic heuristics for CSS-module sites)
+    if selectors:
+        return _extract_with_selectors(soup, base_url, selectors, filter_keywords, source_name)
+
+    # Generic fallback
+    stories = []
     candidates = []
     for tag in soup.find_all(["article", "div"], class_=lambda c: c and any(
         k in c.lower() for k in ["post", "article", "blog", "entry", "item"]
@@ -34,7 +118,7 @@ def fetch_html(
     if not candidates:
         candidates = soup.find_all(["h2", "h3"])
 
-    seen_urls = set()
+    seen_urls: set[str] = set()
     for candidate in candidates[:20]:
         link_tag = candidate.find("a", href=True) if candidate.name != "a" else candidate
         if not link_tag:

@@ -20,10 +20,11 @@ from pathlib import Path
 from openai import OpenAI
 from schemas.story import Story
 
-RANK_SYSTEM_PROMPT = """You are an AI news curator for enterprise technology leaders.
+RANK_SYSTEM_PROMPT = """You are an AI news curator for enterprise technology leaders and developers.
 Score news stories by enterprise relevance. Be strict — only score high if there is
-clear, direct enterprise impact. Ignore pure academic research unless it has immediate
-enterprise application. Return only valid JSON."""
+clear, direct enterprise impact. Prefer original product announcements, release notes,
+API changes, model launches, and technical research over vendor blog posts, listicles,
+opinion pieces, or thought-leadership marketing content. Return only valid JSON."""
 
 # Single-story prompt — kept for backwards compatibility and unit tests
 RANK_USER_PROMPT = """Score this AI news story across 4 categories (0-100 each):
@@ -62,6 +63,8 @@ ENTERPRISE_KEYWORDS = {
     "deploy", "deployment", "production", "api", "sdk", "model", "models",
     "automation", "workflow", "integration", "platform", "developer", "coding",
     "agentic", "inference", "fine-tuning", "finetuning", "rag", "mcp",
+    "release", "launch", "announcement", "changelog", "update", "o1", "o3", "o4",
+    "anthropic", "openai", "codex", "sonnet", "opus", "haiku",
 }
 
 _WEIGHT_SCORES = {"high": 20, "medium": 10, "low": 0}

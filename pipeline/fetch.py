@@ -38,7 +38,8 @@ def fetch_source(source: dict) -> list[Story]:
         from urllib.parse import urlparse
         parsed = urlparse(url)
         base = f"{parsed.scheme}://{parsed.netloc}"
-        return fetch_html(source_name=name, url=url, base_url=base, filter_keywords=keywords)
+        selectors = source.get("selectors")
+        return fetch_html(source_name=name, url=url, base_url=base, filter_keywords=keywords, selectors=selectors)
 
     elif stype == "api":
         params = source.get("params", {})
