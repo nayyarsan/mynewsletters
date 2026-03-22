@@ -8,6 +8,7 @@ on:
 permissions:
   contents: read
   models: read
+  packages: read
 
 env:
   PYTHONPATH: ${{ github.workspace }}
@@ -149,3 +150,37 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+
+  publish:
+    needs: deliver
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: ranked
+          path: data/
+      - name: Generate rdradar.json
+        run: python pipeline/publish.py
+      - name: Commit rdradar.json to output branch
+        run: |
+          cp data/rdradar.json /tmp/rdradar.json
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git fetch origin
+          git checkout -B output origin/output 2>/dev/null || (git checkout --orphan output && git rm -rf . 2>/dev/null || true)
+          mkdir -p data
+          cp /tmp/rdradar.json data/rdradar.json
+          git add data/rdradar.json
+          git diff --staged --quiet || git commit -m "chore: update rdradar.json [skip ci]"
+          git push origin output

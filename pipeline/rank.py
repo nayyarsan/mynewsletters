@@ -76,6 +76,21 @@ Return JSON only — one entry per story, 0-indexed:
 {{"stories": [{{"index": 0, "title": "story title", "sdlc_tags": ["tooling", "ai-agents"]}}]}}\
 """
 
+_ENTERPRISE_SDLC_TAGS = {"tooling", "testing", "delivery", "governance", "ai-agents"}
+
+
+def filter_enterprise_items(stories: list[Story]) -> list[Story]:
+    """Return stories whose SDLC tags overlap with enterprise-relevant categories.
+
+    Enterprise-relevant = at least one tag in {tooling, testing, delivery,
+    governance, ai-agents}.  Stories tagged only as 'general' are excluded.
+    """
+    return [
+        s for s in stories
+        if set(s.sdlc_tags) & _ENTERPRISE_SDLC_TAGS
+    ]
+
+
 ENTERPRISE_KEYWORDS = {
     "enterprise", "agent", "agents", "copilot", "llm", "gpt", "claude", "gemini",
     "deploy", "deployment", "production", "api", "sdk", "model", "models",
@@ -388,9 +403,16 @@ def main():
     total = sum(len(v) for v in categorized.values())
     print(f"  {total} stories selected across {len(CATEGORIES)} categories")
 
+    # Flatten all selected stories into personal_items (preserving priority_category)
+    personal_items = [s for cat_stories in categorized.values() for s in cat_stories]
+
+    # Enterprise items: personal stories with at least one non-"general" SDLC tag
+    enterprise_items = filter_enterprise_items(personal_items)
+    print(f"  {len(enterprise_items)} enterprise items (non-general SDLC tags)")
+
     output = {
-        cat: [s.model_dump(mode="json") for s in cat_stories]
-        for cat, cat_stories in categorized.items()
+        "personal_items": [s.model_dump(mode="json") for s in personal_items],
+        "enterprise_items": [s.model_dump(mode="json") for s in enterprise_items],
     }
     Path("data/ranked.json").write_text(json.dumps(output, indent=2, default=str))
     print("  Saved to data/ranked.json")

@@ -74,7 +74,7 @@ def test_main_summarises_only_top3(monkeypatch, tmp_path):
         "priority_score": 50,
         "summary": None,
     }
-    ranked = {"enterprise_software_delivery": [story_dict]}
+    ranked = {"personal_items": [story_dict], "enterprise_items": []}
     data_dir = tmp_path / "data"
     data_dir.mkdir()
     (data_dir / "ranked.json").write_text(json.dumps(ranked))
