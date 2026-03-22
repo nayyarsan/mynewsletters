@@ -27,6 +27,7 @@ class Story(BaseModel):
     raw_content: str
     priority_category: Optional[str] = None
     priority_score: Optional[int] = None
+    sdlc_tags: list[str] = []
     summary: Optional[StorySummary] = None
 
     @computed_field
