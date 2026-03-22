@@ -2,7 +2,7 @@ import pytest
 import json
 from unittest.mock import patch, MagicMock
 from datetime import datetime, timezone, timedelta
-from pipeline.rank import rank_story, rank_batch, select_top_stories, heuristic_prescore, presort_and_limit, recency_multiplier, PRESCORE_LIMIT
+from pipeline.rank import rank_story, rank_batch, select_top_stories, heuristic_prescore, presort_and_limit, recency_multiplier, classify_sdlc_tags, PRESCORE_LIMIT
 from schemas.story import Story
 
 MOCK_STORY = Story.from_url(
@@ -266,3 +266,93 @@ def test_select_top_stories_prefers_fresh_over_stale():
     ordered = result["enterprise_software_delivery"]
     assert ordered[0].id == "fresh"
     assert ordered[1].id == "stale"
+
+
+# ── SDLC classification tests ────────────────────────────────────────────────
+
+MOCK_SDLC_RESPONSE = json.dumps({
+    "stories": [
+        {"index": 0, "title": "GPT-5 launches with enterprise API", "sdlc_tags": ["tooling", "ai-agents"]},
+        {"index": 1, "title": "GitHub Actions update", "sdlc_tags": ["delivery"]},
+    ]
+})
+
+
+def test_classify_sdlc_tags_assigns_tags():
+    mock_client = MagicMock()
+    mock_client.chat.completions.create.return_value = MagicMock(
+        choices=[MagicMock(message=MagicMock(content=MOCK_SDLC_RESPONSE))]
+    )
+    story_a = MOCK_STORY.model_copy(deep=True)
+    story_b = Story.from_url(
+        url="https://github.com/actions-update",
+        title="GitHub Actions update",
+        source_name="GitHub",
+        published_at=datetime(2026, 2, 24, tzinfo=timezone.utc),
+        raw_content="GitHub released a major Actions update.",
+    )
+    results = classify_sdlc_tags([story_a, story_b], mock_client)
+
+    assert results[0].sdlc_tags == ["tooling", "ai-agents"]
+    assert results[1].sdlc_tags == ["delivery"]
+
+
+def test_classify_sdlc_tags_fallback_on_llm_failure():
+    mock_client = MagicMock()
+    mock_client.chat.completions.create.side_effect = Exception("network error")
+    story = MOCK_STORY.model_copy(deep=True)
+    results = classify_sdlc_tags([story], mock_client)
+
+    assert results[0].sdlc_tags == ["general"]
+
+
+def test_classify_sdlc_tags_fallback_for_missing_story_in_response():
+    """Stories not present in the LLM response get the 'general' fallback."""
+    partial_response = json.dumps({
+        "stories": [
+            {"index": 0, "title": "GPT-5", "sdlc_tags": ["ai-agents"]},
+            # index 1 deliberately omitted
+        ]
+    })
+    mock_client = MagicMock()
+    mock_client.chat.completions.create.return_value = MagicMock(
+        choices=[MagicMock(message=MagicMock(content=partial_response))]
+    )
+    story_a = MOCK_STORY.model_copy(deep=True)
+    story_b = MOCK_STORY.model_copy(deep=True)
+    story_b.id = "other"
+    results = classify_sdlc_tags([story_a, story_b], mock_client)
+
+    assert results[0].sdlc_tags == ["ai-agents"]
+    assert results[1].sdlc_tags == ["general"]
+
+
+def test_classify_sdlc_tags_rejects_unknown_tags():
+    """Tags not in the allowed list must be filtered out; fallback to ['general'] if all invalid."""
+    bad_response = json.dumps({
+        "stories": [
+            {"index": 0, "title": "GPT-5", "sdlc_tags": ["marketing", "hype"]},
+        ]
+    })
+    mock_client = MagicMock()
+    mock_client.chat.completions.create.return_value = MagicMock(
+        choices=[MagicMock(message=MagicMock(content=bad_response))]
+    )
+    story = MOCK_STORY.model_copy(deep=True)
+    results = classify_sdlc_tags([story], mock_client)
+
+    assert results[0].sdlc_tags == ["general"]
+
+
+def test_classify_sdlc_tags_all_stories_non_empty():
+    """Every story must have at least one tag after classification."""
+    mock_client = MagicMock()
+    mock_client.chat.completions.create.return_value = MagicMock(
+        choices=[MagicMock(message=MagicMock(content=MOCK_SDLC_RESPONSE))]
+    )
+    stories = [MOCK_STORY.model_copy(deep=True) for _ in range(5)]
+    results = classify_sdlc_tags(stories, mock_client)
+
+    for s in results:
+        assert len(s.sdlc_tags) >= 1
+

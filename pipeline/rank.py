@@ -58,6 +58,24 @@ CATEGORIES = [
     "general_significance",
 ]
 
+SDLC_TAGS = ["tooling", "testing", "delivery", "governance", "ai-agents", "general"]
+
+SDLC_CLASSIFY_SYSTEM_PROMPT = """You are an AI news classifier for a software delivery knowledge base.
+Classify news stories by SDLC (Software Development Lifecycle) category. Return only valid JSON."""
+
+SDLC_CLASSIFY_BATCH_PROMPT = """For each story, return one or more tags from: tooling, testing, delivery, governance, ai-agents, general.
+- tooling: new dev tools, IDEs, extensions
+- testing: AI in QA, test generation, coverage
+- delivery: CI/CD, deployment, release automation
+- governance: AI policy, compliance, audit
+- ai-agents: agent frameworks, MCP, orchestration
+- general: everything else
+
+{stories_text}
+Return JSON only — one entry per story, 0-indexed:
+{{"stories": [{{"index": 0, "title": "story title", "sdlc_tags": ["tooling", "ai-agents"]}}]}}\
+"""
+
 ENTERPRISE_KEYWORDS = {
     "enterprise", "agent", "agents", "copilot", "llm", "gpt", "claude", "gemini",
     "deploy", "deployment", "production", "api", "sdk", "model", "models",
@@ -230,6 +248,79 @@ def rank_batch(batch: list[Story], client: OpenAI, retries: int = 2) -> list[Sto
     return []
 
 
+def classify_sdlc_tags(stories: list[Story], client: OpenAI) -> list[Story]:
+    """Classify each ranked story with SDLC tags using batched LLM calls.
+
+    Processes BATCH_SIZE stories per call, same rate-limit pattern as rank_batch().
+    Falls back to ["general"] for any story whose tags cannot be determined.
+    """
+    total_batches = (len(stories) + BATCH_SIZE - 1) // BATCH_SIZE
+    print(f"Classifying SDLC tags for {len(stories)} stories in {total_batches} batches of {BATCH_SIZE}...")
+
+    # Build an index map so we can update stories in-place
+    story_index: dict[int, Story] = {}
+    for i, story in enumerate(stories):
+        story_index[i] = story
+
+    for batch_start in range(0, len(stories), BATCH_SIZE):
+        if batch_start > 0:
+            time.sleep(5)   # stay within 15 req/min limit
+
+        batch = stories[batch_start:batch_start + BATCH_SIZE]
+        stories_text = ""
+        for j, story in enumerate(batch):
+            stories_text += (
+                f"\nStory {j} — Title: {story.title}\n"
+                f"  Content: {story.raw_content[:400]}\n"
+            )
+
+        prompt = SDLC_CLASSIFY_BATCH_PROMPT.format(stories_text=stories_text)
+        batch_num = batch_start // BATCH_SIZE + 1
+
+        try:
+            response = client.chat.completions.create(
+                model="openai/gpt-4o-mini",
+                messages=[
+                    {"role": "system", "content": SDLC_CLASSIFY_SYSTEM_PROMPT},
+                    {"role": "user", "content": prompt},
+                ],
+                temperature=0,
+                response_format={"type": "json_object"},
+            )
+            data = json.loads(response.choices[0].message.content)
+            results = data.get("stories", [])
+
+            tagged_indices = set()
+            for item in results:
+                idx = item.get("index", -1)
+                if not isinstance(idx, int) or idx < 0 or idx >= len(batch):
+                    continue
+                raw_tags = item.get("sdlc_tags", [])
+                valid_tags = [t for t in raw_tags if t in SDLC_TAGS]
+                batch[idx].sdlc_tags = valid_tags if valid_tags else ["general"]
+                tagged_indices.add(idx)
+
+            # Fallback for any story the LLM didn't return
+            for j in range(len(batch)):
+                if j not in tagged_indices:
+                    batch[j].sdlc_tags = ["general"]
+
+            print(f"  SDLC batch {batch_num}/{total_batches}: {len(tagged_indices)}/{len(batch)} classified")
+
+        except Exception as e:
+            print(f"  Warning: SDLC classification failed for batch {batch_num}: {e}")
+            for story in batch:
+                if not story.sdlc_tags:
+                    story.sdlc_tags = ["general"]
+
+    # Final safety net — ensure every story has at least one tag
+    for story in stories:
+        if not story.sdlc_tags:
+            story.sdlc_tags = ["general"]
+
+    return stories
+
+
 def select_top_stories(
     stories: list[Story],
     per_category: int = 5,
@@ -289,6 +380,9 @@ def main():
         print(f"  Batch {batch_num}/{total_batches}: {len(results)}/{len(batch)} ranked")
 
     print(f"  {len(ranked)} stories passed ranking filter")
+
+    # Step 3: classify SDLC tags — BATCH_SIZE stories per call
+    ranked = classify_sdlc_tags(ranked, client)
 
     categorized = select_top_stories(ranked)
     total = sum(len(v) for v in categorized.values())

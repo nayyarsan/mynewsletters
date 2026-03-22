@@ -37,8 +37,12 @@ def format_story_full(story: Story, index: int) -> str:
     lines = [
         f"<b>{index}. {_escape(story.title)}</b>",
         f"<i>{_escape(sources_str)} · {_escape(category_label)}</i>",
-        "",
     ]
+
+    if story.sdlc_tags:
+        lines.append(f"<i>SDLC: {_escape(', '.join(story.sdlc_tags))}</i>")
+
+    lines.append("")
 
     if story.summary:
         # Showing 4 of 6 dimensions — omitting software_delivery_impact and
