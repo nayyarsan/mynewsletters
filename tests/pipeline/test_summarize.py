@@ -1,11 +1,9 @@
-import pytest
 import json
-from pathlib import Path
 from unittest.mock import MagicMock
 from datetime import datetime, timedelta, timezone
 from pipeline.summarize import summarize_story, pick_top3, load_cache, save_cache
 from pipeline import summarize as mod
-from schemas.story import Story, StorySummary
+from schemas.story import Story
 
 MOCK_STORY = Story.from_url(
     url="https://openai.com/gpt-5",

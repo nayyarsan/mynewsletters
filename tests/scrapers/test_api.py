@@ -1,4 +1,3 @@
-import pytest
 import respx
 import httpx
 from scrapers.api import fetch_hackernews, fetch_reddit

@@ -1,8 +1,7 @@
-import pytest
 import json
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock
 from datetime import datetime, timezone, timedelta
-from pipeline.rank import rank_story, rank_batch, select_top_stories, heuristic_prescore, presort_and_limit, recency_multiplier, classify_sdlc_tags, filter_enterprise_items, PRESCORE_LIMIT
+from pipeline.rank import rank_story, rank_batch, select_top_stories, heuristic_prescore, presort_and_limit, recency_multiplier, classify_sdlc_tags, filter_enterprise_items
 from schemas.story import Story
 
 MOCK_STORY = Story.from_url(
@@ -200,7 +199,6 @@ def test_heuristic_prescore_decays_old_story():
 def test_14_day_cutoff_in_main(monkeypatch, tmp_path):
     """Stories older than 14 days must be dropped before ranking."""
     import json
-    from pathlib import Path
     from pipeline import rank as mod
 
     fresh_story = {

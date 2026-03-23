@@ -126,7 +126,7 @@ def check_api(name, url):
 
 def main():
     results = []
-    print(f"\nAI Newsletter Source Validator")
+    print("\nAI Newsletter Source Validator")
     print(f"Run at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print(f"Testing {len(SOURCES)} sources...\n")
     print(f"{'Source':<35} {'Type':<8} {'Status':<8} {'Items':<6} {'Time':>6}s  Details")
@@ -179,7 +179,7 @@ def main():
     # Save results
     with open("feed_test_results.json", "w") as f:
         json.dump({"run_at": str(datetime.now()), "results": results}, f, indent=2)
-    print(f"\nFull results saved to: feed_test_results.json")
+    print("\nFull results saved to: feed_test_results.json")
 
     # Print dead/error feeds for action
     dead_feeds = [r for r in results if r["status"] not in ("OK",) and r["type"] == "rss"]

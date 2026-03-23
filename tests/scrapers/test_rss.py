@@ -1,6 +1,4 @@
-import pytest
 from unittest.mock import patch, MagicMock
-from datetime import datetime, timezone
 from scrapers.rss import fetch_rss
 
 

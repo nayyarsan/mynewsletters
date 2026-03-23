@@ -1,4 +1,3 @@
-import pytest
 import respx
 import httpx
 from scrapers.html import fetch_html

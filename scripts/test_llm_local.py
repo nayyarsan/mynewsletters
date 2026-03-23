@@ -26,13 +26,13 @@ if _env_file.exists():
             key, _, value = line.partition("=")
             os.environ.setdefault(key.strip(), value.strip())
 
-from openai import OpenAI
-from schemas.story import Story
-from pipeline.rank import (
+from openai import OpenAI  # noqa: E402
+from schemas.story import Story  # noqa: E402
+from pipeline.rank import (  # noqa: E402
     RANK_SYSTEM_PROMPT, RANK_BATCH_PROMPT, CATEGORIES,
-    heuristic_prescore, presort_and_limit, select_top_stories,
+    presort_and_limit, select_top_stories,
 )
-from pipeline.summarize import SUMMARIZE_SYSTEM_PROMPT, SUMMARIZE_USER_PROMPT
+from pipeline.summarize import SUMMARIZE_SYSTEM_PROMPT, SUMMARIZE_USER_PROMPT  # noqa: E402
 
 # Local-only models — accessible with a standard PAT
 RANK_MODEL = "openai/gpt-4o-mini"
