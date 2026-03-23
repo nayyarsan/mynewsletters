@@ -6,12 +6,11 @@ Only runs on top 3 stories to stay within rate limits (150 req/day).
 Note: anthropic/claude-sonnet-4-6 is not available on GitHub Models API.
 """
 import json
-import os
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from openai import OpenAI
 from schemas.story import Story, StorySummary
-from pipeline.rank import get_client, CATEGORIES, recency_multiplier
+from pipeline.rank import get_client, recency_multiplier
 
 SUMMARIZE_SYSTEM_PROMPT = """You are a senior enterprise AI analyst writing for technical
 leaders and developers. Be concise, specific, and practical. Avoid hype and marketing language.
@@ -121,17 +120,24 @@ def main():
 
     ranked_raw = json.loads(Path("data/ranked.json").read_text())
 
+    # Build stories_by_category from flat personal_items list
     stories_by_category: dict[str, list[Story]] = {}
-    for cat, items in ranked_raw.items():
-        stories = []
-        for item in items:
-            if isinstance(item.get("published_at"), str):
-                item["published_at"] = datetime.fromisoformat(item["published_at"])
-            stories.append(Story(**item))
-        stories_by_category[cat] = stories
+    for item in ranked_raw.get("personal_items", []):
+        if isinstance(item.get("published_at"), str):
+            item["published_at"] = datetime.fromisoformat(item["published_at"])
+        story = Story(**item)
+        cat = story.priority_category or "general_significance"
+        stories_by_category.setdefault(cat, []).append(story)
+
+    # Pass enterprise items through without re-summarising
+    enterprise_items: list[Story] = []
+    for item in ranked_raw.get("enterprise_items", []):
+        if isinstance(item.get("published_at"), str):
+            item["published_at"] = datetime.fromisoformat(item["published_at"])
+        enterprise_items.append(Story(**item))
 
     top3 = pick_top3(stories_by_category)
-    print(f"Summarizing top 3 must-reads...")
+    print("Summarizing top 3 must-reads...")
     top3 = [summarize_story(s, client, cache) for s in top3]
 
     save_cache(cache)
@@ -143,6 +149,7 @@ def main():
             cat: [s.model_dump(mode="json") for s in stories]
             for cat, stories in stories_by_category.items()
         },
+        "enterprise_items": [s.model_dump(mode="json") for s in enterprise_items],
     }
     Path("data/summarized.json").write_text(json.dumps(output, indent=2, default=str))
     print("  Saved to data/summarized.json")

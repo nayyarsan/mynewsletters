@@ -1,5 +1,3 @@
-import pytest
-import json
 import yaml
 from unittest.mock import patch, MagicMock
 from pipeline.validate_feeds import validate_sources, load_sources

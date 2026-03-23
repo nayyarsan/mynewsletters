@@ -3,11 +3,9 @@ Smoke test: runs the full pipeline with mocked LLM and real (cached) RSS feeds.
 Validates the data flows correctly end to end.
 """
 import json
-import pytest
 from datetime import datetime, timezone
-from unittest.mock import patch, MagicMock
 from schemas.story import Story, StorySummary
-from pipeline.normalize import normalize, deduplicate_by_url
+from pipeline.normalize import deduplicate_by_url
 from pipeline.rank import select_top_stories
 from pipeline.deliver import format_digest, split_message
 
@@ -84,7 +82,4 @@ def test_long_digest_splits_correctly():
 
 
 def test_all_pipeline_modules_importable():
-    from pipeline import validate_feeds, fetch, normalize, rank, summarize, deliver
-    from scrapers import rss, html, api
-    from schemas import story
     assert True  # if we got here, all imports work

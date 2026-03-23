@@ -1,4 +1,3 @@
-import pytest
 from datetime import datetime, timezone
 from pipeline.deliver import format_story_full, format_story_brief, format_digest
 from schemas.story import Story, StorySource, StorySummary
@@ -149,3 +148,60 @@ def test_format_digest_shows_non_empty_categories():
     assert "ENTERPRISE SOFTWARE DELIVERY" in digest
     assert "GENERAL SIGNIFICANCE" in digest
     assert "Story B" in digest
+
+
+# --- [Work] enterprise prefix ---
+
+def test_format_digest_includes_work_prefix_for_enterprise_items():
+    top_story = make_story("Top Story", "enterprise_software_delivery", 95,
+                           url="https://example.com/top")
+    enterprise_story = make_story("AI Governance Update", "enterprise_solutions", 80,
+                                  url="https://example.com/enterprise")
+    stories_by_category = {
+        "enterprise_software_delivery": [top_story],
+        "enterprise_solutions": [],
+        "finance_utilities": [],
+        "general_significance": [],
+    }
+    digest = format_digest([top_story], stories_by_category, week_of="Mar 22, 2026",
+                           enterprise_items=[enterprise_story])
+    assert "[Work]" in digest
+    assert "AI Governance Update" in digest
+    assert "ENTERPRISE HIGHLIGHTS" in digest
+
+
+def test_format_digest_no_enterprise_section_when_empty():
+    top_story = make_story("Top Story", "enterprise_software_delivery", 95)
+    stories_by_category = {
+        "enterprise_software_delivery": [top_story],
+        "enterprise_solutions": [],
+        "finance_utilities": [],
+        "general_significance": [],
+    }
+    digest = format_digest([top_story], stories_by_category, week_of="Mar 22, 2026",
+                           enterprise_items=[])
+    assert "ENTERPRISE HIGHLIGHTS" not in digest
+    assert "[Work]" not in digest
+
+
+def test_format_story_brief_work_prefix():
+    from pipeline.deliver import format_story_brief
+    story = make_story("Enterprise Story", "enterprise_solutions", 80)
+    text = format_story_brief(story, work=True)
+    assert "[Work]" in text
+
+
+def test_format_digest_enterprise_top3_not_duplicated_in_work_section():
+    """Enterprise items that are also in top3 must not reappear in [Work] section."""
+    top_story = make_story("Top Enterprise Story", "enterprise_software_delivery", 95,
+                           url="https://example.com/top-enterprise")
+    top_story.sdlc_tags = ["ai-agents"]
+    stories_by_category = {
+        "enterprise_software_delivery": [top_story],
+        "enterprise_solutions": [],
+        "finance_utilities": [],
+        "general_significance": [],
+    }
+    digest = format_digest([top_story], stories_by_category, week_of="Mar 22, 2026",
+                           enterprise_items=[top_story])
+    assert digest.count("Top Enterprise Story") == 1

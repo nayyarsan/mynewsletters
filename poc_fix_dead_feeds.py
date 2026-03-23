@@ -75,7 +75,7 @@ def try_rss(url):
         feed = feedparser.parse(url)
         if not feed.bozo and feed.entries:
             return True, len(feed.entries), feed.entries[0].get("title", "")[:60]
-    except:
+    except Exception:
         pass
     return False, 0, ""
 
@@ -83,7 +83,7 @@ def try_http(url):
     try:
         r = httpx.get(url, headers=HEADERS, timeout=10, follow_redirects=True)
         return r.status_code == 200, r.status_code
-    except:
+    except Exception:
         return False, 0
 
 print("\nSearching for working alternative URLs...\n")
@@ -111,7 +111,7 @@ for source, urls in ALTERNATIVES.items():
                 print(f"  [DEAD]      {url}  (HTTP {status})")
 
     if not found and source not in findings:
-        print(f"  [NO SOLUTION FOUND] — needs manual investigation")
+        print("  [NO SOLUTION FOUND] — needs manual investigation")
 
 print("\n" + "=" * 100)
 print("\nRECOMMENDED SOURCE UPDATES:")

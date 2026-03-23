@@ -1,11 +1,9 @@
-import pytest
 import json
-from pathlib import Path
 from unittest.mock import MagicMock
 from datetime import datetime, timedelta, timezone
 from pipeline.summarize import summarize_story, pick_top3, load_cache, save_cache
 from pipeline import summarize as mod
-from schemas.story import Story, StorySummary
+from schemas.story import Story
 
 MOCK_STORY = Story.from_url(
     url="https://openai.com/gpt-5",
@@ -74,7 +72,7 @@ def test_main_summarises_only_top3(monkeypatch, tmp_path):
         "priority_score": 50,
         "summary": None,
     }
-    ranked = {"enterprise_software_delivery": [story_dict]}
+    ranked = {"personal_items": [story_dict], "enterprise_items": []}
     data_dir = tmp_path / "data"
     data_dir.mkdir()
     (data_dir / "ranked.json").write_text(json.dumps(ranked))

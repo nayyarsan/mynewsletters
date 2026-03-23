@@ -8,10 +8,9 @@ Dedup strategy:
 Output: data/normalized.json (list of deduplicated Story objects)
 """
 import json
-import sys
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
-from schemas.story import Story, StorySource
+from schemas.story import Story
 
 
 def load_raw_stories(raw_dir: str = "data/raw") -> list[Story]:

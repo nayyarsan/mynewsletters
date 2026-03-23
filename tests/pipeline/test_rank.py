@@ -1,8 +1,7 @@
-import pytest
 import json
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock
 from datetime import datetime, timezone, timedelta
-from pipeline.rank import rank_story, rank_batch, select_top_stories, heuristic_prescore, presort_and_limit, recency_multiplier, classify_sdlc_tags, PRESCORE_LIMIT
+from pipeline.rank import rank_story, rank_batch, select_top_stories, heuristic_prescore, presort_and_limit, recency_multiplier, classify_sdlc_tags, filter_enterprise_items
 from schemas.story import Story
 
 MOCK_STORY = Story.from_url(
@@ -200,7 +199,6 @@ def test_heuristic_prescore_decays_old_story():
 def test_14_day_cutoff_in_main(monkeypatch, tmp_path):
     """Stories older than 14 days must be dropped before ranking."""
     import json
-    from pathlib import Path
     from pipeline import rank as mod
 
     fresh_story = {
@@ -356,3 +354,40 @@ def test_classify_sdlc_tags_all_stories_non_empty():
     for s in results:
         assert len(s.sdlc_tags) >= 1
 
+
+
+# ── Enterprise filtering tests ───────────────────────────────────────────────
+
+def test_filter_enterprise_items_includes_non_general_tags():
+    story = MOCK_STORY.model_copy(deep=True)
+    story.sdlc_tags = ["tooling", "ai-agents"]
+    result = filter_enterprise_items([story])
+    assert len(result) == 1
+
+
+def test_filter_enterprise_items_excludes_general_only():
+    story = MOCK_STORY.model_copy(deep=True)
+    story.sdlc_tags = ["general"]
+    result = filter_enterprise_items([story])
+    assert result == []
+
+
+def test_filter_enterprise_items_excludes_empty_tags():
+    story = MOCK_STORY.model_copy(deep=True)
+    story.sdlc_tags = []
+    result = filter_enterprise_items([story])
+    assert result == []
+
+
+def test_filter_enterprise_items_mixed_list():
+    enterprise_story = MOCK_STORY.model_copy(deep=True)
+    enterprise_story.id = "e1"
+    enterprise_story.sdlc_tags = ["delivery"]
+
+    personal_only = MOCK_STORY.model_copy(deep=True)
+    personal_only.id = "p1"
+    personal_only.sdlc_tags = ["general"]
+
+    result = filter_enterprise_items([enterprise_story, personal_only])
+    assert len(result) == 1
+    assert result[0].id == "e1"

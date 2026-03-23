@@ -1,7 +1,12 @@
-import pytest
+from datetime import datetime, timezone, timedelta
 import respx
 import httpx
 from scrapers.api import fetch_hackernews, fetch_reddit
+
+def _recent_tuple(days_ago: int) -> tuple:
+    dt = datetime.now(tz=timezone.utc) - timedelta(days=days_ago)
+    return (dt.year, dt.month, dt.day, dt.hour, dt.minute, dt.second, dt.weekday(), 0, 0)
+
 
 HN_RESPONSE = {
     "hits": [
@@ -59,7 +64,7 @@ def test_fetch_reddit_returns_stories():
             title="Claude just changed how I build enterprise apps",
             link="https://reddit.com/r/ClaudeAI/comments/abc",
             summary="This is the content",
-            published_parsed=(2026, 2, 24, 10, 0, 0, 0, 0, 0),
+            published_parsed=_recent_tuple(1),
         )
     ]
     with patch("scrapers.api.feedparser.parse", return_value=mock_feed):

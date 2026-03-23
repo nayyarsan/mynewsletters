@@ -61,14 +61,16 @@ def format_story_full(story: Story, index: int) -> str:
     return "\n".join(lines)
 
 
-def format_story_brief(story: Story) -> str:
-    return f'• <a href="{story.canonical_url}">{_escape(story.title)}</a>'
+def format_story_brief(story: Story, work: bool = False) -> str:
+    prefix = "[Work] " if work else ""
+    return f'• {prefix}<a href="{story.canonical_url}">{_escape(story.title)}</a>'
 
 
 def format_digest(
     top3: list[Story],
     stories_by_category: dict[str, list[Story]],
     week_of: str,
+    enterprise_items: list[Story] | None = None,
 ) -> str:
     top3_urls = {s.canonical_url for s in top3}
 
@@ -91,6 +93,14 @@ def format_digest(
         for story in stories:
             sections.append(format_story_brief(story))
         sections.append("")
+
+    if enterprise_items:
+        work_stories = [s for s in enterprise_items if s.canonical_url not in top3_urls]
+        if work_stories:
+            sections += [DIVIDER, "<b>[Work] ENTERPRISE HIGHLIGHTS</b>", ""]
+            for story in work_stories:
+                sections.append(format_story_brief(story, work=True))
+            sections.append("")
 
     return "\n".join(sections)
 
@@ -145,9 +155,10 @@ def main():
         cat: load_stories(items)
         for cat, items in data["categories"].items()
     }
+    enterprise_items = load_stories(data.get("enterprise_items", []))
 
     week_of = datetime.now(tz=timezone.utc).strftime("%b %d, %Y")
-    digest = format_digest(top3, stories_by_category, week_of=week_of)
+    digest = format_digest(top3, stories_by_category, week_of=week_of, enterprise_items=enterprise_items)
 
     print(f"Digest length: {len(digest)} characters")
     asyncio.run(send_to_telegram(digest, bot_token, chat_id))
