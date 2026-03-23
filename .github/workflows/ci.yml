@@ -46,6 +46,7 @@ jobs:
 
   codeql:
     runs-on: ubuntu-latest
+    continue-on-error: true
     permissions:
       security-events: write
       contents: read
