@@ -1,0 +1,80 @@
+{
+  "generated_at": "2026-03-23T14:52:19.595934+00:00",
+  "items": [
+    {
+      "title": "LangChain Announces Enterprise Agentic AI Platform Built with NVIDIA",
+      "url": "https://blog.langchain.com/nvidia-enterprise/",
+      "sdlc_tags": [
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "(Free) Agentic Coding with Goose",
+      "url": "https://www.kdnuggets.com/free-agentic-coding-with-goose",
+      "sdlc_tags": [
+        "ai-agents",
+        "tooling"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents, tooling \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Introducing Nova Forge SDK, a seamless way to customize Nova models for enterprise AI",
+      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-nova-forge-sdk-a-seamless-way-to-customize-nova-models-for-enterprise-ai/",
+      "sdlc_tags": [
+        "tooling",
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Use subagents and custom agents in Codex",
+      "url": "https://simonwillison.net/2026/Mar/16/codex-subagents/#atom-everything",
+      "sdlc_tags": [
+        "tooling",
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Built an open source LLM agent for personal finance",
+      "url": "https://www.reddit.com/r/LLMDevs/comments/1rwkir0/built_an_open_source_llm_agent_for_personal/",
+      "sdlc_tags": [
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Why Anthropic Thinks AI Should Have Its Own Computer \u2014 Felix Rieseberg of Claude Cowork & Claude Code Desktop",
+      "url": "https://www.latent.space/p/felix-anthropic",
+      "sdlc_tags": [
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    }
+  ]
+}
