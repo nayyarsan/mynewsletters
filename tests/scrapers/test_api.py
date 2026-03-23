@@ -1,6 +1,12 @@
+from datetime import datetime, timezone, timedelta
 import respx
 import httpx
 from scrapers.api import fetch_hackernews, fetch_reddit
+
+def _recent_tuple(days_ago: int) -> tuple:
+    dt = datetime.now(tz=timezone.utc) - timedelta(days=days_ago)
+    return (dt.year, dt.month, dt.day, dt.hour, dt.minute, dt.second, dt.weekday(), 0, 0)
+
 
 HN_RESPONSE = {
     "hits": [
