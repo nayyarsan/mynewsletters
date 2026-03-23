@@ -64,7 +64,7 @@ def test_fetch_reddit_returns_stories():
             title="Claude just changed how I build enterprise apps",
             link="https://reddit.com/r/ClaudeAI/comments/abc",
             summary="This is the content",
-            published_parsed=(2026, 2, 24, 10, 0, 0, 0, 0, 0),
+            published_parsed=_recent_tuple(1),
         )
     ]
     with patch("scrapers.api.feedparser.parse", return_value=mock_feed):
