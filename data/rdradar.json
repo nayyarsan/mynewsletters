@@ -1,21 +1,9 @@
 {
-  "generated_at": "2026-03-30T14:33:41.306682+00:00",
+  "generated_at": "2026-04-06T14:22:03.183013+00:00",
   "items": [
     {
-      "title": "Google's new Gemini API Agent Skill patches the knowledge gap AI models have with their own SDKs",
-      "url": "https://the-decoder.com/googles-new-gemini-api-agent-skill-patches-the-knowledge-gap-ai-models-have-with-their-own-sdks/",
-      "sdlc_tags": [
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Copilot usage metrics now identify active Copilot coding agent users",
-      "url": "https://github.blog/changelog/2026-03-25-copilot-usage-metrics-now-identify-active-copilot-coding-agent-users",
+      "title": "Introducing advanced tool use on the Claude Developer Platform",
+      "url": "https://www.anthropic.com/engineering/advanced-tool-use",
       "sdlc_tags": [
         "tooling",
         "ai-agents"
@@ -27,20 +15,35 @@
       "source": "enterprise"
     },
     {
-      "title": "Accelerating LLM fine-tuning with unstructured data using SageMaker Unified Studio and S3",
-      "url": "https://aws.amazon.com/blogs/machine-learning/accelerating-llm-fine-tuning-with-unstructured-data-using-sagemaker-unified-studio-and-s3/",
+      "title": "Copilot SDK in public preview",
+      "url": "https://github.blog/changelog/2026-04-02-copilot-sdk-in-public-preview",
       "sdlc_tags": [
+        "ai-agents",
         "tooling"
       ],
       "recommendation": {
-        "action": "evaluate",
-        "reason": "Relevant to tooling \u2014 assess for team adoption."
+        "action": "spike",
+        "reason": "Relevant to ai-agents, tooling \u2014 assess for team adoption."
       },
       "source": "enterprise"
     },
     {
-      "title": "Auto mode for Claude Code",
-      "url": "https://simonwillison.net/2026/Mar/24/auto-mode-for-claude-code/#atom-everything",
+      "title": "Accelerating software delivery with agentic QA automation using Amazon Nova Act",
+      "url": "https://aws.amazon.com/blogs/machine-learning/accelerating-software-delivery-with-agentic-qa-automation-using-amazon-nova-act/",
+      "sdlc_tags": [
+        "testing",
+        "delivery",
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to testing, delivery, ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "GitHub Copilot in Visual Studio \u2014 March update",
+      "url": "https://github.blog/changelog/2026-04-02-github-copilot-in-visual-studio-march-update",
       "sdlc_tags": [
         "tooling",
         "ai-agents"
@@ -52,46 +55,8 @@
       "source": "enterprise"
     },
     {
-      "title": "I spent months building a specialized agent learning system. Turns out your coding agent is all you need for recursive self-improvement",
-      "url": "https://www.reddit.com/r/LLMDevs/comments/1s63yvk/i_spent_months_building_a_specialized_agent/",
-      "sdlc_tags": [
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Overcoming LLM hallucinations in regulated industries: Artificial Genius\u2019s deterministic models on Amazon Nova",
-      "url": "https://aws.amazon.com/blogs/machine-learning/overcoming-llm-hallucinations-in-regulated-industries-artificial-geniuss-deterministic-models-on-amazon-nova/",
-      "sdlc_tags": [
-        "ai-agents",
-        "governance"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to ai-agents, governance \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Advancing Claude for Excel and PowerPoint",
-      "url": "https://www.claude.com/blog/claude-excel-powerpoint-updates",
-      "sdlc_tags": [
-        "tooling",
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Protecting people from harmful manipulation",
-      "url": "https://deepmind.google/blog/protecting-people-from-harmful-manipulation/",
+      "title": "Audit Claude Platform activity with the Compliance API",
+      "url": "https://www.claude.com/blog/claude-platform-compliance-api",
       "sdlc_tags": [
         "governance"
       ],
@@ -102,15 +67,26 @@
       "source": "enterprise"
     },
     {
-      "title": "Exclusive: Anthropic acknowledges testing new AI model representing \u2018step change\u2019 in capabilities, after accidental data leak reveals its existence",
-      "url": "https://www.reddit.com/r/ClaudeAI/comments/1s4ucsu/exclusive_anthropic_acknowledges_testing_new_ai/",
+      "title": "Meta Adaptive Ranking Model: Bending the Inference Scaling Curve to Serve LLM-Scale Models for Ads",
+      "url": "https://engineering.fb.com/2026/03/31/ml-applications/meta-adaptive-ranking-model-bending-the-inference-scaling-curve-to-serve-llm-scale-models-for-ads/",
       "sdlc_tags": [
-        "testing",
         "ai-agents"
       ],
       "recommendation": {
         "action": "spike",
-        "reason": "Relevant to testing, ai-agents \u2014 assess for team adoption."
+        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Australian government and Anthropic sign MOU for AI safety and research",
+      "url": "https://www.anthropic.com/news/australia-MOU",
+      "sdlc_tags": [
+        "governance"
+      ],
+      "recommendation": {
+        "action": "review",
+        "reason": "Relevant to governance \u2014 assess for team adoption."
       },
       "source": "enterprise"
     }
