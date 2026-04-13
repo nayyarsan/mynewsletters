@@ -1,6 +1,56 @@
 {
-  "generated_at": "2026-04-06T14:22:03.183013+00:00",
+  "generated_at": "2026-04-13T14:36:08.384792+00:00",
   "items": [
+    {
+      "title": "Enterprises power agentic workflows in Cloudflare Agent Cloud with OpenAI",
+      "url": "https://openai.com/index/cloudflare-openai-agent-cloud",
+      "sdlc_tags": [
+        "tooling",
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Claude Managed Agents: get to production 10x faster",
+      "url": "https://www.claude.com/blog/claude-managed-agents",
+      "sdlc_tags": [
+        "ai-agents",
+        "delivery"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents, delivery \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Accelerate agentic tool calling with serverless model customization in Amazon SageMaker AI",
+      "url": "https://aws.amazon.com/blogs/machine-learning/accelerate-agentic-tool-calling-with-serverless-model-customization-in-amazon-sagemaker-ai/",
+      "sdlc_tags": [
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Code execution with MCP: Building more efficient agents",
+      "url": "https://www.anthropic.com/engineering/code-execution-with-mcp",
+      "sdlc_tags": [
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
     {
       "title": "Introducing advanced tool use on the Claude Developer Platform",
       "url": "https://www.anthropic.com/engineering/advanced-tool-use",
@@ -15,60 +65,8 @@
       "source": "enterprise"
     },
     {
-      "title": "Copilot SDK in public preview",
-      "url": "https://github.blog/changelog/2026-04-02-copilot-sdk-in-public-preview",
-      "sdlc_tags": [
-        "ai-agents",
-        "tooling"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to ai-agents, tooling \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Accelerating software delivery with agentic QA automation using Amazon Nova Act",
-      "url": "https://aws.amazon.com/blogs/machine-learning/accelerating-software-delivery-with-agentic-qa-automation-using-amazon-nova-act/",
-      "sdlc_tags": [
-        "testing",
-        "delivery",
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to testing, delivery, ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "GitHub Copilot in Visual Studio \u2014 March update",
-      "url": "https://github.blog/changelog/2026-04-02-github-copilot-in-visual-studio-march-update",
-      "sdlc_tags": [
-        "tooling",
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Audit Claude Platform activity with the Compliance API",
-      "url": "https://www.claude.com/blog/claude-platform-compliance-api",
-      "sdlc_tags": [
-        "governance"
-      ],
-      "recommendation": {
-        "action": "review",
-        "reason": "Relevant to governance \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Meta Adaptive Ranking Model: Bending the Inference Scaling Curve to Serve LLM-Scale Models for Ads",
-      "url": "https://engineering.fb.com/2026/03/31/ml-applications/meta-adaptive-ranking-model-bending-the-inference-scaling-curve-to-serve-llm-scale-models-for-ads/",
+      "title": "CyberAgent moves faster with ChatGPT Enterprise and Codex",
+      "url": "https://openai.com/index/cyberagent",
       "sdlc_tags": [
         "ai-agents"
       ],
@@ -79,8 +77,8 @@
       "source": "enterprise"
     },
     {
-      "title": "Australian government and Anthropic sign MOU for AI safety and research",
-      "url": "https://www.anthropic.com/news/australia-MOU",
+      "title": "Audit Claude Platform activity with the Compliance API",
+      "url": "https://www.claude.com/blog/claude-platform-compliance-api",
       "sdlc_tags": [
         "governance"
       ],
