@@ -1,56 +1,6 @@
 {
-  "generated_at": "2026-04-13T14:36:08.384792+00:00",
+  "generated_at": "2026-04-20T14:35:31.333003+00:00",
   "items": [
-    {
-      "title": "Enterprises power agentic workflows in Cloudflare Agent Cloud with OpenAI",
-      "url": "https://openai.com/index/cloudflare-openai-agent-cloud",
-      "sdlc_tags": [
-        "tooling",
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Claude Managed Agents: get to production 10x faster",
-      "url": "https://www.claude.com/blog/claude-managed-agents",
-      "sdlc_tags": [
-        "ai-agents",
-        "delivery"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to ai-agents, delivery \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Accelerate agentic tool calling with serverless model customization in Amazon SageMaker AI",
-      "url": "https://aws.amazon.com/blogs/machine-learning/accelerate-agentic-tool-calling-with-serverless-model-customization-in-amazon-sagemaker-ai/",
-      "sdlc_tags": [
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Code execution with MCP: Building more efficient agents",
-      "url": "https://www.anthropic.com/engineering/code-execution-with-mcp",
-      "sdlc_tags": [
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
     {
       "title": "Introducing advanced tool use on the Claude Developer Platform",
       "url": "https://www.anthropic.com/engineering/advanced-tool-use",
@@ -65,14 +15,40 @@
       "source": "enterprise"
     },
     {
-      "title": "CyberAgent moves faster with ChatGPT Enterprise and Codex",
-      "url": "https://openai.com/index/cyberagent",
+      "title": "Nova Forge SDK series part 2: Practical guide to fine-tune Nova models using data mixing capabilities",
+      "url": "https://aws.amazon.com/blogs/machine-learning/nova-forge-sdk-series-part-2-practical-guide-to-fine-tune-nova-models-using-data-mixing-capabilities/",
       "sdlc_tags": [
+        "tooling",
         "ai-agents"
       ],
       "recommendation": {
         "action": "spike",
-        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
+        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "The next evolution of the Agents SDK",
+      "url": "https://openai.com/index/the-next-evolution-of-the-agents-sdk",
+      "sdlc_tags": [
+        "tooling",
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Trusted access for the next era of cyber defense",
+      "url": "https://simonwillison.net/2026/Apr/14/trusted-access-openai/#atom-everything",
+      "sdlc_tags": [
+        "governance"
+      ],
+      "recommendation": {
+        "action": "review",
+        "reason": "Relevant to governance \u2014 assess for team adoption."
       },
       "source": "enterprise"
     },
@@ -85,6 +61,30 @@
       "recommendation": {
         "action": "review",
         "reason": "Relevant to governance \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Gemini 3.1 Flash TTS: the next generation of expressive AI speech",
+      "url": "https://deepmind.google/blog/gemini-3-1-flash-tts-the-next-generation-of-expressive-ai-speech/",
+      "sdlc_tags": [
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Gemini Robotics-ER 1.6: Powering real-world robotics tasks through enhanced embodied reasoning",
+      "url": "https://deepmind.google/blog/gemini-robotics-er-1-6/",
+      "sdlc_tags": [
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
       },
       "source": "enterprise"
     }
