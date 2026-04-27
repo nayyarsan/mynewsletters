@@ -1,72 +1,9 @@
 {
-  "generated_at": "2026-04-20T14:35:31.333003+00:00",
+  "generated_at": "2026-04-27T14:42:10.648021+00:00",
   "items": [
     {
-      "title": "Introducing advanced tool use on the Claude Developer Platform",
-      "url": "https://www.anthropic.com/engineering/advanced-tool-use",
-      "sdlc_tags": [
-        "tooling",
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Nova Forge SDK series part 2: Practical guide to fine-tune Nova models using data mixing capabilities",
-      "url": "https://aws.amazon.com/blogs/machine-learning/nova-forge-sdk-series-part-2-practical-guide-to-fine-tune-nova-models-using-data-mixing-capabilities/",
-      "sdlc_tags": [
-        "tooling",
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "The next evolution of the Agents SDK",
-      "url": "https://openai.com/index/the-next-evolution-of-the-agents-sdk",
-      "sdlc_tags": [
-        "tooling",
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Trusted access for the next era of cyber defense",
-      "url": "https://simonwillison.net/2026/Apr/14/trusted-access-openai/#atom-everything",
-      "sdlc_tags": [
-        "governance"
-      ],
-      "recommendation": {
-        "action": "review",
-        "reason": "Relevant to governance \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Audit Claude Platform activity with the Compliance API",
-      "url": "https://www.claude.com/blog/claude-platform-compliance-api",
-      "sdlc_tags": [
-        "governance"
-      ],
-      "recommendation": {
-        "action": "review",
-        "reason": "Relevant to governance \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Gemini 3.1 Flash TTS: the next generation of expressive AI speech",
-      "url": "https://deepmind.google/blog/gemini-3-1-flash-tts-the-next-generation-of-expressive-ai-speech/",
+      "title": "OpenAI\u2019s GPT-5.5 in Microsoft Foundry: Frontier intelligence on an enterprise ready platform",
+      "url": "https://azure.microsoft.com/en-us/blog/openais-gpt-5-5-in-microsoft-foundry-frontier-intelligence-on-an-enterprise-ready-platform/",
       "sdlc_tags": [
         "ai-agents"
       ],
@@ -77,8 +14,46 @@
       "source": "enterprise"
     },
     {
-      "title": "Gemini Robotics-ER 1.6: Powering real-world robotics tasks through enhanced embodied reasoning",
-      "url": "https://deepmind.google/blog/gemini-robotics-er-1-6/",
+      "title": "From developer desks to the whole organization: Running Claude Cowork in Amazon Bedrock",
+      "url": "https://aws.amazon.com/blogs/machine-learning/from-developer-desks-to-the-whole-organization-running-claude-cowork-in-amazon-bedrock/",
+      "sdlc_tags": [
+        "tooling",
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Decoupled DiLoCo: A new frontier for resilient, distributed AI training",
+      "url": "https://deepmind.google/blog/decoupled-diloco/",
+      "sdlc_tags": [
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Desktop Extensions: One-click MCP server installation for Claude Desktop",
+      "url": "https://www.anthropic.com/engineering/desktop-extensions",
+      "sdlc_tags": [
+        "tooling",
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Salesforce Customer Success Awards 2026: Lead Era of the Agentic Enterprise",
+      "url": "https://www.salesforce.com/blog/customer-success-awards/",
       "sdlc_tags": [
         "ai-agents"
       ],
