@@ -3,7 +3,12 @@ name: AI Newsletter
 on:
   schedule:
     - cron: '0 14 * * 1'   # Every Monday 6am PST (UTC-8) / 7am PDT (UTC-7)
-  workflow_dispatch:         # Manual trigger for testing
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Skip Telegram send (still updates seen-state and uploads artifacts)"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -134,8 +139,12 @@ jobs:
   deliver:
     needs: summarize
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -146,10 +155,41 @@ jobs:
           name: summarized
           path: data/
       - name: Deliver to Telegram
-        run: python pipeline/deliver.py
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            python pipeline/deliver.py --dry-run
+          else
+            python pipeline/deliver.py
+          fi
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      - name: Upload digest preview (dry-run)
+        if: inputs.dry_run == true
+        uses: actions/upload-artifact@v4
+        with:
+          name: digest-preview
+          path: data/digest_preview.txt
+          if-no-files-found: warn
+      - name: Upload normalized + summarized (verification)
+        uses: actions/upload-artifact@v4
+        with:
+          name: deliver-inputs
+          path: |
+            data/summarized.json
+            state/seen.json
+          if-no-files-found: warn
+      - name: Commit updated seen-state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add state/seen.json
+          if git diff --staged --quiet; then
+            echo "No seen-state changes to commit."
+          else
+            git commit -m "chore: update state/seen.json [skip ci]"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
 
   publish:
     needs: deliver

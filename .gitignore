@@ -20,3 +20,11 @@ data/*
 # Editor
 .vscode/
 .idea/
+
+# Local test scratch (downloaded artifacts, normalize replay)
+tmp_artifacts/
+tmp_latest/
+tmp_latest2/
+tmp_real_run/
+tmp_runs/
+tmp_normalize_test/

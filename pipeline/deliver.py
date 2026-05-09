@@ -3,7 +3,12 @@ Job 5: Format stories and deliver to Telegram.
 
 Format: Top 3 must-reads in full (HTML), then category digests.
 Uses Telegram HTML parse mode. No emoji except 🔗 on links.
+
+CLI:
+    python pipeline/deliver.py            # send digest + update seen-state
+    python pipeline/deliver.py --dry-run  # skip Telegram, still update seen-state
 """
+import argparse
 import json
 import os
 import asyncio
@@ -11,6 +16,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from telegram import Bot
 from schemas.story import Story
+from pipeline import seen_state
 
 CATEGORY_LABELS = {
     "enterprise_software_delivery": "ENTERPRISE SOFTWARE DELIVERY",
@@ -135,10 +141,17 @@ async def send_to_telegram(text: str, bot_token: str, chat_id: str) -> None:
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--dry-run", action="store_true",
+        help="Format the digest and update seen-state, but do not send to Telegram."
+    )
+    args = parser.parse_args()
+
     bot_token = os.environ.get("TELEGRAM_BOT_TOKEN")
     chat_id = os.environ.get("TELEGRAM_CHAT_ID")
-    if not bot_token or not chat_id:
-        raise ValueError("TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID are required")
+    if not args.dry_run and (not bot_token or not chat_id):
+        raise ValueError("TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID are required (or pass --dry-run)")
 
     data = json.loads(Path("data/summarized.json").read_text())
 
@@ -161,8 +174,24 @@ def main():
     digest = format_digest(top3, stories_by_category, week_of=week_of, enterprise_items=enterprise_items)
 
     print(f"Digest length: {len(digest)} characters")
-    asyncio.run(send_to_telegram(digest, bot_token, chat_id))
-    print("Delivered to Telegram.")
+    if args.dry_run:
+        Path("data/digest_preview.txt").write_text(digest, encoding="utf-8")
+        print("DRY RUN: skipped Telegram send. Wrote data/digest_preview.txt")
+    else:
+        asyncio.run(send_to_telegram(digest, bot_token, chat_id))
+        print("Delivered to Telegram.")
+
+    # Update cross-run seen-state only after successful delivery so a Telegram
+    # failure doesn't poison the next run's dedup.
+    delivered_urls = [s.canonical_url for s in top3]
+    for stories in stories_by_category.values():
+        delivered_urls.extend(s.canonical_url for s in stories)
+    delivered_urls.extend(s.canonical_url for s in enterprise_items)
+
+    state = seen_state.load()
+    state = seen_state.add_urls(state, delivered_urls)
+    seen_state.save(state)
+    print(f"Updated seen-state: {len(state['urls'])} URLs in 30d window")
 
 
 if __name__ == "__main__":
