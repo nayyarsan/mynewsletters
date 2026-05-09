@@ -108,6 +108,50 @@
     {
       "url": "https://deepmind.google/blog/announcing-our-partnership-with-the-republic-of-korea/",
       "seen_at": "2026-05-09T23:45:57.786128+00:00"
+    },
+    {
+      "url": "https://www.claude.com/blog/building-agents-that-reach-production-systems-with-mcp",
+      "seen_at": "2026-05-09T23:51:46.026330+00:00"
+    },
+    {
+      "url": "https://devblogs.microsoft.com/microsoft365dev/announcing-the-public-preview-of-the-microsoft-365-copilot-agent-evaluations-tool/",
+      "seen_at": "2026-05-09T23:51:46.026330+00:00"
+    },
+    {
+      "url": "https://www.claude.com/blog/new-guide-deploying-claude-across-the-enterprise-with-claude-cowork",
+      "seen_at": "2026-05-09T23:51:46.026330+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/april-23-postmortem",
+      "seen_at": "2026-05-09T23:51:46.026330+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-05-08-more-flexible-secrets-and-variables-for-copilot-cloud-agent",
+      "seen_at": "2026-05-09T23:51:46.026330+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/cost-effective-deployment-of-vision-language-models-for-pet-behavior-detection-on-aws-inferentia2/",
+      "seen_at": "2026-05-09T23:51:46.026330+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/news/anthropic-amazon-compute",
+      "seen_at": "2026-05-09T23:51:46.026330+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/news/finance-agents",
+      "seen_at": "2026-05-09T23:51:46.026330+00:00"
+    },
+    {
+      "url": "https://the-decoder.com/mozillas-agentic-ai-pipeline-turns-claude-mythos-preview-loose-and-finds-271-unknown-firefox-vulnerabilities/",
+      "seen_at": "2026-05-09T23:51:46.026330+00:00"
+    },
+    {
+      "url": "https://openai.com/index/running-codex-safely",
+      "seen_at": "2026-05-09T23:51:46.026330+00:00"
+    },
+    {
+      "url": "https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api",
+      "seen_at": "2026-05-09T23:51:46.026330+00:00"
     }
   ]
 }
