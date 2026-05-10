@@ -1,9 +1,22 @@
 {
-  "generated_at": "2026-05-09T23:52:03.355009+00:00",
+  "generated_at": "2026-05-10T00:36:21.034449+00:00",
   "items": [
     {
-      "title": "Building agents that reach production systems with MCP",
-      "url": "https://www.claude.com/blog/building-agents-that-reach-production-systems-with-mcp",
+      "title": "Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp",
+      "url": "https://www.claude.com/blog/claude-api-skill",
+      "sdlc_tags": [
+        "ai-agents",
+        "tooling"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents, tooling \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Building AI agents for the enterprise",
+      "url": "https://www.claude.com/blog/building-ai-agents-for-the-enterprise",
       "sdlc_tags": [
         "ai-agents"
       ],
@@ -14,8 +27,32 @@
       "source": "enterprise"
     },
     {
-      "title": "Announcing the public preview of the Microsoft 365 Copilot Agent Evaluations tool",
-      "url": "https://devblogs.microsoft.com/microsoft365dev/announcing-the-public-preview-of-the-microsoft-365-copilot-agent-evaluations-tool/",
+      "title": "AlphaEvolve: How our Gemini-powered coding agent is scaling impact across fields",
+      "url": "https://deepmind.google/blog/alphaevolve-impact/",
+      "sdlc_tags": [
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Built-in memory for Claude Managed Agents",
+      "url": "https://www.claude.com/blog/claude-managed-agents-memory",
+      "sdlc_tags": [
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Copilot code review comment types now in usage metrics API",
+      "url": "https://github.blog/changelog/2026-05-08-copilot-code-review-comment-types-now-in-usage-metrics-api",
       "sdlc_tags": [
         "tooling",
         "ai-agents"
@@ -27,76 +64,14 @@
       "source": "enterprise"
     },
     {
-      "title": "Deploying agentic AI across the enterprise with Claude Cowork",
-      "url": "https://www.claude.com/blog/new-guide-deploying-claude-across-the-enterprise-with-claude-cowork",
+      "title": "How Kepler built verifiable AI for financial services with Claude",
+      "url": "https://www.claude.com/blog/how-kepler-built-verifiable-ai-for-financial-services-with-claude",
       "sdlc_tags": [
         "ai-agents"
       ],
       "recommendation": {
         "action": "spike",
         "reason": "Relevant to ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "More flexible secrets and variables for Copilot cloud agent",
-      "url": "https://github.blog/changelog/2026-05-08-more-flexible-secrets-and-variables-for-copilot-cloud-agent",
-      "sdlc_tags": [
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Cost effective deployment of vision-language models for pet behavior detection on AWS Inferentia2",
-      "url": "https://aws.amazon.com/blogs/machine-learning/cost-effective-deployment-of-vision-language-models-for-pet-behavior-detection-on-aws-inferentia2/",
-      "sdlc_tags": [
-        "delivery"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to delivery \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Agents for financial services",
-      "url": "https://www.anthropic.com/news/finance-agents",
-      "sdlc_tags": [
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Mozilla's agentic AI pipeline turns Claude Mythos Preview loose and finds 271 unknown Firefox vulnerabilities",
-      "url": "https://the-decoder.com/mozillas-agentic-ai-pipeline-turns-claude-mythos-preview-loose-and-finds-271-unknown-firefox-vulnerabilities/",
-      "sdlc_tags": [
-        "ai-agents",
-        "governance"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to ai-agents, governance \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Running Codex safely at OpenAI",
-      "url": "https://openai.com/index/running-codex-safely",
-      "sdlc_tags": [
-        "governance",
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to governance, ai-agents \u2014 assess for team adoption."
       },
       "source": "enterprise"
     }
