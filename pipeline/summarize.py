@@ -14,26 +14,39 @@ from pipeline.rank import get_client, recency_multiplier
 
 SUMMARIZE_SYSTEM_PROMPT = """You are a senior enterprise AI analyst writing for technical
 leaders and developers. Be concise, specific, and practical. Avoid hype and marketing language.
-Write factual, actionable analysis. Return only valid JSON."""
+Write factual, actionable analysis. Return only valid JSON.
+
+SPECIFICITY RULES (these override style preferences):
+- Every field must contain at least one concrete noun: a product name, version
+  number, company name, customer name, metric, dollar figure, or date.
+- Reject generic verbs like "enables", "empowers", "leverages", "unlocks",
+  "transforms", "revolutionizes". Use specific verbs that describe what the
+  thing actually does (e.g. "indexes", "compiles", "throttles", "ships").
+- If the source content does not give you a concrete detail for a field, write
+  exactly: "Insufficient detail in source." — do NOT pad with vague language.
+- Never repeat the title back as the summary."""
 
 SUMMARIZE_USER_PROMPT = """Analyze this AI news story and return a structured JSON analysis.
 
 Title: {title}
 Source: {sources}
+Published: {published_at} (today is {today})
 Content: {content}
 
 Return JSON only:
 {{
-  "what_happened": "2-3 sentence factual summary of the news",
-  "enterprise_impact": "concrete and specific impact on enterprise organisations",
-  "software_delivery_impact": "specific impact on how software is built and deployed",
-  "developer_impact": "what developers should know or do differently",
-  "human_impact": "broader societal and workforce implications",
-  "how_to_use": "one actionable next step or experiment a team can try this week"
+  "what_happened": "2-3 sentence factual summary. Must name the product/version/company.",
+  "enterprise_impact": "Concrete impact on enterprise orgs. Name the workflow, role, or system affected.",
+  "software_delivery_impact": "Specific impact on how software is built/shipped. Name the SDLC stage or tool.",
+  "developer_impact": "What developers should know or do differently. Be specific about the API, library, or technique.",
+  "human_impact": "Broader societal/workforce implications. Cite the role, demographic, or measurable effect.",
+  "how_to_use": "One actionable next step a team can try this week. Name the tool/command/integration.",
+  "why_this_week": "One sentence: why does this matter NOW versus a month ago? (e.g. competitive timing, regulatory deadline, GA milestone, model price drop). If unclear, write 'Insufficient detail in source.'"
 }}"""
 
 
-CACHE_PATH = Path("data/summary_cache.json")
+# Bump filename when prompt or schema changes so stale entries don't poison fresh runs.
+CACHE_PATH = Path("data/summary_cache_v2.json")
 CACHE_MAX_DAYS = 14
 
 
@@ -74,9 +87,13 @@ def summarize_story(story: Story, client: OpenAI, cache: dict | None = None) -> 
         return story
 
     sources_str = " | ".join(s.name for s in story.sources)
+    today_iso = datetime.now(tz=timezone.utc).date().isoformat()
+    published_iso = story.published_at.date().isoformat() if story.published_at else "unknown"
     prompt = SUMMARIZE_USER_PROMPT.format(
         title=story.title,
         sources=sources_str,
+        published_at=published_iso,
+        today=today_iso,
         content=story.raw_content[:1500],
     )
     try:
@@ -113,6 +130,51 @@ def pick_top3(stories_by_category: dict[str, list[Story]]) -> list[Story]:
     return all_stories[:3]
 
 
+# Phrase the SUMMARIZE_SYSTEM_PROMPT instructs the model to emit when source
+# content is too thin to produce a concrete answer for a given field.
+_INSUFFICIENT_MARKER = "Insufficient detail in source"
+_INSUFFICIENT_FIELD_LIMIT = 3  # demote a story when this many fields hit the marker
+
+
+def insufficient_field_count(summary: StorySummary | None) -> int:
+    if summary is None:
+        return 99
+    fields = (
+        summary.what_happened, summary.enterprise_impact,
+        summary.software_delivery_impact, summary.developer_impact,
+        summary.human_impact, summary.how_to_use, summary.why_this_week,
+    )
+    return sum(1 for f in fields if _INSUFFICIENT_MARKER in (f or ""))
+
+
+def pick_summarized_top3(
+    candidates: list[Story],
+    client: OpenAI,
+    cache: dict,
+    pool_size: int = 6,
+) -> list[Story]:
+    """Summarize a candidate pool, then return the 3 with the most concrete summaries.
+
+    Demotes stories whose summaries are mostly "Insufficient detail in source"
+    (the marker the prompt produces when scraped content is too thin). Falls
+    back to score-order if the pool is exhausted before 3 viable picks.
+    """
+    pool = candidates[:pool_size]
+    print(f"Summarizing pool of {len(pool)} candidates for top-3 selection...")
+    summarized = [summarize_story(s, client, cache) for s in pool]
+
+    # Sort: fewer Insufficient fields first, then preserve original rank order
+    # by carrying the index as a stable tiebreaker.
+    indexed = list(enumerate(summarized))
+    indexed.sort(key=lambda pair: (insufficient_field_count(pair[1].summary), pair[0]))
+    chosen = [s for _, s in indexed[:3]]
+    for s in chosen:
+        n_insuf = insufficient_field_count(s.summary)
+        marker = "" if n_insuf < _INSUFFICIENT_FIELD_LIMIT else f"  [demoted: {n_insuf} insufficient fields]"
+        print(f"  Top3 → {s.title[:60]}{marker}")
+    return chosen
+
+
 def main():
     client = get_client()
     cache = load_cache()
@@ -136,9 +198,17 @@ def main():
             item["published_at"] = datetime.fromisoformat(item["published_at"])
         enterprise_items.append(Story(**item))
 
-    top3 = pick_top3(stories_by_category)
-    print("Summarizing top 3 must-reads...")
-    top3 = [summarize_story(s, client, cache) for s in top3]
+    # Build a candidate pool larger than 3 so we can demote stories whose
+    # summaries come back mostly "Insufficient detail in source".
+    all_stories = [s for stories in stories_by_category.values() for s in stories]
+    all_stories.sort(
+        key=lambda s: (
+            (s.priority_score or 0) * recency_multiplier(s.published_at),
+            s.source_count,
+        ),
+        reverse=True,
+    )
+    top3 = pick_summarized_top3(all_stories, client, cache, pool_size=6)
 
     save_cache(cache)
     print(f"  Saved {len(cache)} summaries to cache")

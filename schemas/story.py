@@ -16,6 +16,7 @@ class StorySummary(BaseModel):
     developer_impact: str
     human_impact: str
     how_to_use: str
+    why_this_week: str = ""
 
 
 class Story(BaseModel):
