@@ -1,22 +1,9 @@
 {
-  "generated_at": "2026-05-10T00:36:21.034449+00:00",
+  "generated_at": "2026-05-10T00:46:48.862606+00:00",
   "items": [
     {
-      "title": "Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp",
-      "url": "https://www.claude.com/blog/claude-api-skill",
-      "sdlc_tags": [
-        "ai-agents",
-        "tooling"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to ai-agents, tooling \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Building AI agents for the enterprise",
-      "url": "https://www.claude.com/blog/building-ai-agents-for-the-enterprise",
+      "title": "Claude + Codex + Gemini + OpenCode + Kimi = CHORUS",
+      "url": "https://www.reddit.com/r/LLMDevs/comments/1t68clv/claude_codex_gemini_opencode_kimi_chorus/",
       "sdlc_tags": [
         "ai-agents"
       ],
@@ -27,8 +14,8 @@
       "source": "enterprise"
     },
     {
-      "title": "AlphaEvolve: How our Gemini-powered coding agent is scaling impact across fields",
-      "url": "https://deepmind.google/blog/alphaevolve-impact/",
+      "title": "Collaborate with Claude across Excel, PowerPoint, Word and Outlook",
+      "url": "https://www.claude.com/blog/collaborate-with-claude-across-excel-powerpoint-word-and-outlook",
       "sdlc_tags": [
         "ai-agents"
       ],
@@ -39,8 +26,8 @@
       "source": "enterprise"
     },
     {
-      "title": "Built-in memory for Claude Managed Agents",
-      "url": "https://www.claude.com/blog/claude-managed-agents-memory",
+      "title": "Claude Code: Best practices for agentic coding",
+      "url": "https://www.anthropic.com/engineering/claude-code-best-practices",
       "sdlc_tags": [
         "ai-agents"
       ],
@@ -51,27 +38,38 @@
       "source": "enterprise"
     },
     {
-      "title": "Copilot code review comment types now in usage metrics API",
-      "url": "https://github.blog/changelog/2026-05-08-copilot-code-review-comment-types-now-in-usage-metrics-api",
-      "sdlc_tags": [
-        "tooling",
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "How Kepler built verifiable AI for financial services with Claude",
-      "url": "https://www.claude.com/blog/how-kepler-built-verifiable-ai-for-financial-services-with-claude",
+      "title": "New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration",
+      "url": "https://www.claude.com/blog/new-in-claude-managed-agents",
       "sdlc_tags": [
         "ai-agents"
       ],
       "recommendation": {
         "action": "spike",
         "reason": "Relevant to ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Equipping agents for the real world with Agent Skills",
+      "url": "https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills",
+      "sdlc_tags": [
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Deploying Claude across financial services",
+      "url": "https://www.claude.com/blog/deploying-claude-across-financial-services",
+      "sdlc_tags": [
+        "delivery"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to delivery \u2014 assess for team adoption."
       },
       "source": "enterprise"
     }
