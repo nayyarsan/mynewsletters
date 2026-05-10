@@ -152,6 +152,34 @@
     {
       "url": "https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api",
       "seen_at": "2026-05-09T23:51:46.026330+00:00"
+    },
+    {
+      "url": "https://www.claude.com/blog/claude-api-skill",
+      "seen_at": "2026-05-10T00:36:03.636640+00:00"
+    },
+    {
+      "url": "https://www.claude.com/blog/building-ai-agents-for-the-enterprise",
+      "seen_at": "2026-05-10T00:36:03.636640+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/alphaevolve-impact/",
+      "seen_at": "2026-05-10T00:36:03.636640+00:00"
+    },
+    {
+      "url": "https://www.claude.com/blog/claude-managed-agents-memory",
+      "seen_at": "2026-05-10T00:36:03.636640+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-05-08-copilot-code-review-comment-types-now-in-usage-metrics-api",
+      "seen_at": "2026-05-10T00:36:03.636640+00:00"
+    },
+    {
+      "url": "https://www.claude.com/blog/how-kepler-built-verifiable-ai-for-financial-services-with-claude",
+      "seen_at": "2026-05-10T00:36:03.636640+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/news/anthropic-nec",
+      "seen_at": "2026-05-10T00:36:03.636640+00:00"
     }
   ]
 }
