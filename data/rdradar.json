@@ -1,9 +1,22 @@
 {
-  "generated_at": "2026-05-10T00:46:48.862606+00:00",
+  "generated_at": "2026-05-10T06:20:43.616362+00:00",
   "items": [
     {
-      "title": "Claude + Codex + Gemini + OpenCode + Kimi = CHORUS",
-      "url": "https://www.reddit.com/r/LLMDevs/comments/1t68clv/claude_codex_gemini_opencode_kimi_chorus/",
+      "title": "Rubber Duck in GitHub Copilot CLI now supports more models",
+      "url": "https://github.blog/changelog/2026-05-07-rubber-duck-in-github-copilot-cli-now-supports-more-models",
+      "sdlc_tags": [
+        "tooling",
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Quantifying infrastructure noise in agentic coding evals",
+      "url": "https://www.anthropic.com/engineering/infrastructure-noise",
       "sdlc_tags": [
         "ai-agents"
       ],
@@ -14,8 +27,8 @@
       "source": "enterprise"
     },
     {
-      "title": "Collaborate with Claude across Excel, PowerPoint, Word and Outlook",
-      "url": "https://www.claude.com/blog/collaborate-with-claude-across-excel-powerpoint-word-and-outlook",
+      "title": "Eval awareness in Claude Opus 4.6\u2019s BrowseComp performance",
+      "url": "https://www.anthropic.com/engineering/eval-awareness-browsecomp",
       "sdlc_tags": [
         "ai-agents"
       ],
@@ -26,8 +39,32 @@
       "source": "enterprise"
     },
     {
-      "title": "Claude Code: Best practices for agentic coding",
-      "url": "https://www.anthropic.com/engineering/claude-code-best-practices",
+      "title": "Claude Sonnet 4 deprecated",
+      "url": "https://github.blog/changelog/2026-05-07-claude-sonnet-4-deprecated",
+      "sdlc_tags": [
+        "tooling"
+      ],
+      "recommendation": {
+        "action": "evaluate",
+        "reason": "Relevant to tooling \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Reduce friction and latency for long-running jobs with Webhooks in Gemini API",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/event-driven-webhooks/",
+      "sdlc_tags": [
+        "tooling"
+      ],
+      "recommendation": {
+        "action": "evaluate",
+        "reason": "Relevant to tooling \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "I used to spend 30 minutes prepping for client calls. Now Claude pulls everything I need across Gmail, Drive, and Notion in one prompt.",
+      "url": "https://www.reddit.com/r/PromptEngineering/comments/1t7r3wt/i_used_to_spend_30_minutes_prepping_for_client/",
       "sdlc_tags": [
         "ai-agents"
       ],
@@ -38,8 +75,8 @@
       "source": "enterprise"
     },
     {
-      "title": "New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration",
-      "url": "https://www.claude.com/blog/new-in-claude-managed-agents",
+      "title": "Build Interactive Agents with Generative UI",
+      "url": "https://bit.ly/4evW3jI",
       "sdlc_tags": [
         "ai-agents"
       ],
@@ -50,26 +87,14 @@
       "source": "enterprise"
     },
     {
-      "title": "Equipping agents for the real world with Agent Skills",
-      "url": "https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills",
+      "title": "I build AI agents for a living. It's a mess out there.",
+      "url": "https://www.reddit.com/r/LLMDevs/comments/1t8drrz/i_build_ai_agents_for_a_living_its_a_mess_out/",
       "sdlc_tags": [
         "ai-agents"
       ],
       "recommendation": {
         "action": "spike",
         "reason": "Relevant to ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Deploying Claude across financial services",
-      "url": "https://www.claude.com/blog/deploying-claude-across-financial-services",
-      "sdlc_tags": [
-        "delivery"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to delivery \u2014 assess for team adoption."
       },
       "source": "enterprise"
     }
