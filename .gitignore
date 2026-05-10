@@ -28,3 +28,10 @@ tmp_latest2/
 tmp_real_run/
 tmp_runs/
 tmp_normalize_test/
+tmp_dryrun*/
+
+# Claude Code: per-user local overrides (settings.json is shared)
+.claude/settings.local.json
+
+# Local-only plan notes
+Twitter Following to Notion Curation Pl.md
