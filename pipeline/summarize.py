@@ -14,7 +14,17 @@ from pipeline.rank import get_client, recency_multiplier
 
 SUMMARIZE_SYSTEM_PROMPT = """You are a senior enterprise AI analyst writing for technical
 leaders and developers. Be concise, specific, and practical. Avoid hype and marketing language.
-Write factual, actionable analysis. Return only valid JSON."""
+Write factual, actionable analysis. Return only valid JSON.
+
+SPECIFICITY RULES (these override style preferences):
+- Every field must contain at least one concrete noun: a product name, version
+  number, company name, customer name, metric, dollar figure, or date.
+- Reject generic verbs like "enables", "empowers", "leverages", "unlocks",
+  "transforms", "revolutionizes". Use specific verbs that describe what the
+  thing actually does (e.g. "indexes", "compiles", "throttles", "ships").
+- If the source content does not give you a concrete detail for a field, write
+  exactly: "Insufficient detail in source." — do NOT pad with vague language.
+- Never repeat the title back as the summary."""
 
 SUMMARIZE_USER_PROMPT = """Analyze this AI news story and return a structured JSON analysis.
 
@@ -24,16 +34,18 @@ Content: {content}
 
 Return JSON only:
 {{
-  "what_happened": "2-3 sentence factual summary of the news",
-  "enterprise_impact": "concrete and specific impact on enterprise organisations",
-  "software_delivery_impact": "specific impact on how software is built and deployed",
-  "developer_impact": "what developers should know or do differently",
-  "human_impact": "broader societal and workforce implications",
-  "how_to_use": "one actionable next step or experiment a team can try this week"
+  "what_happened": "2-3 sentence factual summary. Must name the product/version/company.",
+  "enterprise_impact": "Concrete impact on enterprise orgs. Name the workflow, role, or system affected.",
+  "software_delivery_impact": "Specific impact on how software is built/shipped. Name the SDLC stage or tool.",
+  "developer_impact": "What developers should know or do differently. Be specific about the API, library, or technique.",
+  "human_impact": "Broader societal/workforce implications. Cite the role, demographic, or measurable effect.",
+  "how_to_use": "One actionable next step a team can try this week. Name the tool/command/integration.",
+  "why_this_week": "One sentence: why does this matter NOW versus a month ago? (e.g. competitive timing, regulatory deadline, GA milestone, model price drop). If unclear, write 'Insufficient detail in source.'"
 }}"""
 
 
-CACHE_PATH = Path("data/summary_cache.json")
+# Bump filename when prompt or schema changes so stale entries don't poison fresh runs.
+CACHE_PATH = Path("data/summary_cache_v2.json")
 CACHE_MAX_DAYS = 14
 
 

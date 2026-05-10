@@ -218,6 +218,7 @@ def main():
             print(f"  Title: {story.title}")
             if story.summary:
                 print(f"  What happened: {story.summary.what_happened}")
+                print(f"  Why this week: {story.summary.why_this_week}")
                 print(f"  Enterprise impact: {story.summary.enterprise_impact}")
                 print(f"  How to use: {story.summary.how_to_use}")
             else:
