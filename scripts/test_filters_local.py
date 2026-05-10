@@ -192,13 +192,15 @@ def main():
         try:
             pdt = datetime.fromisoformat(p.replace("Z", "+00:00"))
         except (ValueError, AttributeError, TypeError):
-            kept_5d.append(s); kept_7d.append(s); continue
+            kept_5d.append(s)
+            kept_7d.append(s)
+            continue
         if pdt.tzinfo is None:
             pdt = pdt.replace(tzinfo=timezone.utc)
         (kept_5d if pdt >= cutoff_5d else drop_5d).append(s)
         (kept_7d if pdt >= cutoff_7d else drop_7d).append(s)
 
-    print(f"\n[A] Recency filter (anchored to newest item in corpus)")
+    print("\n[A] Recency filter (anchored to newest item in corpus)")
     print(f"  7-day cutoff: keep {len(kept_7d)}, drop {len(drop_7d)}")
     print(f"  5-day cutoff: keep {len(kept_5d)}, drop {len(drop_5d)}")
     print_drop_samples("Items only 5d would drop (kept by 7d)",
@@ -206,13 +208,13 @@ def main():
 
     # --- B: junk filter ---
     kept_junk, drop_junk = filter_junk(stories)
-    print(f"\n[B] Junk-title filter")
+    print("\n[B] Junk-title filter")
     print(f"  keep {len(kept_junk)}, drop {len(drop_junk)}")
     print_drop_samples("junk dropped", drop_junk, limit=20)
 
     # --- C: cross-run dedup ---
     kept_cr, drop_cr = filter_cross_run(stories, seen)
-    print(f"\n[C] Cross-run dedup against last run's selections")
+    print("\n[C] Cross-run dedup against last run's selections")
     print(f"  keep {len(kept_cr)}, drop {len(drop_cr)}")
     print_drop_samples("cross-run duplicates", drop_cr)
 

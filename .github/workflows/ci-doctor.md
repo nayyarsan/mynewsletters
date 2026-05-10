@@ -7,11 +7,11 @@ description: |
 
 on:
   workflow_run:
-    workflows: ["Daily Perf Improver", "Daily Test Coverage Improver"]  # Monitor the CI workflow specifically
+    workflows: ["AI Newsletter", "CI"]
     types:
       - completed
     branches:
-      - main
+      - master
 
 # Only trigger for failures - check in the workflow body
 if: ${{ github.event.workflow_run.conclusion == 'failure' }}

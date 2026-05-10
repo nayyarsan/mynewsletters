@@ -34,12 +34,12 @@ name: "CI Failure Doctor"
   workflow_run:
     # zizmor: ignore[dangerous-triggers] - workflow_run trigger is secured with role and fork validation
     branches:
-    - main
+    - master
     types:
     - completed
     workflows:
-    - Daily Perf Improver
-    - Daily Test Coverage Improver
+    - AI Newsletter
+    - CI
 
 permissions: {}
 
