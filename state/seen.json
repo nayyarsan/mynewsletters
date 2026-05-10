@@ -180,6 +180,30 @@
     {
       "url": "https://www.anthropic.com/news/anthropic-nec",
       "seen_at": "2026-05-10T00:36:03.636640+00:00"
+    },
+    {
+      "url": "https://www.reddit.com/r/LLMDevs/comments/1t68clv/claude_codex_gemini_opencode_kimi_chorus/",
+      "seen_at": "2026-05-10T00:46:33.376709+00:00"
+    },
+    {
+      "url": "https://www.claude.com/blog/collaborate-with-claude-across-excel-powerpoint-word-and-outlook",
+      "seen_at": "2026-05-10T00:46:33.376709+00:00"
+    },
+    {
+      "url": "https://www.claude.com/blog/deploying-claude-across-financial-services",
+      "seen_at": "2026-05-10T00:46:33.376709+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/claude-code-best-practices",
+      "seen_at": "2026-05-10T00:46:33.376709+00:00"
+    },
+    {
+      "url": "https://www.claude.com/blog/new-in-claude-managed-agents",
+      "seen_at": "2026-05-10T00:46:33.376709+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills",
+      "seen_at": "2026-05-10T00:46:33.376709+00:00"
     }
   ]
 }
