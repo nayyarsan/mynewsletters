@@ -8,9 +8,24 @@ Dedup strategy:
 Output: data/normalized.json (list of deduplicated Story objects)
 """
 import json
+import re
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 from schemas.story import Story
+from pipeline import seen_state
+
+
+# Navigation/CTA boilerplate that scrapers occasionally surface as "stories".
+# Match is case-insensitive on the stripped title.
+JUNK_EXACT_TITLES = {
+    "sign in", "log in", "enterprise", "skip to content",
+    "weekly issues", "explore courses", "try le chat", "try studio",
+    "subscribe", "menu", "navigation", "search", "home", "contact sales",
+}
+_NAV_TITLE_PATTERN = re.compile(
+    r"^(try |explore |weekly |sign |log |skip |subscribe|menu|search)",
+    re.IGNORECASE,
+)
 
 
 def load_raw_stories(raw_dir: str = "data/raw") -> list[Story]:
@@ -80,6 +95,29 @@ def deduplicate_by_title_similarity(
     return groups
 
 
+def is_junk_title(story: Story) -> bool:
+    title = (story.title or "").strip()
+    title_lower = title.lower()
+    content_len = len(story.raw_content or "")
+    word_count = len(title.split())
+
+    if title_lower in JUNK_EXACT_TITLES:
+        return True
+    if _NAV_TITLE_PATTERN.match(title) and content_len < 80:
+        return True
+    if word_count <= 2 and content_len < 60:
+        return True
+    return False
+
+
+def filter_junk(stories: list[Story]) -> list[Story]:
+    return [s for s in stories if not is_junk_title(s)]
+
+
+def filter_seen(stories: list[Story], seen_urls: set[str]) -> list[Story]:
+    return [s for s in stories if s.canonical_url not in seen_urls]
+
+
 def filter_older_than_days(stories: list[Story], days: int = 7) -> list[Story]:
     cutoff = datetime.now(tz=timezone.utc) - timedelta(days=days)
     return [
@@ -95,11 +133,18 @@ def normalize(raw_dir: str = "data/raw") -> list[Story]:
     stories = filter_older_than_days(stories, days=7)
     print(f"  After age filter: {len(stories)}")
 
+    stories = filter_junk(stories)
+    print(f"  After junk-title filter: {len(stories)}")
+
     stories = deduplicate_by_url(stories)
     print(f"  After URL dedup: {len(stories)}")
 
     stories = deduplicate_by_title_similarity(stories, threshold=0.6)
     print(f"  After title similarity dedup: {len(stories)}")
+
+    seen = seen_state.seen_url_set(seen_state.load())
+    stories = filter_seen(stories, seen)
+    print(f"  After cross-run dedup ({len(seen)} URLs in 30d window): {len(stories)}")
 
     # Sort by source_count desc, then published_at desc
     stories.sort(key=lambda s: (s.source_count, s.published_at), reverse=True)

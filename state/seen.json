@@ -1,0 +1,157 @@
+{
+  "version": 1,
+  "urls": [
+    {
+      "url": "https://www.anthropic.com/engineering/advanced-tool-use",
+      "seen_at": "2026-04-20T14:30:34+00:00"
+    },
+    {
+      "url": "https://www.claude.com/blog/claude-platform-compliance-api",
+      "seen_at": "2026-04-20T14:30:34+00:00"
+    },
+    {
+      "url": "https://openai.com/index/cloudflare-openai-agent-cloud",
+      "seen_at": "2026-04-13T14:30:13+00:00"
+    },
+    {
+      "url": "https://www.claude.com/blog/claude-managed-agents",
+      "seen_at": "2026-04-13T14:30:13+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/accelerate-agentic-tool-calling-with-serverless-model-customization-in-amazon-sagemaker-ai/",
+      "seen_at": "2026-04-13T14:30:13+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/code-execution-with-mcp",
+      "seen_at": "2026-04-13T14:30:13+00:00"
+    },
+    {
+      "url": "https://openai.com/index/cyberagent",
+      "seen_at": "2026-04-13T14:30:13+00:00"
+    },
+    {
+      "url": "https://openai.com/index/next-phase-of-enterprise-ai/",
+      "seen_at": "2026-04-13T14:30:13+00:00"
+    },
+    {
+      "url": "https://www.latent.space/p/ainews-anthropic-30b-arr-project",
+      "seen_at": "2026-04-13T14:30:13+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/news/claude-opus-4-7",
+      "seen_at": "2026-04-20T14:30:34+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/nova-forge-sdk-series-part-2-practical-guide-to-fine-tune-nova-models-using-data-mixing-capabilities/",
+      "seen_at": "2026-04-20T14:30:34+00:00"
+    },
+    {
+      "url": "https://openai.com/index/the-next-evolution-of-the-agents-sdk",
+      "seen_at": "2026-04-20T14:30:34+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/news/claude-design-anthropic-labs",
+      "seen_at": "2026-04-20T14:30:34+00:00"
+    },
+    {
+      "url": "https://www.claude.com/blog/cowork-for-enterprise",
+      "seen_at": "2026-04-20T14:30:34+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/news/claude-partner-network",
+      "seen_at": "2026-04-20T14:30:34+00:00"
+    },
+    {
+      "url": "https://simonwillison.net/2026/Apr/14/trusted-access-openai/#atom-everything",
+      "seen_at": "2026-04-20T14:30:34+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/gemini-3-1-flash-tts-the-next-generation-of-expressive-ai-speech/",
+      "seen_at": "2026-04-20T14:30:34+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/gemini-robotics-er-1-6/",
+      "seen_at": "2026-04-20T14:30:34+00:00"
+    },
+    {
+      "url": "https://www.latent.space/p/ainews-anthropic-claude-opus-47-literally",
+      "seen_at": "2026-04-20T14:30:34+00:00"
+    },
+    {
+      "url": "https://www.latent.space/p/ainews-gpt-55-and-openai-codex-superapp",
+      "seen_at": "2026-05-09T23:45:57.786128+00:00"
+    },
+    {
+      "url": "https://azure.microsoft.com/en-us/blog/openais-gpt-5-5-in-microsoft-foundry-frontier-intelligence-on-an-enterprise-ready-platform/",
+      "seen_at": "2026-05-09T23:45:57.786128+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/from-developer-desks-to-the-whole-organization-running-claude-cowork-in-amazon-bedrock/",
+      "seen_at": "2026-05-09T23:45:57.786128+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/decoupled-diloco/",
+      "seen_at": "2026-05-09T23:45:57.786128+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/desktop-extensions",
+      "seen_at": "2026-05-09T23:45:57.786128+00:00"
+    },
+    {
+      "url": "https://www.salesforce.com/blog/customer-success-awards/",
+      "seen_at": "2026-05-09T23:45:57.786128+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/partnering-with-industry-leaders-to-accelerate-ai-transformation/",
+      "seen_at": "2026-05-09T23:45:57.786128+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/announcing-our-partnership-with-the-republic-of-korea/",
+      "seen_at": "2026-05-09T23:45:57.786128+00:00"
+    },
+    {
+      "url": "https://www.claude.com/blog/building-agents-that-reach-production-systems-with-mcp",
+      "seen_at": "2026-05-09T23:51:46.026330+00:00"
+    },
+    {
+      "url": "https://devblogs.microsoft.com/microsoft365dev/announcing-the-public-preview-of-the-microsoft-365-copilot-agent-evaluations-tool/",
+      "seen_at": "2026-05-09T23:51:46.026330+00:00"
+    },
+    {
+      "url": "https://www.claude.com/blog/new-guide-deploying-claude-across-the-enterprise-with-claude-cowork",
+      "seen_at": "2026-05-09T23:51:46.026330+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/april-23-postmortem",
+      "seen_at": "2026-05-09T23:51:46.026330+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-05-08-more-flexible-secrets-and-variables-for-copilot-cloud-agent",
+      "seen_at": "2026-05-09T23:51:46.026330+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/cost-effective-deployment-of-vision-language-models-for-pet-behavior-detection-on-aws-inferentia2/",
+      "seen_at": "2026-05-09T23:51:46.026330+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/news/anthropic-amazon-compute",
+      "seen_at": "2026-05-09T23:51:46.026330+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/news/finance-agents",
+      "seen_at": "2026-05-09T23:51:46.026330+00:00"
+    },
+    {
+      "url": "https://the-decoder.com/mozillas-agentic-ai-pipeline-turns-claude-mythos-preview-loose-and-finds-271-unknown-firefox-vulnerabilities/",
+      "seen_at": "2026-05-09T23:51:46.026330+00:00"
+    },
+    {
+      "url": "https://openai.com/index/running-codex-safely",
+      "seen_at": "2026-05-09T23:51:46.026330+00:00"
+    },
+    {
+      "url": "https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api",
+      "seen_at": "2026-05-09T23:51:46.026330+00:00"
+    }
+  ]
+}
