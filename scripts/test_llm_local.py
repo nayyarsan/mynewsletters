@@ -133,9 +133,13 @@ def rank_batch_local(batch: list[Story], client: OpenAI) -> list[Story]:
 def summarize_story_local(story: Story, client: OpenAI) -> Story:
     from schemas.story import StorySummary
     sources_str = " | ".join(s.name for s in story.sources)
+    today_iso = datetime.now(tz=timezone.utc).date().isoformat()
+    published_iso = story.published_at.date().isoformat() if story.published_at else "unknown"
     prompt = SUMMARIZE_USER_PROMPT.format(
         title=story.title,
         sources=sources_str,
+        published_at=published_iso,
+        today=today_iso,
         content=story.raw_content[:1500],
     )
     response = client.chat.completions.create(

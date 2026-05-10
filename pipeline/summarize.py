@@ -30,6 +30,7 @@ SUMMARIZE_USER_PROMPT = """Analyze this AI news story and return a structured JS
 
 Title: {title}
 Source: {sources}
+Published: {published_at} (today is {today})
 Content: {content}
 
 Return JSON only:
@@ -86,9 +87,13 @@ def summarize_story(story: Story, client: OpenAI, cache: dict | None = None) -> 
         return story
 
     sources_str = " | ".join(s.name for s in story.sources)
+    today_iso = datetime.now(tz=timezone.utc).date().isoformat()
+    published_iso = story.published_at.date().isoformat() if story.published_at else "unknown"
     prompt = SUMMARIZE_USER_PROMPT.format(
         title=story.title,
         sources=sources_str,
+        published_at=published_iso,
+        today=today_iso,
         content=story.raw_content[:1500],
     )
     try:
