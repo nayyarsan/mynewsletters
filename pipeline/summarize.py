@@ -130,6 +130,51 @@ def pick_top3(stories_by_category: dict[str, list[Story]]) -> list[Story]:
     return all_stories[:3]
 
 
+# Phrase the SUMMARIZE_SYSTEM_PROMPT instructs the model to emit when source
+# content is too thin to produce a concrete answer for a given field.
+_INSUFFICIENT_MARKER = "Insufficient detail in source"
+_INSUFFICIENT_FIELD_LIMIT = 3  # demote a story when this many fields hit the marker
+
+
+def insufficient_field_count(summary: StorySummary | None) -> int:
+    if summary is None:
+        return 99
+    fields = (
+        summary.what_happened, summary.enterprise_impact,
+        summary.software_delivery_impact, summary.developer_impact,
+        summary.human_impact, summary.how_to_use, summary.why_this_week,
+    )
+    return sum(1 for f in fields if _INSUFFICIENT_MARKER in (f or ""))
+
+
+def pick_summarized_top3(
+    candidates: list[Story],
+    client: OpenAI,
+    cache: dict,
+    pool_size: int = 6,
+) -> list[Story]:
+    """Summarize a candidate pool, then return the 3 with the most concrete summaries.
+
+    Demotes stories whose summaries are mostly "Insufficient detail in source"
+    (the marker the prompt produces when scraped content is too thin). Falls
+    back to score-order if the pool is exhausted before 3 viable picks.
+    """
+    pool = candidates[:pool_size]
+    print(f"Summarizing pool of {len(pool)} candidates for top-3 selection...")
+    summarized = [summarize_story(s, client, cache) for s in pool]
+
+    # Sort: fewer Insufficient fields first, then preserve original rank order
+    # by carrying the index as a stable tiebreaker.
+    indexed = list(enumerate(summarized))
+    indexed.sort(key=lambda pair: (insufficient_field_count(pair[1].summary), pair[0]))
+    chosen = [s for _, s in indexed[:3]]
+    for s in chosen:
+        n_insuf = insufficient_field_count(s.summary)
+        marker = "" if n_insuf < _INSUFFICIENT_FIELD_LIMIT else f"  [demoted: {n_insuf} insufficient fields]"
+        print(f"  Top3 → {s.title[:60]}{marker}")
+    return chosen
+
+
 def main():
     client = get_client()
     cache = load_cache()
@@ -153,9 +198,17 @@ def main():
             item["published_at"] = datetime.fromisoformat(item["published_at"])
         enterprise_items.append(Story(**item))
 
-    top3 = pick_top3(stories_by_category)
-    print("Summarizing top 3 must-reads...")
-    top3 = [summarize_story(s, client, cache) for s in top3]
+    # Build a candidate pool larger than 3 so we can demote stories whose
+    # summaries come back mostly "Insufficient detail in source".
+    all_stories = [s for stories in stories_by_category.values() for s in stories]
+    all_stories.sort(
+        key=lambda s: (
+            (s.priority_score or 0) * recency_multiplier(s.published_at),
+            s.source_count,
+        ),
+        reverse=True,
+    )
+    top3 = pick_summarized_top3(all_stories, client, cache, pool_size=6)
 
     save_cache(cache)
     print(f"  Saved {len(cache)} summaries to cache")
