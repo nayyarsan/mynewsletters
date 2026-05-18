@@ -1,34 +1,9 @@
 {
-  "generated_at": "2026-05-11T15:04:38.636510+00:00",
+  "generated_at": "2026-05-18T15:05:16.527174+00:00",
   "items": [
     {
-      "title": "Beyond permission prompts: making Claude Code more secure and autonomous",
-      "url": "https://www.anthropic.com/engineering/claude-code-sandboxing",
-      "sdlc_tags": [
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Claude Code auto mode: a safer way to skip permissions",
-      "url": "https://www.anthropic.com/engineering/claude-code-auto-mode",
-      "sdlc_tags": [
-        "governance",
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to governance, ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Writing effective tools for agents \u2014 with agents",
-      "url": "https://www.anthropic.com/engineering/writing-tools-for-agents",
+      "title": "GPT-5.3-Codex is now the base model for Copilot Business and Enterprise",
+      "url": "https://github.blog/changelog/2026-05-17-gpt-5-3-codex-is-now-the-base-model-for-copilot-business-and-enterprise",
       "sdlc_tags": [
         "tooling",
         "ai-agents"
@@ -40,8 +15,21 @@
       "source": "enterprise"
     },
     {
-      "title": "Effective context engineering for AI agents",
-      "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "title": "Introducing Copilot CLI agent and unified sessions view in GitHub Copilot for JetBrains IDEs",
+      "url": "https://github.blog/changelog/2026-05-13-introducing-copilot-cli-agent-and-unified-sessions-view-in-github-copilot-for-jetbrains-ides",
+      "sdlc_tags": [
+        "tooling",
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Announcing New Joule Studio for Enterprise Scale Agentic Development",
+      "url": "https://news.sap.com/2026/05/new-joule-studio-enterprise-scale-agentic-development/",
       "sdlc_tags": [
         "ai-agents"
       ],
@@ -52,32 +40,59 @@
       "source": "enterprise"
     },
     {
-      "title": "New connectors in Claude for everyday life",
-      "url": "https://www.claude.com/blog/connectors-for-everyday-life",
+      "title": "Copilot cloud agent supports auto model selection",
+      "url": "https://github.blog/changelog/2026-05-14-copilot-cloud-agent-supports-auto-model-selection",
       "sdlc_tags": [
-        "tooling"
+        "ai-agents"
       ],
       "recommendation": {
-        "action": "evaluate",
-        "reason": "Relevant to tooling \u2014 assess for team adoption."
+        "action": "spike",
+        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
       },
       "source": "enterprise"
     },
     {
-      "title": "OpenAI launches DeployCo to help businesses build around intelligence",
-      "url": "https://openai.com/index/openai-launches-the-deployment-company",
+      "title": "Introducing the Claude Platform on AWS",
+      "url": "https://www.claude.com/blog/claude-platform-on-aws",
       "sdlc_tags": [
+        "tooling",
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients",
+      "url": "https://www.anthropic.com/news/pwc-expanded-partnership",
+      "sdlc_tags": [
+        "ai-agents",
         "delivery"
       ],
       "recommendation": {
         "action": "spike",
-        "reason": "Relevant to delivery \u2014 assess for team adoption."
+        "reason": "Relevant to ai-agents, delivery \u2014 assess for team adoption."
       },
       "source": "enterprise"
     },
     {
-      "title": "AI agents can now hack computers and copy themselves, and they're getting better fast",
-      "url": "https://the-decoder.com/ai-agents-can-now-hack-computers-and-copy-themselves-and-theyre-getting-better-fast/",
+      "title": "SAP and Anthropic Plan to Bring Claude to SAP Business AI Platform",
+      "url": "https://news.sap.com/2026/05/sap-anthropic-to-bring-claude-sap-business-ai-platform/",
+      "sdlc_tags": [
+        "ai-agents",
+        "governance"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents, governance \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "SAP Unveils Business AI Platform to Power the Autonomous Enterprise",
+      "url": "https://news.sap.com/2026/05/sap-sapphire-keynote-business-ai-platform-power-autonomous-enterprise/",
       "sdlc_tags": [
         "ai-agents"
       ],
@@ -88,8 +103,20 @@
       "source": "enterprise"
     },
     {
-      "title": "Researchers may have found a way to stop AI models from intentionally playing dumb during safety evaluations",
-      "url": "https://the-decoder.com/researchers-may-have-found-a-way-to-stop-ai-models-from-intentionally-playing-dumb-during-safety-evaluations/",
+      "title": "Anthropic to brief global financial regulators on cyber flaws found by Claude Mythos",
+      "url": "https://the-decoder.com/anthropic-to-brief-global-financial-regulators-on-cyber-flaws-found-by-claude-mythos/",
+      "sdlc_tags": [
+        "governance"
+      ],
+      "recommendation": {
+        "action": "review",
+        "reason": "Relevant to governance \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Navigating EU AI Act requirements for LLM fine-tuning on Amazon SageMaker AI",
+      "url": "https://aws.amazon.com/blogs/machine-learning/navigating-eu-ai-act-requirements-for-llm-fine-tuning-on-amazon-sagemaker-ai/",
       "sdlc_tags": [
         "governance"
       ],
