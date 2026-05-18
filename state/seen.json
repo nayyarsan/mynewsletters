@@ -10,34 +10,6 @@
       "seen_at": "2026-04-20T14:30:34+00:00"
     },
     {
-      "url": "https://openai.com/index/cloudflare-openai-agent-cloud",
-      "seen_at": "2026-04-13T14:30:13+00:00"
-    },
-    {
-      "url": "https://www.claude.com/blog/claude-managed-agents",
-      "seen_at": "2026-04-13T14:30:13+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/accelerate-agentic-tool-calling-with-serverless-model-customization-in-amazon-sagemaker-ai/",
-      "seen_at": "2026-04-13T14:30:13+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/engineering/code-execution-with-mcp",
-      "seen_at": "2026-04-13T14:30:13+00:00"
-    },
-    {
-      "url": "https://openai.com/index/cyberagent",
-      "seen_at": "2026-04-13T14:30:13+00:00"
-    },
-    {
-      "url": "https://openai.com/index/next-phase-of-enterprise-ai/",
-      "seen_at": "2026-04-13T14:30:13+00:00"
-    },
-    {
-      "url": "https://www.latent.space/p/ainews-anthropic-30b-arr-project",
-      "seen_at": "2026-04-13T14:30:13+00:00"
-    },
-    {
       "url": "https://www.anthropic.com/news/claude-opus-4-7",
       "seen_at": "2026-04-20T14:30:34+00:00"
     },
@@ -284,6 +256,54 @@
     {
       "url": "https://towardsdatascience.com/the-must-know-topics-for-an-llm-engineer/",
       "seen_at": "2026-05-11T15:04:19.931412+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-05-17-gpt-5-3-codex-is-now-the-base-model-for-copilot-business-and-enterprise",
+      "seen_at": "2026-05-18T15:04:56.571615+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-05-13-introducing-copilot-cli-agent-and-unified-sessions-view-in-github-copilot-for-jetbrains-ides",
+      "seen_at": "2026-05-18T15:04:56.571615+00:00"
+    },
+    {
+      "url": "https://news.sap.com/2026/05/new-joule-studio-enterprise-scale-agentic-development/",
+      "seen_at": "2026-05-18T15:04:56.571615+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-05-14-copilot-cloud-agent-supports-auto-model-selection",
+      "seen_at": "2026-05-18T15:04:56.571615+00:00"
+    },
+    {
+      "url": "https://www.claude.com/blog/claude-platform-on-aws",
+      "seen_at": "2026-05-18T15:04:56.571615+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/news/pwc-expanded-partnership",
+      "seen_at": "2026-05-18T15:04:56.571615+00:00"
+    },
+    {
+      "url": "https://news.sap.com/2026/05/sap-anthropic-to-bring-claude-sap-business-ai-platform/",
+      "seen_at": "2026-05-18T15:04:56.571615+00:00"
+    },
+    {
+      "url": "https://news.sap.com/2026/05/sap-sapphire-keynote-business-ai-platform-power-autonomous-enterprise/",
+      "seen_at": "2026-05-18T15:04:56.571615+00:00"
+    },
+    {
+      "url": "https://the-decoder.com/anthropic-to-brief-global-financial-regulators-on-cyber-flaws-found-by-claude-mythos/",
+      "seen_at": "2026-05-18T15:04:56.571615+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/navigating-eu-ai-act-requirements-for-llm-fine-tuning-on-amazon-sagemaker-ai/",
+      "seen_at": "2026-05-18T15:04:56.571615+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-claude-platform-on-aws-anthropics-native-platform-through-your-aws-account/",
+      "seen_at": "2026-05-18T15:04:56.571615+00:00"
+    },
+    {
+      "url": "https://www.claude.com/blog/claude-security-public-beta",
+      "seen_at": "2026-05-18T15:04:56.571615+00:00"
     }
   ]
 }
