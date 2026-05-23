@@ -2,54 +2,6 @@
   "version": 1,
   "urls": [
     {
-      "url": "https://www.anthropic.com/engineering/advanced-tool-use",
-      "seen_at": "2026-04-20T14:30:34+00:00"
-    },
-    {
-      "url": "https://www.claude.com/blog/claude-platform-compliance-api",
-      "seen_at": "2026-04-20T14:30:34+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/news/claude-opus-4-7",
-      "seen_at": "2026-04-20T14:30:34+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/nova-forge-sdk-series-part-2-practical-guide-to-fine-tune-nova-models-using-data-mixing-capabilities/",
-      "seen_at": "2026-04-20T14:30:34+00:00"
-    },
-    {
-      "url": "https://openai.com/index/the-next-evolution-of-the-agents-sdk",
-      "seen_at": "2026-04-20T14:30:34+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/news/claude-design-anthropic-labs",
-      "seen_at": "2026-04-20T14:30:34+00:00"
-    },
-    {
-      "url": "https://www.claude.com/blog/cowork-for-enterprise",
-      "seen_at": "2026-04-20T14:30:34+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/news/claude-partner-network",
-      "seen_at": "2026-04-20T14:30:34+00:00"
-    },
-    {
-      "url": "https://simonwillison.net/2026/Apr/14/trusted-access-openai/#atom-everything",
-      "seen_at": "2026-04-20T14:30:34+00:00"
-    },
-    {
-      "url": "https://deepmind.google/blog/gemini-3-1-flash-tts-the-next-generation-of-expressive-ai-speech/",
-      "seen_at": "2026-04-20T14:30:34+00:00"
-    },
-    {
-      "url": "https://deepmind.google/blog/gemini-robotics-er-1-6/",
-      "seen_at": "2026-04-20T14:30:34+00:00"
-    },
-    {
-      "url": "https://www.latent.space/p/ainews-anthropic-claude-opus-47-literally",
-      "seen_at": "2026-04-20T14:30:34+00:00"
-    },
-    {
       "url": "https://www.latent.space/p/ainews-gpt-55-and-openai-codex-superapp",
       "seen_at": "2026-05-09T23:45:57.786128+00:00"
     },
@@ -304,6 +256,50 @@
     {
       "url": "https://www.claude.com/blog/claude-security-public-beta",
       "seen_at": "2026-05-18T15:04:56.571615+00:00"
+    },
+    {
+      "url": "https://openai.com/index/dell-codex-enterprise-partnership",
+      "seen_at": "2026-05-23T18:08:49.102620+00:00"
+    },
+    {
+      "url": "https://the-decoder.com/anthropic-warns-claude-mythos-preview-finds-bugs-faster-than-developers-can-patch-them/",
+      "seen_at": "2026-05-23T18:08:49.102620+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/research/blog/magenticlite-magenticbrain-fara1-5-an-agentic-experience-optimized-for-small-models/",
+      "seen_at": "2026-05-23T18:08:49.102620+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-05-19-gemini-3-5-flash-is-generally-available-for-github-copilot",
+      "seen_at": "2026-05-23T18:08:49.102620+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/integrating-aws-api-mcp-server-with-amazon-quick-suite-using-amazon-bedrock-agentcore-runtime/",
+      "seen_at": "2026-05-23T18:08:49.102620+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/news/claude-for-small-business",
+      "seen_at": "2026-05-23T18:08:49.102620+00:00"
+    },
+    {
+      "url": "https://www.claude.com/blog/how-an-anthropic-sales-leader-uses-claude-cowork-to-run-a-4-000-account-book",
+      "seen_at": "2026-05-23T18:08:49.102620+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/intelligent-radiology-workflow-optimization-with-ai-agents-2/",
+      "seen_at": "2026-05-23T18:08:49.102620+00:00"
+    },
+    {
+      "url": "https://www.reddit.com/r/LLMDevs/comments/1tkr1xy/io_2026_google_bet_on_mcp_as_the_universal/",
+      "seen_at": "2026-05-23T18:08:49.102620+00:00"
+    },
+    {
+      "url": "https://openai.com/index/model-disproves-discrete-geometry-conjecture",
+      "seen_at": "2026-05-23T18:08:49.102620+00:00"
+    },
+    {
+      "url": "https://towardsdatascience.com/document-intelligence-a-series-on-building-rag-brick-by-brick-from-minimal-to-corpus-scale/",
+      "seen_at": "2026-05-23T18:08:49.102620+00:00"
     }
   ]
 }
