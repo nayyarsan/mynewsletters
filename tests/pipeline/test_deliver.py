@@ -20,11 +20,8 @@ def make_story(title, category, score, url=None, source_names=None, with_summary
     if with_summary:
         s.summary = StorySummary(
             what_happened="OpenAI launched GPT-5.",
-            enterprise_impact="Major productivity gains for enterprises.",
-            software_delivery_impact="Dev teams can automate code review.",
-            developer_impact="New API available, upgrade SDK.",
-            human_impact="Jobs will shift, not disappear.",
-            how_to_use="Try the new API with a small project this week.",
+            sdlc_impact="Affects the code-review stage — GPT-5 powers Copilot PR summaries.",
+            what_to_do="Upgrade the OpenAI SDK to >=1.30 and set model='gpt-5' in your pipeline config.",
         )
     return s
 
@@ -42,9 +39,8 @@ def test_format_story_full_contains_all_summary_sections():
     story = make_story("GPT-5 launches", "enterprise_software_delivery", 90)
     text = format_story_full(story, index=1)
     assert "What happened:" in text
-    assert "Enterprise impact:" in text
-    assert "For developers:" in text
-    assert "How to use it:" in text
+    assert "SDLC impact:" in text
+    assert "What to do:" in text
 
 
 def test_format_story_full_contains_read_more_link():

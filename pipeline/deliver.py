@@ -51,15 +51,10 @@ def format_story_full(story: Story, index: int) -> str:
     lines.append("")
 
     if story.summary:
-        # Showing 5 of 7 dimensions — omitting software_delivery_impact and
-        # human_impact to keep the Telegram message concise.
-        summary_lines = [f"What happened: {_escape(story.summary.what_happened)}"]
-        if story.summary.why_this_week:
-            summary_lines.append(f"Why this week: {_escape(story.summary.why_this_week)}")
-        summary_lines += [
-            f"Enterprise impact: {_escape(story.summary.enterprise_impact)}",
-            f"For developers: {_escape(story.summary.developer_impact)}",
-            f"How to use it: {_escape(story.summary.how_to_use)}",
+        summary_lines = [
+            f"What happened: {_escape(story.summary.what_happened)}",
+            f"SDLC impact: {_escape(story.summary.sdlc_impact)}",
+            f"What to do: {_escape(story.summary.what_to_do)}",
             "",
         ]
         lines += summary_lines

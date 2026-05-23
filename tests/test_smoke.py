@@ -21,11 +21,8 @@ MOCK_RANK_RESPONSE = json.dumps({
 
 MOCK_SUMMARY_RESPONSE = json.dumps({
     "what_happened": "A major AI development occurred.",
-    "enterprise_impact": "Significant for enterprise teams.",
-    "software_delivery_impact": "Changes how code is reviewed.",
-    "developer_impact": "New tools available.",
-    "human_impact": "Workforce will adapt.",
-    "how_to_use": "Start a small pilot project.",
+    "sdlc_impact": "Affects the code-review stage — GitHub Copilot now surfaces the change inline.",
+    "what_to_do": "Run `pip install openai --upgrade` and set model='gpt-5' in your config.",
 })
 
 

@@ -17,11 +17,8 @@ MOCK_STORY.priority_score = 90
 
 MOCK_SUMMARY = json.dumps({
     "what_happened": "OpenAI launched GPT-5 with enterprise API access.",
-    "enterprise_impact": "Enterprises can now integrate GPT-5 at scale.",
-    "software_delivery_impact": "Dev teams can replace GPT-4 with GPT-5 in pipelines.",
-    "developer_impact": "New API endpoints, higher context window, lower latency.",
-    "human_impact": "More capable AI assistants across workplaces.",
-    "how_to_use": "Upgrade your OpenAI SDK and switch model to gpt-5.",
+    "sdlc_impact": "Affects the code-review stage — GPT-5 replaces GPT-4o in Copilot PR summaries.",
+    "what_to_do": "Upgrade the OpenAI SDK to >=1.30 and set model='gpt-5' in your pipeline config.",
 })
 
 
@@ -35,7 +32,7 @@ def test_summarize_story_populates_summary():
 
     assert result.summary is not None
     assert "GPT-5" in result.summary.what_happened
-    assert result.summary.how_to_use != ""
+    assert result.summary.what_to_do != ""
 
 
 def test_summarize_story_handles_llm_failure():
@@ -119,15 +116,11 @@ def test_load_cache_returns_empty_dict_when_file_missing(tmp_path):
 
 def test_load_cache_evicts_entries_older_than_14_days(tmp_path):
     old_entry = {
-        "summary": {"what_happened": "old", "enterprise_impact": "x",
-                     "software_delivery_impact": "x", "developer_impact": "x",
-                     "human_impact": "x", "how_to_use": "x"},
+        "summary": {"what_happened": "old", "sdlc_impact": "x", "what_to_do": "x"},
         "cached_at": (datetime.now(tz=timezone.utc) - timedelta(days=20)).isoformat(),
     }
     fresh_entry = {
-        "summary": {"what_happened": "fresh", "enterprise_impact": "x",
-                    "software_delivery_impact": "x", "developer_impact": "x",
-                    "human_impact": "x", "how_to_use": "x"},
+        "summary": {"what_happened": "fresh", "sdlc_impact": "x", "what_to_do": "x"},
         "cached_at": (datetime.now(tz=timezone.utc) - timedelta(days=2)).isoformat(),
     }
     cache_file = tmp_path / "summary_cache.json"
@@ -154,11 +147,8 @@ def test_summarize_story_uses_cache_hit():
         "https://openai.com/gpt-5": {
             "summary": {
                 "what_happened": "Cached summary.",
-                "enterprise_impact": "Cached impact.",
-                "software_delivery_impact": "Cached delivery.",
-                "developer_impact": "Cached dev.",
-                "human_impact": "Cached human.",
-                "how_to_use": "Cached use.",
+                "sdlc_impact": "Cached SDLC impact.",
+                "what_to_do": "Cached action.",
             },
             "cached_at": datetime.now(tz=timezone.utc).isoformat(),
         }

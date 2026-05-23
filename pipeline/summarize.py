@@ -1,5 +1,5 @@
 """
-Job 4: Generate structured 6-dimension analysis for top-ranked stories.
+Job 4: Generate structured 3-field summary for top-ranked stories.
 
 Uses GitHub Models API (openai/gpt-4o) for higher quality summaries.
 Only runs on top 3 stories to stay within rate limits (150 req/day).
@@ -12,41 +12,33 @@ from openai import OpenAI
 from schemas.story import Story, StorySummary
 from pipeline.rank import get_client, recency_multiplier
 
-SUMMARIZE_SYSTEM_PROMPT = """You are a senior enterprise AI analyst writing for technical
-leaders and developers. Be concise, specific, and practical. Avoid hype and marketing language.
-Write factual, actionable analysis. Return only valid JSON.
+SUMMARIZE_SYSTEM_PROMPT = """You are a senior AI/SDLC analyst writing for technical leads and developers.
+Be specific. Be short. Never use filler. Return only valid JSON.
 
-SPECIFICITY RULES (these override style preferences):
-- Every field must contain at least one concrete noun: a product name, version
-  number, company name, customer name, metric, dollar figure, or date.
-- Reject generic verbs like "enables", "empowers", "leverages", "unlocks",
-  "transforms", "revolutionizes". Use specific verbs that describe what the
-  thing actually does (e.g. "indexes", "compiles", "throttles", "ships").
-- If the source content does not give you a concrete detail for a field, write
-  exactly: "Insufficient detail in source." — do NOT pad with vague language.
-- Never repeat the title back as the summary."""
+RULES — non-negotiable:
+- Every field must name at least one concrete thing: a product, version, company, API, command, or metric.
+- Banned verbs: enables, empowers, leverages, unlocks, transforms, revolutionizes, streamlines.
+  Use what the thing actually does: ships, indexes, compiles, throttles, calls, wraps, deprecates.
+- If the content doesn't support a concrete answer, write the closest true thing you CAN say.
+  Never write vague padding. Never repeat the headline."""
 
-SUMMARIZE_USER_PROMPT = """Analyze this AI news story and return a structured JSON analysis.
+SUMMARIZE_USER_PROMPT = """Analyze this AI/SDLC story. Return exactly 3 fields as JSON.
 
 Title: {title}
 Source: {sources}
-Published: {published_at} (today is {today})
+Published: {published_at}
 Content: {content}
 
 Return JSON only:
 {{
-  "what_happened": "2-3 sentence factual summary. Must name the product/version/company.",
-  "enterprise_impact": "Concrete impact on enterprise orgs. Name the workflow, role, or system affected.",
-  "software_delivery_impact": "Specific impact on how software is built/shipped. Name the SDLC stage or tool.",
-  "developer_impact": "What developers should know or do differently. Be specific about the API, library, or technique.",
-  "human_impact": "Broader societal/workforce implications. Cite the role, demographic, or measurable effect.",
-  "how_to_use": "One actionable next step a team can try this week. Name the tool/command/integration.",
-  "why_this_week": "One sentence: why does this matter NOW versus a month ago? (e.g. competitive timing, regulatory deadline, GA milestone, model price drop). If unclear, write 'Insufficient detail in source.'"
+  "what_happened": "2-3 sentences. Name the product/version/company and what specifically changed or shipped.",
+  "sdlc_impact": "Which stage of the software delivery lifecycle this affects (e.g. code review, CI, deployment, on-call) and the specific mechanism — name the tool, API, or workflow step.",
+  "what_to_do": "One concrete next action. Name the command, URL, setting, or integration a team can act on today. No generic 'explore' or 'consider'."
 }}"""
 
 
 # Bump filename when prompt or schema changes so stale entries don't poison fresh runs.
-CACHE_PATH = Path("data/summary_cache_v2.json")
+CACHE_PATH = Path("data/summary_cache_v3.json")
 CACHE_MAX_DAYS = 14
 
 
@@ -94,7 +86,7 @@ def summarize_story(story: Story, client: OpenAI, cache: dict | None = None) -> 
         sources=sources_str,
         published_at=published_iso,
         today=today_iso,
-        content=story.raw_content[:1500],
+        content=story.raw_content[:3000],
     )
     try:
         response = client.chat.completions.create(
@@ -140,9 +132,7 @@ def insufficient_field_count(summary: StorySummary | None) -> int:
     if summary is None:
         return 99
     fields = (
-        summary.what_happened, summary.enterprise_impact,
-        summary.software_delivery_impact, summary.developer_impact,
-        summary.human_impact, summary.how_to_use, summary.why_this_week,
+        summary.what_happened, summary.sdlc_impact, summary.what_to_do,
     )
     return sum(1 for f in fields if _INSUFFICIENT_MARKER in (f or ""))
 

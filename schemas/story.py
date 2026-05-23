@@ -11,12 +11,8 @@ class StorySource(BaseModel):
 
 class StorySummary(BaseModel):
     what_happened: str
-    enterprise_impact: str
-    software_delivery_impact: str
-    developer_impact: str
-    human_impact: str
-    how_to_use: str
-    why_this_week: str = ""
+    sdlc_impact: str
+    what_to_do: str
 
 
 class Story(BaseModel):
