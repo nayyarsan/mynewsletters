@@ -17,6 +17,12 @@ data/*
 # Git worktrees
 .worktrees/
 
+# Playwright persistent profile (holds X login session — never commit)
+.playwright-profile/
+
+# Python packaging artifacts
+*.egg-info/
+
 # Editor
 .vscode/
 .idea/
