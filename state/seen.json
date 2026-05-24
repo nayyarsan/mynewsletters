@@ -300,6 +300,38 @@
     {
       "url": "https://towardsdatascience.com/document-intelligence-a-series-on-building-rag-brick-by-brick-from-minimal-to-corpus-scale/",
       "seen_at": "2026-05-23T18:08:49.102620+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/build-ai-powered-dashboard-automation-agents-with-nlp-on-amazon-bedrock-agentcore/",
+      "seen_at": "2026-05-24T00:58:00.572181+00:00"
+    },
+    {
+      "url": "https://www.claude.com/blog/claude-managed-agents-updates",
+      "seen_at": "2026-05-24T00:58:00.572181+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-05-19-easily-apply-copilot-code-review-feedback-with-copilot-cloud-agent",
+      "seen_at": "2026-05-24T00:58:00.572181+00:00"
+    },
+    {
+      "url": "https://openai.com/index/gartner-2026-agentic-coding-leader",
+      "seen_at": "2026-05-24T00:58:00.572181+00:00"
+    },
+    {
+      "url": "https://github.blog/ai-and-ml/github-copilot/github-recognized-as-a-leader-in-the-gartner-magic-quadrant-for-enterprise-ai-coding-agents-for-the-third-year-in-a-row/",
+      "seen_at": "2026-05-24T00:58:00.572181+00:00"
+    },
+    {
+      "url": "https://www.claude.com/blog/deploying-claude-across-the-legal-industry",
+      "seen_at": "2026-05-24T00:58:00.572181+00:00"
+    },
+    {
+      "url": "https://www.claude.com/blog/how-anthropics-finance-team-uses-claude-to-shape-the-narrative-behind-the-numbers",
+      "seen_at": "2026-05-24T00:58:00.572181+00:00"
+    },
+    {
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1thw3bu/openai_cofounder_andrej_karpathy_just_joined/",
+      "seen_at": "2026-05-24T00:58:00.572181+00:00"
     }
   ]
 }
