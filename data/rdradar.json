@@ -1,34 +1,9 @@
 {
-  "generated_at": "2026-05-23T18:09:09.954996+00:00",
+  "generated_at": "2026-05-24T00:58:21.323642+00:00",
   "items": [
     {
-      "title": "OpenAI and Dell partner to bring Codex to hybrid and on-premise enterprise environments",
-      "url": "https://openai.com/index/dell-codex-enterprise-partnership",
-      "sdlc_tags": [
-        "delivery",
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to delivery, ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Anthropic warns Claude Mythos Preview finds bugs faster than developers can patch them",
-      "url": "https://the-decoder.com/anthropic-warns-claude-mythos-preview-finds-bugs-faster-than-developers-can-patch-them/",
-      "sdlc_tags": [
-        "testing"
-      ],
-      "recommendation": {
-        "action": "evaluate",
-        "reason": "Relevant to testing \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "MagenticLite, MagenticBrain, Fara1.5: An agentic experience optimized for small models",
-      "url": "https://www.microsoft.com/en-us/research/blog/magenticlite-magenticbrain-fara1-5-an-agentic-experience-optimized-for-small-models/",
+      "title": "Build AI-powered dashboard automation agents with NLP on Amazon Bedrock AgentCore",
+      "url": "https://aws.amazon.com/blogs/machine-learning/build-ai-powered-dashboard-automation-agents-with-nlp-on-amazon-bedrock-agentcore/",
       "sdlc_tags": [
         "ai-agents"
       ],
@@ -39,34 +14,33 @@
       "source": "enterprise"
     },
     {
-      "title": "Gemini 3.5 Flash is generally available for GitHub Copilot",
-      "url": "https://github.blog/changelog/2026-05-19-gemini-3-5-flash-is-generally-available-for-github-copilot",
+      "title": "New in Claude Managed Agents: self-hosted sandboxes and MCP tunnels",
+      "url": "https://www.claude.com/blog/claude-managed-agents-updates",
+      "sdlc_tags": [
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Easily apply Copilot code review feedback with Copilot cloud agent",
+      "url": "https://github.blog/changelog/2026-05-19-easily-apply-copilot-code-review-feedback-with-copilot-cloud-agent",
       "sdlc_tags": [
         "tooling",
-        "testing"
-      ],
-      "recommendation": {
-        "action": "evaluate",
-        "reason": "Relevant to tooling, testing \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Integrating AWS API MCP Server with Amazon Quick using Amazon Bedrock AgentCore Runtime",
-      "url": "https://aws.amazon.com/blogs/machine-learning/integrating-aws-api-mcp-server-with-amazon-quick-suite-using-amazon-bedrock-agentcore-runtime/",
-      "sdlc_tags": [
-        "ai-agents",
-        "tooling"
+        "ai-agents"
       ],
       "recommendation": {
         "action": "spike",
-        "reason": "Relevant to ai-agents, tooling \u2014 assess for team adoption."
+        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
       },
       "source": "enterprise"
     },
     {
-      "title": "Intelligent radiology workflow optimization with AI agents",
-      "url": "https://aws.amazon.com/blogs/machine-learning/intelligent-radiology-workflow-optimization-with-ai-agents-2/",
+      "title": "OpenAI named a Leader in enterprise coding agents by Gartner",
+      "url": "https://openai.com/index/gartner-2026-agentic-coding-leader",
       "sdlc_tags": [
         "ai-agents"
       ],
@@ -77,8 +51,32 @@
       "source": "enterprise"
     },
     {
-      "title": "I/O 2026: Google bet on MCP as the universal agent-to-tool protocol. That's the announcement under the announcement.",
-      "url": "https://www.reddit.com/r/LLMDevs/comments/1tkr1xy/io_2026_google_bet_on_mcp_as_the_universal/",
+      "title": "GitHub recognized as a Leader in the Gartner\u00ae Magic Quadrant\u2122 for Enterprise AI Coding Agents for the third year in a row",
+      "url": "https://github.blog/ai-and-ml/github-copilot/github-recognized-as-a-leader-in-the-gartner-magic-quadrant-for-enterprise-ai-coding-agents-for-the-third-year-in-a-row/",
+      "sdlc_tags": [
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Deploying Claude across the legal industry",
+      "url": "https://www.claude.com/blog/deploying-claude-across-the-legal-industry",
+      "sdlc_tags": [
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "How Anthropic's finance team uses Claude to shape the narrative behind the numbers",
+      "url": "https://www.claude.com/blog/how-anthropics-finance-team-uses-claude-to-shape-the-narrative-behind-the-numbers",
       "sdlc_tags": [
         "ai-agents"
       ],
