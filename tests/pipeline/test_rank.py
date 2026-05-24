@@ -56,6 +56,7 @@ def test_rank_story_sets_category_and_score():
     story = MOCK_STORY.model_copy(deep=True)
     ranked = rank_story(story, mock_client)
 
+    assert ranked is not None
     assert ranked.priority_category == "general_significance"
     assert ranked.priority_score == 90
 

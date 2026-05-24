@@ -38,7 +38,7 @@ def format_story_full(story: Story, index: int) -> str:
     sources_str = " | ".join(s.name for s in story.sources)
     if story.source_count > 1:
         sources_str += f" ({story.source_count} sources)"
-    category_label = CATEGORY_LABELS.get(story.priority_category, story.priority_category or "")
+    category_label = CATEGORY_LABELS.get(story.priority_category or "", story.priority_category or "")
 
     lines = [
         f"<b>{index}. {_escape(story.title)}</b>",
@@ -176,6 +176,9 @@ def main():
         Path("data/digest_preview.txt").write_text(digest, encoding="utf-8")
         print("DRY RUN: skipped Telegram send. Wrote data/digest_preview.txt")
     else:
+        if not bot_token or not chat_id:
+            print("Error: TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID not set", file=sys.stderr)
+            sys.exit(1)
         asyncio.run(send_to_telegram(digest, bot_token, chat_id))
         print("Delivered to Telegram.")
 

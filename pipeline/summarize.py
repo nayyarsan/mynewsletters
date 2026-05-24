@@ -98,7 +98,7 @@ def summarize_story(story: Story, client: OpenAI, cache: dict | None = None) -> 
             temperature=0.3,
             response_format={"type": "json_object"},
         )
-        data = json.loads(response.choices[0].message.content)
+        data = json.loads(response.choices[0].message.content or "{}")
         story.summary = StorySummary(**data)
         if cache is not None:
             cache[story.canonical_url] = {

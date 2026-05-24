@@ -181,7 +181,7 @@ def rank_story(story: Story, client: OpenAI) -> Story | None:
             temperature=0,
             response_format={"type": "json_object"},
         )
-        data = json.loads(response.choices[0].message.content)
+        data = json.loads(response.choices[0].message.content or "{}")
 
         if not data.get("include", True):
             return None
@@ -226,7 +226,7 @@ def rank_batch(batch: list[Story], client: OpenAI, retries: int = 2) -> list[Sto
                 temperature=0,
                 response_format={"type": "json_object"},
             )
-            data = json.loads(response.choices[0].message.content)
+            data = json.loads(response.choices[0].message.content or "{}")
             results = data.get("stories", [])
 
             ranked = []
@@ -302,7 +302,7 @@ def classify_sdlc_tags(stories: list[Story], client: OpenAI) -> list[Story]:
                 temperature=0,
                 response_format={"type": "json_object"},
             )
-            data = json.loads(response.choices[0].message.content)
+            data = json.loads(response.choices[0].message.content or "{}")
             results = data.get("stories", [])
 
             tagged_indices = set()

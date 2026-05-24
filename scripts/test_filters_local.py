@@ -22,7 +22,7 @@ import sys
 
 # Force UTF-8 stdout on Windows so we can print non-cp1252 chars in titles.
 try:
-    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")  # type: ignore[union-attr]
 except Exception:
     pass
 from datetime import datetime, timezone, timedelta

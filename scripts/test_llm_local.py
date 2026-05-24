@@ -108,7 +108,7 @@ def rank_batch_local(batch: list[Story], client: OpenAI) -> list[Story]:
         temperature=0,
         response_format={"type": "json_object"},
     )
-    data = json.loads(response.choices[0].message.content)
+    data = json.loads(response.choices[0].message.content or "{}")
     ranked = []
     for item in data.get("stories", []):
         idx = item.get("index", -1)
@@ -151,7 +151,7 @@ def summarize_story_local(story: Story, client: OpenAI) -> Story:
         temperature=0.3,
         response_format={"type": "json_object"},
     )
-    data = json.loads(response.choices[0].message.content)
+    data = json.loads(response.choices[0].message.content or "{}")
     story.summary = StorySummary(**data)
     return story
 
