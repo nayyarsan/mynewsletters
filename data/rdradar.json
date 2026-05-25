@@ -1,33 +1,9 @@
 {
-  "generated_at": "2026-05-24T00:58:21.323642+00:00",
+  "generated_at": "2026-05-25T15:03:11.610245+00:00",
   "items": [
     {
-      "title": "Build AI-powered dashboard automation agents with NLP on Amazon Bedrock AgentCore",
-      "url": "https://aws.amazon.com/blogs/machine-learning/build-ai-powered-dashboard-automation-agents-with-nlp-on-amazon-bedrock-agentcore/",
-      "sdlc_tags": [
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "New in Claude Managed Agents: self-hosted sandboxes and MCP tunnels",
-      "url": "https://www.claude.com/blog/claude-managed-agents-updates",
-      "sdlc_tags": [
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Easily apply Copilot code review feedback with Copilot cloud agent",
-      "url": "https://github.blog/changelog/2026-05-19-easily-apply-copilot-code-review-feedback-with-copilot-cloud-agent",
+      "title": "Anthropic just bought the company that generates most production MCP servers",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1thkkrb/anthropic_just_bought_the_company_that_generates/",
       "sdlc_tags": [
         "tooling",
         "ai-agents"
@@ -39,8 +15,20 @@
       "source": "enterprise"
     },
     {
-      "title": "OpenAI named a Leader in enterprise coding agents by Gartner",
-      "url": "https://openai.com/index/gartner-2026-agentic-coding-leader",
+      "title": "Built an open source spatial workspace for LLM coding workflows",
+      "url": "https://www.reddit.com/r/LLMDevs/comments/1tn8sxp/built_an_open_source_spatial_workspace_for_llm/",
+      "sdlc_tags": [
+        "tooling"
+      ],
+      "recommendation": {
+        "action": "evaluate",
+        "reason": "Relevant to tooling \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Code w/ Claude SF 2026 recap: Building on the AI exponential",
+      "url": "https://www.claude.com/blog/code-w-claude-sf-2026-sf",
       "sdlc_tags": [
         "ai-agents"
       ],
@@ -51,8 +39,34 @@
       "source": "enterprise"
     },
     {
-      "title": "GitHub recognized as a Leader in the Gartner\u00ae Magic Quadrant\u2122 for Enterprise AI Coding Agents for the third year in a row",
-      "url": "https://github.blog/ai-and-ml/github-copilot/github-recognized-as-a-leader-in-the-gartner-magic-quadrant-for-enterprise-ai-coding-agents-for-the-third-year-in-a-row/",
+      "title": "Introducing the Agent Toolkit for Amazon Web\u00a0Services",
+      "url": "https://towardsdatascience.com/introducing-the-agent-toolkit-for-amazon-web-services/",
+      "sdlc_tags": [
+        "tooling",
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "The greatest htmx LLM skill on the internet, now updated for v4 beta",
+      "url": "https://www.reddit.com/r/LLMDevs/comments/1tmwiat/the_greatest_htmx_llm_skill_on_the_internet_now/",
+      "sdlc_tags": [
+        "tooling",
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "KPMG integrates Claude across its core business and workforce of more than 276,000 in strategic alliance",
+      "url": "https://www.anthropic.com/news/anthropic-kpmg",
       "sdlc_tags": [
         "ai-agents"
       ],
@@ -63,26 +77,14 @@
       "source": "enterprise"
     },
     {
-      "title": "Deploying Claude across the legal industry",
-      "url": "https://www.claude.com/blog/deploying-claude-across-the-legal-industry",
+      "title": "Anthropic may keep supplying Claude to the NSA despite being flagged as a supply chain risk by the Pentagon",
+      "url": "https://the-decoder.com/anthropic-may-keep-supplying-claude-to-the-nsa-despite-being-flagged-as-a-supply-chain-risk-by-the-pentagon/",
       "sdlc_tags": [
-        "ai-agents"
+        "governance"
       ],
       "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "How Anthropic's finance team uses Claude to shape the narrative behind the numbers",
-      "url": "https://www.claude.com/blog/how-anthropics-finance-team-uses-claude-to-shape-the-narrative-behind-the-numbers",
-      "sdlc_tags": [
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
+        "action": "review",
+        "reason": "Relevant to governance \u2014 assess for team adoption."
       },
       "source": "enterprise"
     }
