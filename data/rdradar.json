@@ -1,34 +1,9 @@
 {
-  "generated_at": "2026-05-25T15:03:11.610245+00:00",
+  "generated_at": "2026-06-01T16:03:41.538996+00:00",
   "items": [
     {
-      "title": "Anthropic just bought the company that generates most production MCP servers",
-      "url": "https://www.reddit.com/r/ClaudeAI/comments/1thkkrb/anthropic_just_bought_the_company_that_generates/",
-      "sdlc_tags": [
-        "tooling",
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Built an open source spatial workspace for LLM coding workflows",
-      "url": "https://www.reddit.com/r/LLMDevs/comments/1tn8sxp/built_an_open_source_spatial_workspace_for_llm/",
-      "sdlc_tags": [
-        "tooling"
-      ],
-      "recommendation": {
-        "action": "evaluate",
-        "reason": "Relevant to tooling \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Code w/ Claude SF 2026 recap: Building on the AI exponential",
-      "url": "https://www.claude.com/blog/code-w-claude-sf-2026-sf",
+      "title": "Claude Opus 4.8 is generally available for GitHub Copilot",
+      "url": "https://github.blog/changelog/2026-05-28-claude-opus-4-8-is-generally-available-for-github-copilot",
       "sdlc_tags": [
         "ai-agents"
       ],
@@ -39,34 +14,8 @@
       "source": "enterprise"
     },
     {
-      "title": "Introducing the Agent Toolkit for Amazon Web\u00a0Services",
-      "url": "https://towardsdatascience.com/introducing-the-agent-toolkit-for-amazon-web-services/",
-      "sdlc_tags": [
-        "tooling",
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "The greatest htmx LLM skill on the internet, now updated for v4 beta",
-      "url": "https://www.reddit.com/r/LLMDevs/comments/1tmwiat/the_greatest_htmx_llm_skill_on_the_internet_now/",
-      "sdlc_tags": [
-        "tooling",
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "KPMG integrates Claude across its core business and workforce of more than 276,000 in strategic alliance",
-      "url": "https://www.anthropic.com/news/anthropic-kpmg",
+      "title": "Cisco and OpenAI redefine enterprise engineering with Codex",
+      "url": "https://openai.com/index/cisco",
       "sdlc_tags": [
         "ai-agents"
       ],
@@ -77,14 +26,54 @@
       "source": "enterprise"
     },
     {
-      "title": "Anthropic may keep supplying Claude to the NSA despite being flagged as a supply chain risk by the Pentagon",
-      "url": "https://the-decoder.com/anthropic-may-keep-supplying-claude-to-the-nsa-despite-being-flagged-as-a-supply-chain-risk-by-the-pentagon/",
+      "title": "Copilot usage metrics API adds cohorts for AI adoption",
+      "url": "https://github.blog/changelog/2026-05-29-copilot-usage-metrics-api-adds-cohorts-for-ai-adoption",
       "sdlc_tags": [
-        "governance"
+        "tooling",
+        "ai-agents"
       ],
       "recommendation": {
-        "action": "review",
-        "reason": "Relevant to governance \u2014 assess for team adoption."
+        "action": "spike",
+        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Claude Opus 4.8 is now available in Microsoft Foundry",
+      "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/claude-opus-4-8-is-now-available-in-microsoft-foundry/4523367",
+      "sdlc_tags": [
+        "tooling",
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "How Endava builds an agentic organization with Codex",
+      "url": "https://openai.com/index/endava",
+      "sdlc_tags": [
+        "ai-agents",
+        "delivery"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents, delivery \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Building self-improving tax agents with Codex",
+      "url": "https://openai.com/index/building-self-improving-tax-agents-with-codex",
+      "sdlc_tags": [
+        "ai-agents",
+        "delivery"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents, delivery \u2014 assess for team adoption."
       },
       "source": "enterprise"
     }
