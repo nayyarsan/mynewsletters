@@ -392,6 +392,38 @@
     {
       "url": "https://www.anthropic.com/news/milan-office-opening",
       "seen_at": "2026-06-01T16:03:23.574500+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-06-04-agent-tasks-rest-api-now-available-for-copilot-pro-pro-and-max",
+      "seen_at": "2026-06-08T15:08:05.346269+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/openai-models-and-codex-on-amazon-bedrock-are-now-generally-available/",
+      "seen_at": "2026-06-08T15:08:05.346269+00:00"
+    },
+    {
+      "url": "https://the-decoder.com/openai-says-chat-is-dead-and-plans-to-rebuild-chatgpt-as-a-full-blown-agent-app/",
+      "seen_at": "2026-06-08T15:08:05.346269+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-06-04-github-copilot-in-visual-studio-may-update",
+      "seen_at": "2026-06-08T15:08:05.346269+00:00"
+    },
+    {
+      "url": "https://openai.com/index/codex-for-every-role-tool-workflow",
+      "seen_at": "2026-06-08T15:08:05.346269+00:00"
+    },
+    {
+      "url": "https://www.claude.com/blog/how-anthropic-enables-self-service-data-analytics-with-claude",
+      "seen_at": "2026-06-08T15:08:05.346269+00:00"
+    },
+    {
+      "url": "https://news.sap.com/2026/06/autonomous-supply-chain-why-agentic-ai-is-rewriting-the-operating-model/",
+      "seen_at": "2026-06-08T15:08:05.346269+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/amazon-quick-integration-with-time-series-databases-for-market-intelligence-using-mcp/",
+      "seen_at": "2026-06-08T15:08:05.346269+00:00"
     }
   ]
 }
