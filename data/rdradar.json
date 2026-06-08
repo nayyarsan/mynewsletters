@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-01T16:03:41.538996+00:00",
+  "generated_at": "2026-06-08T15:08:25.262777+00:00",
   "items": [
     {
-      "title": "Claude Opus 4.8 is generally available for GitHub Copilot",
-      "url": "https://github.blog/changelog/2026-05-28-claude-opus-4-8-is-generally-available-for-github-copilot",
+      "title": "Agent tasks REST API now available for Copilot Pro, Pro+, and Max",
+      "url": "https://github.blog/changelog/2026-06-04-agent-tasks-rest-api-now-available-for-copilot-pro-pro-and-max",
       "sdlc_tags": [
         "ai-agents"
       ],
@@ -14,20 +14,8 @@
       "source": "enterprise"
     },
     {
-      "title": "Cisco and OpenAI redefine enterprise engineering with Codex",
-      "url": "https://openai.com/index/cisco",
-      "sdlc_tags": [
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Copilot usage metrics API adds cohorts for AI adoption",
-      "url": "https://github.blog/changelog/2026-05-29-copilot-usage-metrics-api-adds-cohorts-for-ai-adoption",
+      "title": "OpenAI models and Codex on Amazon Bedrock are now generally available",
+      "url": "https://aws.amazon.com/blogs/machine-learning/openai-models-and-codex-on-amazon-bedrock-are-now-generally-available/",
       "sdlc_tags": [
         "tooling",
         "ai-agents"
@@ -39,8 +27,33 @@
       "source": "enterprise"
     },
     {
-      "title": "Claude Opus 4.8 is now available in Microsoft Foundry",
-      "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/claude-opus-4-8-is-now-available-in-microsoft-foundry/4523367",
+      "title": "OpenAI says \"chat is dead\" and plans to rebuild ChatGPT as a full-blown agent app",
+      "url": "https://the-decoder.com/openai-says-chat-is-dead-and-plans-to-rebuild-chatgpt-as-a-full-blown-agent-app/",
+      "sdlc_tags": [
+        "ai-agents",
+        "tooling"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents, tooling \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "GitHub Copilot in Visual Studio \u2014 May update",
+      "url": "https://github.blog/changelog/2026-06-04-github-copilot-in-visual-studio-may-update",
+      "sdlc_tags": [
+        "tooling"
+      ],
+      "recommendation": {
+        "action": "evaluate",
+        "reason": "Relevant to tooling \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Codex for every role, tool, and workflow",
+      "url": "https://openai.com/index/codex-for-every-role-tool-workflow",
       "sdlc_tags": [
         "tooling",
         "ai-agents"
@@ -52,28 +65,26 @@
       "source": "enterprise"
     },
     {
-      "title": "How Endava builds an agentic organization with Codex",
-      "url": "https://openai.com/index/endava",
+      "title": "Autonomous Supply Chain: Why Agentic AI Is Rewriting the Operating Model",
+      "url": "https://news.sap.com/2026/06/autonomous-supply-chain-why-agentic-ai-is-rewriting-the-operating-model/",
       "sdlc_tags": [
-        "ai-agents",
-        "delivery"
+        "ai-agents"
       ],
       "recommendation": {
         "action": "spike",
-        "reason": "Relevant to ai-agents, delivery \u2014 assess for team adoption."
+        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
       },
       "source": "enterprise"
     },
     {
-      "title": "Building self-improving tax agents with Codex",
-      "url": "https://openai.com/index/building-self-improving-tax-agents-with-codex",
+      "title": "Amazon Quick integration with time-series databases for market intelligence using MCP",
+      "url": "https://aws.amazon.com/blogs/machine-learning/amazon-quick-integration-with-time-series-databases-for-market-intelligence-using-mcp/",
       "sdlc_tags": [
-        "ai-agents",
-        "delivery"
+        "ai-agents"
       ],
       "recommendation": {
         "action": "spike",
-        "reason": "Relevant to ai-agents, delivery \u2014 assess for team adoption."
+        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
       },
       "source": "enterprise"
     }
