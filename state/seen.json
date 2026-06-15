@@ -2,214 +2,6 @@
   "version": 1,
   "urls": [
     {
-      "url": "https://www.latent.space/p/ainews-gpt-55-and-openai-codex-superapp",
-      "seen_at": "2026-05-09T23:45:57.786128+00:00"
-    },
-    {
-      "url": "https://azure.microsoft.com/en-us/blog/openais-gpt-5-5-in-microsoft-foundry-frontier-intelligence-on-an-enterprise-ready-platform/",
-      "seen_at": "2026-05-09T23:45:57.786128+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/from-developer-desks-to-the-whole-organization-running-claude-cowork-in-amazon-bedrock/",
-      "seen_at": "2026-05-09T23:45:57.786128+00:00"
-    },
-    {
-      "url": "https://deepmind.google/blog/decoupled-diloco/",
-      "seen_at": "2026-05-09T23:45:57.786128+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/engineering/desktop-extensions",
-      "seen_at": "2026-05-09T23:45:57.786128+00:00"
-    },
-    {
-      "url": "https://www.salesforce.com/blog/customer-success-awards/",
-      "seen_at": "2026-05-09T23:45:57.786128+00:00"
-    },
-    {
-      "url": "https://deepmind.google/blog/partnering-with-industry-leaders-to-accelerate-ai-transformation/",
-      "seen_at": "2026-05-09T23:45:57.786128+00:00"
-    },
-    {
-      "url": "https://deepmind.google/blog/announcing-our-partnership-with-the-republic-of-korea/",
-      "seen_at": "2026-05-09T23:45:57.786128+00:00"
-    },
-    {
-      "url": "https://www.claude.com/blog/building-agents-that-reach-production-systems-with-mcp",
-      "seen_at": "2026-05-09T23:51:46.026330+00:00"
-    },
-    {
-      "url": "https://devblogs.microsoft.com/microsoft365dev/announcing-the-public-preview-of-the-microsoft-365-copilot-agent-evaluations-tool/",
-      "seen_at": "2026-05-09T23:51:46.026330+00:00"
-    },
-    {
-      "url": "https://www.claude.com/blog/new-guide-deploying-claude-across-the-enterprise-with-claude-cowork",
-      "seen_at": "2026-05-09T23:51:46.026330+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/engineering/april-23-postmortem",
-      "seen_at": "2026-05-09T23:51:46.026330+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-05-08-more-flexible-secrets-and-variables-for-copilot-cloud-agent",
-      "seen_at": "2026-05-09T23:51:46.026330+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/cost-effective-deployment-of-vision-language-models-for-pet-behavior-detection-on-aws-inferentia2/",
-      "seen_at": "2026-05-09T23:51:46.026330+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/news/anthropic-amazon-compute",
-      "seen_at": "2026-05-09T23:51:46.026330+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/news/finance-agents",
-      "seen_at": "2026-05-09T23:51:46.026330+00:00"
-    },
-    {
-      "url": "https://the-decoder.com/mozillas-agentic-ai-pipeline-turns-claude-mythos-preview-loose-and-finds-271-unknown-firefox-vulnerabilities/",
-      "seen_at": "2026-05-09T23:51:46.026330+00:00"
-    },
-    {
-      "url": "https://openai.com/index/running-codex-safely",
-      "seen_at": "2026-05-09T23:51:46.026330+00:00"
-    },
-    {
-      "url": "https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api",
-      "seen_at": "2026-05-09T23:51:46.026330+00:00"
-    },
-    {
-      "url": "https://www.claude.com/blog/claude-api-skill",
-      "seen_at": "2026-05-10T00:36:03.636640+00:00"
-    },
-    {
-      "url": "https://www.claude.com/blog/building-ai-agents-for-the-enterprise",
-      "seen_at": "2026-05-10T00:36:03.636640+00:00"
-    },
-    {
-      "url": "https://deepmind.google/blog/alphaevolve-impact/",
-      "seen_at": "2026-05-10T00:36:03.636640+00:00"
-    },
-    {
-      "url": "https://www.claude.com/blog/claude-managed-agents-memory",
-      "seen_at": "2026-05-10T00:36:03.636640+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-05-08-copilot-code-review-comment-types-now-in-usage-metrics-api",
-      "seen_at": "2026-05-10T00:36:03.636640+00:00"
-    },
-    {
-      "url": "https://www.claude.com/blog/how-kepler-built-verifiable-ai-for-financial-services-with-claude",
-      "seen_at": "2026-05-10T00:36:03.636640+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/news/anthropic-nec",
-      "seen_at": "2026-05-10T00:36:03.636640+00:00"
-    },
-    {
-      "url": "https://www.reddit.com/r/LLMDevs/comments/1t68clv/claude_codex_gemini_opencode_kimi_chorus/",
-      "seen_at": "2026-05-10T00:46:33.376709+00:00"
-    },
-    {
-      "url": "https://www.claude.com/blog/collaborate-with-claude-across-excel-powerpoint-word-and-outlook",
-      "seen_at": "2026-05-10T00:46:33.376709+00:00"
-    },
-    {
-      "url": "https://www.claude.com/blog/deploying-claude-across-financial-services",
-      "seen_at": "2026-05-10T00:46:33.376709+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/engineering/claude-code-best-practices",
-      "seen_at": "2026-05-10T00:46:33.376709+00:00"
-    },
-    {
-      "url": "https://www.claude.com/blog/new-in-claude-managed-agents",
-      "seen_at": "2026-05-10T00:46:33.376709+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills",
-      "seen_at": "2026-05-10T00:46:33.376709+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-05-07-rubber-duck-in-github-copilot-cli-now-supports-more-models",
-      "seen_at": "2026-05-10T06:20:22.984042+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/engineering/infrastructure-noise",
-      "seen_at": "2026-05-10T06:20:22.984042+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-05-07-claude-sonnet-4-deprecated",
-      "seen_at": "2026-05-10T06:20:22.984042+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/engineering/eval-awareness-browsecomp",
-      "seen_at": "2026-05-10T06:20:22.984042+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/event-driven-webhooks/",
-      "seen_at": "2026-05-10T06:20:22.984042+00:00"
-    },
-    {
-      "url": "https://www.reddit.com/r/PromptEngineering/comments/1t7r3wt/i_used_to_spend_30_minutes_prepping_for_client/",
-      "seen_at": "2026-05-10T06:20:22.984042+00:00"
-    },
-    {
-      "url": "https://bit.ly/4evW3jI",
-      "seen_at": "2026-05-10T06:20:22.984042+00:00"
-    },
-    {
-      "url": "https://www.reddit.com/r/LLMDevs/comments/1t8drrz/i_build_ai_agents_for_a_living_its_a_mess_out/",
-      "seen_at": "2026-05-10T06:20:22.984042+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/engineering/claude-code-auto-mode",
-      "seen_at": "2026-05-11T15:04:19.931412+00:00"
-    },
-    {
-      "url": "https://openai.com/index/openai-launches-the-deployment-company",
-      "seen_at": "2026-05-11T15:04:19.931412+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/engineering/writing-tools-for-agents",
-      "seen_at": "2026-05-11T15:04:19.931412+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/engineering/claude-code-sandboxing",
-      "seen_at": "2026-05-11T15:04:19.931412+00:00"
-    },
-    {
-      "url": "https://www.reddit.com/r/ClaudeAI/comments/1t77iid/pov_anthropic_releases_their_new_model/",
-      "seen_at": "2026-05-11T15:04:19.931412+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
-      "seen_at": "2026-05-11T15:04:19.931412+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/news/enterprise-ai-services-company",
-      "seen_at": "2026-05-11T15:04:19.931412+00:00"
-    },
-    {
-      "url": "https://www.claude.com/blog/connectors-for-everyday-life",
-      "seen_at": "2026-05-11T15:04:19.931412+00:00"
-    },
-    {
-      "url": "https://the-decoder.com/ai-agents-can-now-hack-computers-and-copy-themselves-and-theyre-getting-better-fast/",
-      "seen_at": "2026-05-11T15:04:19.931412+00:00"
-    },
-    {
-      "url": "https://the-decoder.com/researchers-may-have-found-a-way-to-stop-ai-models-from-intentionally-playing-dumb-during-safety-evaluations/",
-      "seen_at": "2026-05-11T15:04:19.931412+00:00"
-    },
-    {
-      "url": "https://www.claude.com/blog/onboarding-claude-code-like-a-new-developer-lessons-from-17-years-of-development",
-      "seen_at": "2026-05-11T15:04:19.931412+00:00"
-    },
-    {
-      "url": "https://towardsdatascience.com/the-must-know-topics-for-an-llm-engineer/",
-      "seen_at": "2026-05-11T15:04:19.931412+00:00"
-    },
-    {
       "url": "https://github.blog/changelog/2026-05-17-gpt-5-3-codex-is-now-the-base-model-for-copilot-business-and-enterprise",
       "seen_at": "2026-05-18T15:04:56.571615+00:00"
     },
@@ -424,6 +216,50 @@
     {
       "url": "https://aws.amazon.com/blogs/machine-learning/amazon-quick-integration-with-time-series-databases-for-market-intelligence-using-mcp/",
       "seen_at": "2026-06-08T15:08:05.346269+00:00"
+    },
+    {
+      "url": "https://openai.com/index/openai-on-oracle-cloud",
+      "seen_at": "2026-06-15T15:59:52.351124+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/its-safe-to-close-your-laptop-now-hosting-coding-agents-on-amazon-bedrock-agentcore/",
+      "seen_at": "2026-06-15T15:59:52.351124+00:00"
+    },
+    {
+      "url": "https://github.blog/ai-and-ml/github-copilot/from-one-off-prompts-to-workflows-how-to-use-custom-agents-in-github-copilot-cli/",
+      "seen_at": "2026-06-15T15:59:52.351124+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/code-execution-with-mcp",
+      "seen_at": "2026-06-15T15:59:52.351124+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/diffusiongemma-4x-faster-text-generation/",
+      "seen_at": "2026-06-15T15:59:52.351124+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/news/tcs-anthropic-partnership",
+      "seen_at": "2026-06-15T15:59:52.351124+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/fluid-natural-voice-translation-with-gemini-35-live-translate/",
+      "seen_at": "2026-06-15T15:59:52.351124+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/introducing-gemma-4-12b-a-unified-encoder-free-multimodal-model/",
+      "seen_at": "2026-06-15T15:59:52.351124+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/",
+      "seen_at": "2026-06-15T15:59:52.351124+00:00"
+    },
+    {
+      "url": "https://www.claude.com/blog/building-with-claude-managed-agents",
+      "seen_at": "2026-06-15T15:59:52.351124+00:00"
+    },
+    {
+      "url": "https://towardsdatascience.com/gpu-time-slicing-for-concurrent-llm-agents-on-kubernetes/",
+      "seen_at": "2026-06-15T15:59:52.351124+00:00"
     }
   ]
 }
