@@ -1,82 +1,21 @@
 {
-  "generated_at": "2026-06-15T16:00:10.651861+00:00",
+  "generated_at": "2026-06-22T15:42:30.887397+00:00",
   "items": [
     {
-      "title": "Access OpenAI models and Codex through your Oracle cloud commitment",
-      "url": "https://openai.com/index/openai-on-oracle-cloud",
+      "title": "Predicting model behavior before release by simulating deployment",
+      "url": "https://openai.com/index/deployment-simulation",
       "sdlc_tags": [
-        "governance",
-        "ai-agents"
+        "delivery"
       ],
       "recommendation": {
         "action": "spike",
-        "reason": "Relevant to governance, ai-agents \u2014 assess for team adoption."
+        "reason": "Relevant to delivery \u2014 assess for team adoption."
       },
       "source": "enterprise"
     },
     {
-      "title": "It\u2019s safe to close your laptop now: Hosting coding agents on Amazon Bedrock AgentCore",
-      "url": "https://aws.amazon.com/blogs/machine-learning/its-safe-to-close-your-laptop-now-hosting-coding-agents-on-amazon-bedrock-agentcore/",
-      "sdlc_tags": [
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "From one-off prompts to workflows: How to use custom agents in GitHub Copilot CLI",
-      "url": "https://github.blog/ai-and-ml/github-copilot/from-one-off-prompts-to-workflows-how-to-use-custom-agents-in-github-copilot-cli/",
-      "sdlc_tags": [
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Code execution with MCP: Building more efficient agents",
-      "url": "https://www.anthropic.com/engineering/code-execution-with-mcp",
-      "sdlc_tags": [
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "TCS and Anthropic partner to bring Claude to regulated industries",
-      "url": "https://www.anthropic.com/news/tcs-anthropic-partnership",
-      "sdlc_tags": [
-        "governance"
-      ],
-      "recommendation": {
-        "action": "review",
-        "reason": "Relevant to governance \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Fluid, natural voice translation with Gemini 3.5 Live Translate",
-      "url": "https://deepmind.google/blog/fluid-natural-voice-translation-with-gemini-35-live-translate/",
-      "sdlc_tags": [
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Investing in multi-agent AI safety research",
-      "url": "https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/",
+      "title": "Safeguard your agentic AI applications with the Amazon Bedrock Guardrails InvokeGuardrailChecks API",
+      "url": "https://aws.amazon.com/blogs/machine-learning/safeguard-your-agentic-ai-applications-with-the-amazon-bedrock-guardrails-invokeguardrailchecks-api/",
       "sdlc_tags": [
         "ai-agents",
         "governance"
@@ -88,8 +27,20 @@
       "source": "enterprise"
     },
     {
-      "title": "The evolution of agentic surfaces: building with Claude Managed Agents",
-      "url": "https://www.claude.com/blog/building-with-claude-managed-agents",
+      "title": "Introducing advanced tool use on the Claude Developer Platform",
+      "url": "https://www.anthropic.com/engineering/advanced-tool-use",
+      "sdlc_tags": [
+        "tooling"
+      ],
+      "recommendation": {
+        "action": "evaluate",
+        "reason": "Relevant to tooling \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "New in Claude Managed Agents: run agents on a schedule and store environment variables in vaults",
+      "url": "https://www.claude.com/blog/whats-new-in-claude-managed-agents",
       "sdlc_tags": [
         "ai-agents"
       ],
@@ -100,14 +51,52 @@
       "source": "enterprise"
     },
     {
-      "title": "GPU Time-Slicing for Concurrent LLM Agents on Kubernetes",
-      "url": "https://towardsdatascience.com/gpu-time-slicing-for-concurrent-llm-agents-on-kubernetes/",
+      "title": "Accelerate campaign workflow with insights from Adobe Marketing Agent for Amazon Quick",
+      "url": "https://aws.amazon.com/blogs/machine-learning/accelerate-campaign-workflow-with-insights-from-adobe-marketing-agent-for-amazon-quick/",
+      "sdlc_tags": [
+        "tooling",
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on",
+      "url": "https://www.anthropic.com/news/dxc-anthropic-alliance",
       "sdlc_tags": [
         "ai-agents"
       ],
       "recommendation": {
         "action": "spike",
         "reason": "Relevant to ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Samsung rolls out ChatGPT Enterprise and Codex to employees in South Korea",
+      "url": "https://the-decoder.com/samsung-rolls-out-chatgpt-enterprise-and-codex-to-employees-in-south-korea/",
+      "sdlc_tags": [
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "How we contain Claude across products",
+      "url": "https://www.anthropic.com/engineering/how-we-contain-claude",
+      "sdlc_tags": [
+        "ai-agents",
+        "governance"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents, governance \u2014 assess for team adoption."
       },
       "source": "enterprise"
     }
