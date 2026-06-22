@@ -2,54 +2,6 @@
   "version": 1,
   "urls": [
     {
-      "url": "https://github.blog/changelog/2026-05-17-gpt-5-3-codex-is-now-the-base-model-for-copilot-business-and-enterprise",
-      "seen_at": "2026-05-18T15:04:56.571615+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-05-13-introducing-copilot-cli-agent-and-unified-sessions-view-in-github-copilot-for-jetbrains-ides",
-      "seen_at": "2026-05-18T15:04:56.571615+00:00"
-    },
-    {
-      "url": "https://news.sap.com/2026/05/new-joule-studio-enterprise-scale-agentic-development/",
-      "seen_at": "2026-05-18T15:04:56.571615+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-05-14-copilot-cloud-agent-supports-auto-model-selection",
-      "seen_at": "2026-05-18T15:04:56.571615+00:00"
-    },
-    {
-      "url": "https://www.claude.com/blog/claude-platform-on-aws",
-      "seen_at": "2026-05-18T15:04:56.571615+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/news/pwc-expanded-partnership",
-      "seen_at": "2026-05-18T15:04:56.571615+00:00"
-    },
-    {
-      "url": "https://news.sap.com/2026/05/sap-anthropic-to-bring-claude-sap-business-ai-platform/",
-      "seen_at": "2026-05-18T15:04:56.571615+00:00"
-    },
-    {
-      "url": "https://news.sap.com/2026/05/sap-sapphire-keynote-business-ai-platform-power-autonomous-enterprise/",
-      "seen_at": "2026-05-18T15:04:56.571615+00:00"
-    },
-    {
-      "url": "https://the-decoder.com/anthropic-to-brief-global-financial-regulators-on-cyber-flaws-found-by-claude-mythos/",
-      "seen_at": "2026-05-18T15:04:56.571615+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/navigating-eu-ai-act-requirements-for-llm-fine-tuning-on-amazon-sagemaker-ai/",
-      "seen_at": "2026-05-18T15:04:56.571615+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-claude-platform-on-aws-anthropics-native-platform-through-your-aws-account/",
-      "seen_at": "2026-05-18T15:04:56.571615+00:00"
-    },
-    {
-      "url": "https://www.claude.com/blog/claude-security-public-beta",
-      "seen_at": "2026-05-18T15:04:56.571615+00:00"
-    },
-    {
       "url": "https://openai.com/index/dell-codex-enterprise-partnership",
       "seen_at": "2026-05-23T18:08:49.102620+00:00"
     },
@@ -260,6 +212,46 @@
     {
       "url": "https://towardsdatascience.com/gpu-time-slicing-for-concurrent-llm-agents-on-kubernetes/",
       "seen_at": "2026-06-15T15:59:52.351124+00:00"
+    },
+    {
+      "url": "https://openai.com/index/deployment-simulation",
+      "seen_at": "2026-06-22T15:42:10.045162+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/safeguard-your-agentic-ai-applications-with-the-amazon-bedrock-guardrails-invokeguardrailchecks-api/",
+      "seen_at": "2026-06-22T15:42:10.045162+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/unlocking-uk-house-building-with-ai-accelerated-planning/",
+      "seen_at": "2026-06-22T15:42:10.045162+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/advanced-tool-use",
+      "seen_at": "2026-06-22T15:42:10.045162+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/eval-awareness-browsecomp",
+      "seen_at": "2026-06-22T15:42:10.045162+00:00"
+    },
+    {
+      "url": "https://www.claude.com/blog/whats-new-in-claude-managed-agents",
+      "seen_at": "2026-06-22T15:42:10.045162+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/accelerate-campaign-workflow-with-insights-from-adobe-marketing-agent-for-amazon-quick/",
+      "seen_at": "2026-06-22T15:42:10.045162+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/news/dxc-anthropic-alliance",
+      "seen_at": "2026-06-22T15:42:10.045162+00:00"
+    },
+    {
+      "url": "https://the-decoder.com/samsung-rolls-out-chatgpt-enterprise-and-codex-to-employees-in-south-korea/",
+      "seen_at": "2026-06-22T15:42:10.045162+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/how-we-contain-claude",
+      "seen_at": "2026-06-22T15:42:10.045162+00:00"
     }
   ]
 }
