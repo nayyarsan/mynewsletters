@@ -1,46 +1,9 @@
 {
-  "generated_at": "2026-06-22T15:42:30.887397+00:00",
+  "generated_at": "2026-06-29T15:09:13.782226+00:00",
   "items": [
     {
-      "title": "Predicting model behavior before release by simulating deployment",
-      "url": "https://openai.com/index/deployment-simulation",
-      "sdlc_tags": [
-        "delivery"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to delivery \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Safeguard your agentic AI applications with the Amazon Bedrock Guardrails InvokeGuardrailChecks API",
-      "url": "https://aws.amazon.com/blogs/machine-learning/safeguard-your-agentic-ai-applications-with-the-amazon-bedrock-guardrails-invokeguardrailchecks-api/",
-      "sdlc_tags": [
-        "ai-agents",
-        "governance"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to ai-agents, governance \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Introducing advanced tool use on the Claude Developer Platform",
-      "url": "https://www.anthropic.com/engineering/advanced-tool-use",
-      "sdlc_tags": [
-        "tooling"
-      ],
-      "recommendation": {
-        "action": "evaluate",
-        "reason": "Relevant to tooling \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "New in Claude Managed Agents: run agents on a schedule and store environment variables in vaults",
-      "url": "https://www.claude.com/blog/whats-new-in-claude-managed-agents",
+      "title": "Evaluating performance and efficiency of the GitHub Copilot agentic harness across models and tasks",
+      "url": "https://github.blog/ai-and-ml/github-copilot/evaluating-performance-and-efficiency-of-the-github-copilot-agentic-harness-across-models-and-tasks/",
       "sdlc_tags": [
         "ai-agents"
       ],
@@ -51,8 +14,8 @@
       "source": "enterprise"
     },
     {
-      "title": "Accelerate campaign workflow with insights from Adobe Marketing Agent for Amazon Quick",
-      "url": "https://aws.amazon.com/blogs/machine-learning/accelerate-campaign-workflow-with-insights-from-adobe-marketing-agent-for-amazon-quick/",
+      "title": "MAI-Code-1-Flash for Copilot Business and Copilot Enterprise",
+      "url": "https://github.blog/changelog/2026-06-26-mai-code-1-flash-for-copilot-business-and-copilot-enterprise",
       "sdlc_tags": [
         "tooling",
         "ai-agents"
@@ -64,32 +27,8 @@
       "source": "enterprise"
     },
     {
-      "title": "DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on",
-      "url": "https://www.anthropic.com/news/dxc-anthropic-alliance",
-      "sdlc_tags": [
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Samsung rolls out ChatGPT Enterprise and Codex to employees in South Korea",
-      "url": "https://the-decoder.com/samsung-rolls-out-chatgpt-enterprise-and-codex-to-employees-in-south-korea/",
-      "sdlc_tags": [
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "How we contain Claude across products",
-      "url": "https://www.anthropic.com/engineering/how-we-contain-claude",
+      "title": "Beyond permission prompts: making Claude Code more secure and autonomous",
+      "url": "https://www.anthropic.com/engineering/claude-code-sandboxing",
       "sdlc_tags": [
         "ai-agents",
         "governance"
@@ -97,6 +36,55 @@
       "recommendation": {
         "action": "spike",
         "reason": "Relevant to ai-agents, governance \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Quantifying infrastructure noise in agentic coding evals",
+      "url": "https://www.anthropic.com/engineering/infrastructure-noise",
+      "sdlc_tags": [
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "GitHub Desktop 3.6: Worktrees and deeper Copilot integration",
+      "url": "https://github.blog/changelog/2026-06-26-github-desktop-3-6-worktrees-and-deeper-copilot-integration",
+      "sdlc_tags": [
+        "tooling"
+      ],
+      "recommendation": {
+        "action": "evaluate",
+        "reason": "Relevant to tooling \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Trusted Agents at Scale: How Open Discovery Is Unifying the Agentic Enterprise",
+      "url": "https://www.salesforce.com/blog/open-discovery-agentic-enterprise/",
+      "sdlc_tags": [
+        "ai-agents",
+        "governance"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents, governance \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Results from the first Anthropic Public Record",
+      "url": "https://www.anthropic.com/news/anthropic-public-record",
+      "sdlc_tags": [
+        "governance"
+      ],
+      "recommendation": {
+        "action": "review",
+        "reason": "Relevant to governance \u2014 assess for team adoption."
       },
       "source": "enterprise"
     }
