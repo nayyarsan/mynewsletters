@@ -1,21 +1,9 @@
 {
-  "generated_at": "2026-06-29T15:09:13.782226+00:00",
+  "generated_at": "2026-07-06T15:04:56.790924+00:00",
   "items": [
     {
-      "title": "Evaluating performance and efficiency of the GitHub Copilot agentic harness across models and tasks",
-      "url": "https://github.blog/ai-and-ml/github-copilot/evaluating-performance-and-efficiency-of-the-github-copilot-agentic-harness-across-models-and-tasks/",
-      "sdlc_tags": [
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "MAI-Code-1-Flash for Copilot Business and Copilot Enterprise",
-      "url": "https://github.blog/changelog/2026-06-26-mai-code-1-flash-for-copilot-business-and-copilot-enterprise",
+      "title": "ScarfBench: Benchmarking AI Agents for Enterprise Java Framework Migration",
+      "url": "https://huggingface.co/blog/ibm-research/scarfbench",
       "sdlc_tags": [
         "tooling",
         "ai-agents"
@@ -27,21 +15,21 @@
       "source": "enterprise"
     },
     {
-      "title": "Beyond permission prompts: making Claude Code more secure and autonomous",
-      "url": "https://www.anthropic.com/engineering/claude-code-sandboxing",
+      "title": "Ornith-1.0: Self-Scaffolding LLMs for Agentic Coding",
+      "url": "https://simonwillison.net/2026/Jun/29/ornith/#atom-everything",
       "sdlc_tags": [
-        "ai-agents",
-        "governance"
+        "tooling",
+        "ai-agents"
       ],
       "recommendation": {
         "action": "spike",
-        "reason": "Relevant to ai-agents, governance \u2014 assess for team adoption."
+        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
       },
       "source": "enterprise"
     },
     {
-      "title": "Quantifying infrastructure noise in agentic coding evals",
-      "url": "https://www.anthropic.com/engineering/infrastructure-noise",
+      "title": "How we built Claude Code auto mode: a safer way to skip permissions",
+      "url": "https://www.anthropic.com/engineering/claude-code-auto-mode",
       "sdlc_tags": [
         "ai-agents"
       ],
@@ -52,39 +40,38 @@
       "source": "enterprise"
     },
     {
-      "title": "GitHub Desktop 3.6: Worktrees and deeper Copilot integration",
-      "url": "https://github.blog/changelog/2026-06-26-github-desktop-3-6-worktrees-and-deeper-copilot-integration",
+      "title": "NVIDIA BioNeMo Agent Toolkit Brings Accelerated AI to Life Sciences Researchers in Claude Science",
+      "url": "https://blogs.nvidia.com/blog/claude-science-bionemo-agent-toolkit/",
       "sdlc_tags": [
-        "tooling"
-      ],
-      "recommendation": {
-        "action": "evaluate",
-        "reason": "Relevant to tooling \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Trusted Agents at Scale: How Open Discovery Is Unifying the Agentic Enterprise",
-      "url": "https://www.salesforce.com/blog/open-discovery-agentic-enterprise/",
-      "sdlc_tags": [
-        "ai-agents",
-        "governance"
+        "ai-agents"
       ],
       "recommendation": {
         "action": "spike",
-        "reason": "Relevant to ai-agents, governance \u2014 assess for team adoption."
+        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
       },
       "source": "enterprise"
     },
     {
-      "title": "Results from the first Anthropic Public Record",
-      "url": "https://www.anthropic.com/news/anthropic-public-record",
+      "title": "Claude Meets Blackwell Ultra: Anthropic\u2019s Models Now Run on NVIDIA GB300 in Azure",
+      "url": "https://blogs.nvidia.com/blog/anthropic-nvidia-gb300-blackwell-ultra-microsoft-azure/",
       "sdlc_tags": [
-        "governance"
+        "ai-agents"
       ],
       "recommendation": {
-        "action": "review",
-        "reason": "Relevant to governance \u2014 assess for team adoption."
+        "action": "spike",
+        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Into the Omniverse: Three Workflows for Improving Vision AI Agent Accuracy With Synthetic Data and Fine-Tuning",
+      "url": "https://blogs.nvidia.com/blog/vision-ai-agent-skills-omniverse-metropolis/",
+      "sdlc_tags": [
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
       },
       "source": "enterprise"
     }
