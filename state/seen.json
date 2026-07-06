@@ -2,38 +2,6 @@
   "version": 1,
   "urls": [
     {
-      "url": "https://www.anthropic.com/news/series-h",
-      "seen_at": "2026-06-01T16:03:23.574500+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-05-28-claude-opus-4-8-is-generally-available-for-github-copilot",
-      "seen_at": "2026-06-01T16:03:23.574500+00:00"
-    },
-    {
-      "url": "https://openai.com/index/cisco",
-      "seen_at": "2026-06-01T16:03:23.574500+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-05-29-copilot-usage-metrics-api-adds-cohorts-for-ai-adoption",
-      "seen_at": "2026-06-01T16:03:23.574500+00:00"
-    },
-    {
-      "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/claude-opus-4-8-is-now-available-in-microsoft-foundry/4523367",
-      "seen_at": "2026-06-01T16:03:23.574500+00:00"
-    },
-    {
-      "url": "https://openai.com/index/endava",
-      "seen_at": "2026-06-01T16:03:23.574500+00:00"
-    },
-    {
-      "url": "https://openai.com/index/building-self-improving-tax-agents-with-codex",
-      "seen_at": "2026-06-01T16:03:23.574500+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/news/milan-office-opening",
-      "seen_at": "2026-06-01T16:03:23.574500+00:00"
-    },
-    {
       "url": "https://github.blog/changelog/2026-06-04-agent-tasks-rest-api-now-available-for-copilot-pro-pro-and-max",
       "seen_at": "2026-06-08T15:08:05.346269+00:00"
     },
@@ -196,6 +164,38 @@
     {
       "url": "https://www.anthropic.com/news/anthropic-public-record",
       "seen_at": "2026-06-29T15:08:54.715249+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/run-nvidia-nemotron-and-openai-gpt-oss-models-on-amazon-bedrock-in-aws-govcloud-us/",
+      "seen_at": "2026-07-06T15:04:40.100848+00:00"
+    },
+    {
+      "url": "https://huggingface.co/blog/ibm-research/scarfbench",
+      "seen_at": "2026-07-06T15:04:40.100848+00:00"
+    },
+    {
+      "url": "https://simonwillison.net/2026/Jun/29/ornith/#atom-everything",
+      "seen_at": "2026-07-06T15:04:40.100848+00:00"
+    },
+    {
+      "url": "https://www.claude.com/blog/the-full-claude-desktop-experience-on-aws-google-cloud-and-microsoft-foundry",
+      "seen_at": "2026-07-06T15:04:40.100848+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/claude-code-auto-mode",
+      "seen_at": "2026-07-06T15:04:40.100848+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/claude-science-bionemo-agent-toolkit/",
+      "seen_at": "2026-07-06T15:04:40.100848+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/anthropic-nvidia-gb300-blackwell-ultra-microsoft-azure/",
+      "seen_at": "2026-07-06T15:04:40.100848+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/vision-ai-agent-skills-omniverse-metropolis/",
+      "seen_at": "2026-07-06T15:04:40.100848+00:00"
     }
   ]
 }
