@@ -2,50 +2,6 @@
   "version": 1,
   "urls": [
     {
-      "url": "https://openai.com/index/openai-on-oracle-cloud",
-      "seen_at": "2026-06-15T15:59:52.351124+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/its-safe-to-close-your-laptop-now-hosting-coding-agents-on-amazon-bedrock-agentcore/",
-      "seen_at": "2026-06-15T15:59:52.351124+00:00"
-    },
-    {
-      "url": "https://github.blog/ai-and-ml/github-copilot/from-one-off-prompts-to-workflows-how-to-use-custom-agents-in-github-copilot-cli/",
-      "seen_at": "2026-06-15T15:59:52.351124+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/engineering/code-execution-with-mcp",
-      "seen_at": "2026-06-15T15:59:52.351124+00:00"
-    },
-    {
-      "url": "https://deepmind.google/blog/diffusiongemma-4x-faster-text-generation/",
-      "seen_at": "2026-06-15T15:59:52.351124+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/news/tcs-anthropic-partnership",
-      "seen_at": "2026-06-15T15:59:52.351124+00:00"
-    },
-    {
-      "url": "https://deepmind.google/blog/fluid-natural-voice-translation-with-gemini-35-live-translate/",
-      "seen_at": "2026-06-15T15:59:52.351124+00:00"
-    },
-    {
-      "url": "https://deepmind.google/blog/introducing-gemma-4-12b-a-unified-encoder-free-multimodal-model/",
-      "seen_at": "2026-06-15T15:59:52.351124+00:00"
-    },
-    {
-      "url": "https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/",
-      "seen_at": "2026-06-15T15:59:52.351124+00:00"
-    },
-    {
-      "url": "https://www.claude.com/blog/building-with-claude-managed-agents",
-      "seen_at": "2026-06-15T15:59:52.351124+00:00"
-    },
-    {
-      "url": "https://towardsdatascience.com/gpu-time-slicing-for-concurrent-llm-agents-on-kubernetes/",
-      "seen_at": "2026-06-15T15:59:52.351124+00:00"
-    },
-    {
       "url": "https://openai.com/index/deployment-simulation",
       "seen_at": "2026-06-22T15:42:10.045162+00:00"
     },
@@ -200,6 +156,50 @@
     {
       "url": "https://the-decoder.com/german-ai-consortium-releases-soofi-s-an-open-30b-model-that-tops-benchmarks-in-both-english-and-german/",
       "seen_at": "2026-07-13T14:59:31.837923+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/accelerating-software-delivery-with-agentic-qa-automation-using-amazon-nova-act-part-2/",
+      "seen_at": "2026-07-20T14:45:33.606439+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/april-23-postmortem",
+      "seen_at": "2026-07-20T14:45:33.606439+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-07-17-github-copilot-app-now-available-in-the-usage-metrics-api",
+      "seen_at": "2026-07-20T14:45:33.606439+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-07-17-github-mobile-fix-pull-request-comments-with-copilot-cloud-agent",
+      "seen_at": "2026-07-20T14:45:33.606439+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/code-execution-with-mcp",
+      "seen_at": "2026-07-20T14:45:33.606439+00:00"
+    },
+    {
+      "url": "https://www.claude.com/blog/how-anthropics-marketing-operations-team-uses-claude-cowork-to-automate-reporting-and-campaign-builds",
+      "seen_at": "2026-07-20T14:45:33.606439+00:00"
+    },
+    {
+      "url": "https://www.latent.space/p/ainews-kimi-k3-28t-a50b-the-largest",
+      "seen_at": "2026-07-20T14:45:33.606439+00:00"
+    },
+    {
+      "url": "https://towardsdatascience.com/building-trustworthy-production-rag-systems-through-continuous-evaluation/",
+      "seen_at": "2026-07-20T14:45:33.606439+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/our-approach-to-bioresilience/",
+      "seen_at": "2026-07-20T14:45:33.606439+00:00"
+    },
+    {
+      "url": "https://www.latent.space/p/ainews-codex-usage-up-10x-in-6-months",
+      "seen_at": "2026-07-20T14:45:33.606439+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/writing-tools-for-agents",
+      "seen_at": "2026-07-20T14:45:33.606439+00:00"
     }
   ]
 }
