@@ -2,46 +2,6 @@
   "version": 1,
   "urls": [
     {
-      "url": "https://openai.com/index/deployment-simulation",
-      "seen_at": "2026-06-22T15:42:10.045162+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/safeguard-your-agentic-ai-applications-with-the-amazon-bedrock-guardrails-invokeguardrailchecks-api/",
-      "seen_at": "2026-06-22T15:42:10.045162+00:00"
-    },
-    {
-      "url": "https://deepmind.google/blog/unlocking-uk-house-building-with-ai-accelerated-planning/",
-      "seen_at": "2026-06-22T15:42:10.045162+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/engineering/advanced-tool-use",
-      "seen_at": "2026-06-22T15:42:10.045162+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/engineering/eval-awareness-browsecomp",
-      "seen_at": "2026-06-22T15:42:10.045162+00:00"
-    },
-    {
-      "url": "https://www.claude.com/blog/whats-new-in-claude-managed-agents",
-      "seen_at": "2026-06-22T15:42:10.045162+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/accelerate-campaign-workflow-with-insights-from-adobe-marketing-agent-for-amazon-quick/",
-      "seen_at": "2026-06-22T15:42:10.045162+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/news/dxc-anthropic-alliance",
-      "seen_at": "2026-06-22T15:42:10.045162+00:00"
-    },
-    {
-      "url": "https://the-decoder.com/samsung-rolls-out-chatgpt-enterprise-and-codex-to-employees-in-south-korea/",
-      "seen_at": "2026-06-22T15:42:10.045162+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/engineering/how-we-contain-claude",
-      "seen_at": "2026-06-22T15:42:10.045162+00:00"
-    },
-    {
       "url": "https://github.blog/ai-and-ml/github-copilot/evaluating-performance-and-efficiency-of-the-github-copilot-agentic-harness-across-models-and-tasks/",
       "seen_at": "2026-06-29T15:08:54.715249+00:00"
     },
@@ -200,6 +160,34 @@
     {
       "url": "https://www.anthropic.com/engineering/writing-tools-for-agents",
       "seen_at": "2026-07-20T14:45:33.606439+00:00"
+    },
+    {
+      "url": "https://the-decoder.com/cursors-agent-swarm-suggests-cheaper-models-can-handle-most-coding-when-frontier-models-plan-the-work/",
+      "seen_at": "2026-07-27T15:00:22.633963+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-07-24-claude-opus-5-is-now-available-in-github-copilot",
+      "seen_at": "2026-07-27T15:00:22.633963+00:00"
+    },
+    {
+      "url": "https://www.claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models",
+      "seen_at": "2026-07-27T15:00:22.633963+00:00"
+    },
+    {
+      "url": "https://the-decoder.com/anthropic-claims-its-new-claude-opus-5-delivers-near-fable-5-performance-at-half-the-token-price/",
+      "seen_at": "2026-07-27T15:00:22.633963+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-07-21-gemini-3-6-flash-is-now-available-in-github-copilot",
+      "seen_at": "2026-07-27T15:00:22.633963+00:00"
+    },
+    {
+      "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident",
+      "seen_at": "2026-07-27T15:00:22.633963+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/news/claude-for-teachers",
+      "seen_at": "2026-07-27T15:00:22.633963+00:00"
     }
   ]
 }
