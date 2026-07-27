@@ -1,35 +1,9 @@
 {
-  "generated_at": "2026-07-20T14:45:48.915506+00:00",
+  "generated_at": "2026-07-27T15:00:38.008379+00:00",
   "items": [
     {
-      "title": "Accelerating software delivery with agentic QA automation using Amazon Nova Act \u2013 Part 2",
-      "url": "https://aws.amazon.com/blogs/machine-learning/accelerating-software-delivery-with-agentic-qa-automation-using-amazon-nova-act-part-2/",
-      "sdlc_tags": [
-        "testing",
-        "delivery",
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to testing, delivery, ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "GitHub Copilot app now available in the usage metrics API",
-      "url": "https://github.blog/changelog/2026-07-17-github-copilot-app-now-available-in-the-usage-metrics-api",
-      "sdlc_tags": [
-        "tooling"
-      ],
-      "recommendation": {
-        "action": "evaluate",
-        "reason": "Relevant to tooling \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "GitHub Mobile: Fix pull request comments with Copilot cloud agent",
-      "url": "https://github.blog/changelog/2026-07-17-github-mobile-fix-pull-request-comments-with-copilot-cloud-agent",
+      "title": "Cursor's agent swarm suggests cheaper models can handle most coding when frontier models plan the work",
+      "url": "https://the-decoder.com/cursors-agent-swarm-suggests-cheaper-models-can-handle-most-coding-when-frontier-models-plan-the-work/",
       "sdlc_tags": [
         "ai-agents"
       ],
@@ -40,20 +14,8 @@
       "source": "enterprise"
     },
     {
-      "title": "Code execution with MCP: Building more efficient agents",
-      "url": "https://www.anthropic.com/engineering/code-execution-with-mcp",
-      "sdlc_tags": [
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "How Anthropic's marketing operations team uses Claude Cowork to automate reporting and campaign builds",
-      "url": "https://www.claude.com/blog/how-anthropics-marketing-operations-team-uses-claude-cowork-to-automate-reporting-and-campaign-builds",
+      "title": "Claude Opus 5 is now available in GitHub Copilot",
+      "url": "https://github.blog/changelog/2026-07-24-claude-opus-5-is-now-available-in-github-copilot",
       "sdlc_tags": [
         "tooling",
         "ai-agents"
@@ -65,27 +27,51 @@
       "source": "enterprise"
     },
     {
-      "title": "Building Trustworthy Production RAG Systems Through Continuous Evaluation",
-      "url": "https://towardsdatascience.com/building-trustworthy-production-rag-systems-through-continuous-evaluation/",
+      "title": "The new rules of context engineering for Claude 5 generation models",
+      "url": "https://www.claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models",
+      "sdlc_tags": [
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Anthropic's Claude Opus 5 delivers near-Fable 5 performance at half the token price",
+      "url": "https://the-decoder.com/anthropic-claims-its-new-claude-opus-5-delivers-near-fable-5-performance-at-half-the-token-price/",
+      "sdlc_tags": [
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "Gemini 3.6 Flash is now available in GitHub Copilot",
+      "url": "https://github.blog/changelog/2026-07-21-gemini-3-6-flash-is-now-available-in-github-copilot",
+      "sdlc_tags": [
+        "tooling",
+        "ai-agents"
+      ],
+      "recommendation": {
+        "action": "spike",
+        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
+      },
+      "source": "enterprise"
+    },
+    {
+      "title": "OpenAI and Hugging Face partner to address security incident during model evaluation",
+      "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident",
       "sdlc_tags": [
         "governance"
       ],
       "recommendation": {
         "action": "review",
         "reason": "Relevant to governance \u2014 assess for team adoption."
-      },
-      "source": "enterprise"
-    },
-    {
-      "title": "Writing effective tools for agents \u2014 with agents",
-      "url": "https://www.anthropic.com/engineering/writing-tools-for-agents",
-      "sdlc_tags": [
-        "tooling",
-        "ai-agents"
-      ],
-      "recommendation": {
-        "action": "spike",
-        "reason": "Relevant to tooling, ai-agents \u2014 assess for team adoption."
       },
       "source": "enterprise"
     }
