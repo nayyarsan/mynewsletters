@@ -2,54 +2,6 @@
   "version": 1,
   "urls": [
     {
-      "url": "https://github.blog/ai-and-ml/github-copilot/evaluating-performance-and-efficiency-of-the-github-copilot-agentic-harness-across-models-and-tasks/",
-      "seen_at": "2026-06-29T15:08:54.715249+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-06-26-mai-code-1-flash-for-copilot-business-and-copilot-enterprise",
-      "seen_at": "2026-06-29T15:08:54.715249+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/engineering/claude-code-sandboxing",
-      "seen_at": "2026-06-29T15:08:54.715249+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/engineering/infrastructure-noise",
-      "seen_at": "2026-06-29T15:08:54.715249+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-06-26-github-desktop-3-6-worktrees-and-deeper-copilot-integration",
-      "seen_at": "2026-06-29T15:08:54.715249+00:00"
-    },
-    {
-      "url": "https://www.salesforce.com/blog/open-discovery-agentic-enterprise/",
-      "seen_at": "2026-06-29T15:08:54.715249+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/news/services-track-partner-hub",
-      "seen_at": "2026-06-29T15:08:54.715249+00:00"
-    },
-    {
-      "url": "https://qz.com/enterprise-ai-spending-openai-anthropic-roi-pullback-062626",
-      "seen_at": "2026-06-29T15:08:54.715249+00:00"
-    },
-    {
-      "url": "https://the-decoder.com/half-of-claude-users-say-ai-can-already-handle-half-their-work-according-to-anthropic-survey/",
-      "seen_at": "2026-06-29T15:08:54.715249+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
-      "seen_at": "2026-06-29T15:08:54.715249+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/news/claude-corps",
-      "seen_at": "2026-06-29T15:08:54.715249+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/news/anthropic-public-record",
-      "seen_at": "2026-06-29T15:08:54.715249+00:00"
-    },
-    {
       "url": "https://aws.amazon.com/blogs/machine-learning/run-nvidia-nemotron-and-openai-gpt-oss-models-on-amazon-bedrock-in-aws-govcloud-us/",
       "seen_at": "2026-07-06T15:04:40.100848+00:00"
     },
