@@ -2,38 +2,6 @@
   "version": 1,
   "urls": [
     {
-      "url": "https://aws.amazon.com/blogs/machine-learning/run-nvidia-nemotron-and-openai-gpt-oss-models-on-amazon-bedrock-in-aws-govcloud-us/",
-      "seen_at": "2026-07-06T15:04:40.100848+00:00"
-    },
-    {
-      "url": "https://huggingface.co/blog/ibm-research/scarfbench",
-      "seen_at": "2026-07-06T15:04:40.100848+00:00"
-    },
-    {
-      "url": "https://simonwillison.net/2026/Jun/29/ornith/#atom-everything",
-      "seen_at": "2026-07-06T15:04:40.100848+00:00"
-    },
-    {
-      "url": "https://www.claude.com/blog/the-full-claude-desktop-experience-on-aws-google-cloud-and-microsoft-foundry",
-      "seen_at": "2026-07-06T15:04:40.100848+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/engineering/claude-code-auto-mode",
-      "seen_at": "2026-07-06T15:04:40.100848+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/claude-science-bionemo-agent-toolkit/",
-      "seen_at": "2026-07-06T15:04:40.100848+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/anthropic-nvidia-gb300-blackwell-ultra-microsoft-azure/",
-      "seen_at": "2026-07-06T15:04:40.100848+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/vision-ai-agent-skills-omniverse-metropolis/",
-      "seen_at": "2026-07-06T15:04:40.100848+00:00"
-    },
-    {
       "url": "https://aws.amazon.com/blogs/machine-learning/fine-tune-nvidia-nemotron-3-models-with-amazon-sagemaker-ai-serverless-model-customization/",
       "seen_at": "2026-07-13T14:59:31.837923+00:00"
     },
