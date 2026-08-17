@@ -2,42 +2,6 @@
   "version": 1,
   "urls": [
     {
-      "url": "https://aws.amazon.com/blogs/machine-learning/fine-tune-nvidia-nemotron-3-models-with-amazon-sagemaker-ai-serverless-model-customization/",
-      "seen_at": "2026-07-13T14:59:31.837923+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/enhancing-enterprise-inference-on-amazon-sagemaker-hyperpod-with-data-capture-hugging-face-nvme-and-route-53-integration/",
-      "seen_at": "2026-07-13T14:59:31.837923+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api/",
-      "seen_at": "2026-07-13T14:59:31.837923+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills",
-      "seen_at": "2026-07-13T14:59:31.837923+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/disaggregated-prefill-and-decode-for-llm-inference-on-sagemaker-hyperpod/",
-      "seen_at": "2026-07-13T14:59:31.837923+00:00"
-    },
-    {
-      "url": "https://the-decoder.com/claude-coworks-biggest-use-case-is-the-mundane-office-work-nobody-wants-to-own-anthropic-says/",
-      "seen_at": "2026-07-13T14:59:31.837923+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/news/alberta-government-claude-cybersecurity",
-      "seen_at": "2026-07-13T14:59:31.837923+00:00"
-    },
-    {
-      "url": "https://towardsdatascience.com/the-three-dimensions-of-custom-agentic-alignment-purpose-principles-and-practices/",
-      "seen_at": "2026-07-13T14:59:31.837923+00:00"
-    },
-    {
-      "url": "https://the-decoder.com/german-ai-consortium-releases-soofi-s-an-open-30b-model-that-tops-benchmarks-in-both-english-and-german/",
-      "seen_at": "2026-07-13T14:59:31.837923+00:00"
-    },
-    {
       "url": "https://aws.amazon.com/blogs/machine-learning/accelerating-software-delivery-with-agentic-qa-automation-using-amazon-nova-act-part-2/",
       "seen_at": "2026-07-20T14:45:33.606439+00:00"
     },
