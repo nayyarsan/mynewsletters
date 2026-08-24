@@ -2,50 +2,6 @@
   "version": 1,
   "urls": [
     {
-      "url": "https://aws.amazon.com/blogs/machine-learning/accelerating-software-delivery-with-agentic-qa-automation-using-amazon-nova-act-part-2/",
-      "seen_at": "2026-07-20T14:45:33.606439+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/engineering/april-23-postmortem",
-      "seen_at": "2026-07-20T14:45:33.606439+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-07-17-github-copilot-app-now-available-in-the-usage-metrics-api",
-      "seen_at": "2026-07-20T14:45:33.606439+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-07-17-github-mobile-fix-pull-request-comments-with-copilot-cloud-agent",
-      "seen_at": "2026-07-20T14:45:33.606439+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/engineering/code-execution-with-mcp",
-      "seen_at": "2026-07-20T14:45:33.606439+00:00"
-    },
-    {
-      "url": "https://www.claude.com/blog/how-anthropics-marketing-operations-team-uses-claude-cowork-to-automate-reporting-and-campaign-builds",
-      "seen_at": "2026-07-20T14:45:33.606439+00:00"
-    },
-    {
-      "url": "https://www.latent.space/p/ainews-kimi-k3-28t-a50b-the-largest",
-      "seen_at": "2026-07-20T14:45:33.606439+00:00"
-    },
-    {
-      "url": "https://towardsdatascience.com/building-trustworthy-production-rag-systems-through-continuous-evaluation/",
-      "seen_at": "2026-07-20T14:45:33.606439+00:00"
-    },
-    {
-      "url": "https://deepmind.google/blog/our-approach-to-bioresilience/",
-      "seen_at": "2026-07-20T14:45:33.606439+00:00"
-    },
-    {
-      "url": "https://www.latent.space/p/ainews-codex-usage-up-10x-in-6-months",
-      "seen_at": "2026-07-20T14:45:33.606439+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/engineering/writing-tools-for-agents",
-      "seen_at": "2026-07-20T14:45:33.606439+00:00"
-    },
-    {
       "url": "https://the-decoder.com/cursors-agent-swarm-suggests-cheaper-models-can-handle-most-coding-when-frontier-models-plan-the-work/",
       "seen_at": "2026-07-27T15:00:22.633963+00:00"
     },
