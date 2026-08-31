@@ -1,33 +1,4 @@
 {
   "version": 1,
-  "urls": [
-    {
-      "url": "https://the-decoder.com/cursors-agent-swarm-suggests-cheaper-models-can-handle-most-coding-when-frontier-models-plan-the-work/",
-      "seen_at": "2026-07-27T15:00:22.633963+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-07-24-claude-opus-5-is-now-available-in-github-copilot",
-      "seen_at": "2026-07-27T15:00:22.633963+00:00"
-    },
-    {
-      "url": "https://www.claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models",
-      "seen_at": "2026-07-27T15:00:22.633963+00:00"
-    },
-    {
-      "url": "https://the-decoder.com/anthropic-claims-its-new-claude-opus-5-delivers-near-fable-5-performance-at-half-the-token-price/",
-      "seen_at": "2026-07-27T15:00:22.633963+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-07-21-gemini-3-6-flash-is-now-available-in-github-copilot",
-      "seen_at": "2026-07-27T15:00:22.633963+00:00"
-    },
-    {
-      "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident",
-      "seen_at": "2026-07-27T15:00:22.633963+00:00"
-    },
-    {
-      "url": "https://www.anthropic.com/news/claude-for-teachers",
-      "seen_at": "2026-07-27T15:00:22.633963+00:00"
-    }
-  ]
+  "urls": []
 }
