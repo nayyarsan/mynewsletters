@@ -24,14 +24,14 @@ safe-outputs:
 
 tools:
   web-fetch:
-  bash: ["curl"]
+  bash: [":*"]
 
 timeout-minutes: 10
 ---
 
 # Chino Hills <-> Rosemead Commute Weather
 
-Use the web-fetch tool (or curl) to fetch the hourly forecast for the next 48 hours from Open-Meteo for both ends of the commute.
+Use curl via bash to fetch the hourly forecast for the next 48 hours from Open-Meteo for both ends of the commute.
 Use `temperature_unit=fahrenheit`, `wind_speed_unit=kn`, `timezone=America/Los_Angeles` and these hourly variables:
 `temperature_2m,apparent_temperature,precipitation_probability,precipitation,cloud_cover,wind_speed_10m,wind_gusts_10m,visibility`.
 
