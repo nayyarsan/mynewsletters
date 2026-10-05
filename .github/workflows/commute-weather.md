@@ -8,6 +8,10 @@ on:
     - cron: "0 13 * * *" # 6 AM PDT / 5 AM PST
   workflow_dispatch:
 
+engine:
+  id: copilot
+  args: ["--allow-all-urls"]
+
 permissions: read-all
 
 network:
